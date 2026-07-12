@@ -1,1 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SOS Plomberie 35 — Dépannage Urgence Domagné</title>
+<meta name="description" content="Dépannage plomberie 7j/7 à Domagné : fuites, débouchage, chauffe-eau. Intervention rapide, devis clair, disponibilité en temps réel.">
+<link rel="canonical" href="https://www.sos-plomberie-35.fr/">
+<link rel="stylesheet" href="style.css">
 
+<!-- SEO technique : schéma PlumbingService enrichi (zone, horaires réels, contact) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "PlumbingService",
+  "name": "SOS Plomberie 35",
+  "url": "https://www.sos-plomberie-35.fr/",
+  "telephone": "+33299000000",
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "4 Place de l'Église",
+    "addressLocality": "Domagné",
+    "postalCode": "35113",
+    "addressCountry": "FR"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 48.0967, "longitude": -1.4894 },
+  "areaServed": {
+    "@type": "GeoCircle",
+    "geoMidpoint": { "@type": "GeoCoordinates", "latitude": 48.0967, "longitude": -1.4894 },
+    "geoRadius": "20000"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday","Sunday"],
+      "description": "Urgences uniquement",
+      "opens": "00:00",
+      "closes": "23:59"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="container header-content">
+    <p class="logo">SOS <strong>Plomberie 35</strong></p>
+    <div class="header-right">
+      <!-- Le premier signal : mis à jour en JS selon l'heure réelle -->
+      <span class="status-pill">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statutOuverture">Vérification du statut…</span>
+      </span>
+      <a href="tel:+33299000000" class="btn-emergency">📞 Appeler en urgence</a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="container">
+      <p class="eyebrow">Domagné & 20&nbsp;km alentour</p>
+      <h1>Une fuite n'attend pas. <em>Nous non plus.</em></h1>
+      <p class="lede">Fuite, chauffe-eau en panne, canalisation bouchée : un plombier de votre secteur intervient rapidement, 7 jours sur 7, avec un devis clair avant toute intervention.</p>
+      <a href="tel:+33299000000" class="btn-emergency btn-large">Appeler maintenant</a>
+
+      <div class="trust-chips">
+        <span>🕐 7j/7, urgences comprises</span>
+        <span>📍 Domagné et environs</span>
+        <span>🧾 Devis avant intervention</span>
+      </div>
+    </div>
+
+    <!-- Anneaux radar : le signal d'urgence qui irradie en continu -->
+    <div class="radar" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Nos interventions</p>
+        <h2>Ce qu'on répare le plus souvent</h2>
+        <p class="lede">Trois urgences qui reviennent le plus chez nos clients de Domagné, traitées avec le même sérieux.</p>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">💧</div>
+          <h3>Fuites d'eau</h3>
+          <p>Détection et réparation rapide et sécurisée, sur canalisation, joint ou raccord.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">🚽</div>
+          <h3>Débouchage</h3>
+          <p>Canalisations et WC encombrés, intervention propre sans dégât supplémentaire.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">🔥</div>
+          <h3>Chauffe-eau</h3>
+          <p>Diagnostic, dépannage et remplacement, avec conseil sur le modèle adapté.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Demande de devis</p>
+        <h2>Décrivez votre besoin, on vous rappelle</h2>
+        <p class="lede">Hors urgence immédiate, un formulaire suffit : réponse rapide pour organiser l'intervention.</p>
+      </div>
+      <div class="devis-panel">
+        <form class="devis-form" id="devisForm">
+          <div>
+            <label for="nom">Nom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+          </div>
+          <div>
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" placeholder="06 XX XX XX XX" required>
+          </div>
+          <div>
+            <label for="message">Décrivez le problème</label>
+            <textarea id="message" name="message" placeholder="Ex. fuite sous l'évier de la cuisine"></textarea>
+          </div>
+          <button type="submit" class="btn-emergency">Envoyer ma demande</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>SOS Plomberie 35 — 4 Place de l'Église, 35113 Domagné · Intervention 7j/7</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+
+
+<a href="https://www.arc-en-ciel-services.fr/realisations.html"
+   style="position:fixed; bottom:20px; left:20px; z-index:999;
+          display:inline-flex; align-items:center; gap:8px;
+          background:#12151A; color:#fff;
+          font-family:system-ui,-apple-system,sans-serif; font-size:14px; font-weight:600;
+          text-decoration:none; padding:10px 18px; border-radius:999px;
+          box-shadow:0 8px 20px -8px rgba(0,0,0,.45);
+          transition:transform .2s ease;"
+   onmouseover="this.style.transform='translateY(-3px)'"
+   onmouseout="this.style.transform='translateY(0)'">
+  ← Retour aux réalisations
+</a>
+</body>
+</html>

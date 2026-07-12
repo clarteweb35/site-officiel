@@ -1,0 +1,369 @@
+/* =========================================================================
+   SOS PLOMBERIE 35 — Direction artistique "Signal permanent"
+   -------------------------------------------------------------------------
+   Concept : une urgence plomberie, c'est un signal qui ne s'éteint jamais.
+   Tout le langage visuel tourne autour de ce signal : le point de statut
+   qui pulse dans le header, les anneaux radar derrière le bouton d'appel,
+   le halo qui respire sur le CTA. Ce n'est pas une pulsation décorative
+   posée au hasard : c'est LE motif du site, répété avec discipline.
+
+   Palette : marine profond quasi noir, un seul orange vif réservé à
+   l'action, un vert de statut pour "ouvert", un ambre pour "urgences
+   uniquement". Rien d'autre ne vient diluer ces accents.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,900&family=Public+Sans:wght@400;500;600;700;800&display=swap');
+
+:root{
+  /* ---- Couleurs : profondeur en 4 paliers de marine + 3 signaux ---- */
+  --navy-950: #060B14;   /* fond de page */
+  --navy-900: #0A1420;   /* sections alternées */
+  --navy-800: #101E30;   /* surfaces (cartes, header) */
+  --navy-700: #1B2C44;   /* bordures / séparations sur fond sombre */
+
+  --orange-500: #FF6A1A; /* accent unique : appel à l'action */
+  --orange-600: #E65100; /* état hover / pression */
+  --orange-glow: rgba(255,106,26,.35);
+
+  --green-500: #35D07F;  /* statut "ouvert" */
+  --amber-500: #FFB020;  /* statut "urgences uniquement" */
+
+  --paper:     #F4F6F9;  /* texte principal (blanc cassé, pas #fff pur) */
+  --slate-300: #C3CEDD;  /* texte secondaire clair */
+  --slate-400: #8FA0B8;  /* texte tertiaire / légendes */
+
+  --shadow-card: 0 20px 40px -20px rgba(0,0,0,.55);
+  --shadow-card-hover: 0 28px 60px -18px rgba(0,0,0,.65);
+  --shadow-cta: 0 14px 32px -10px var(--orange-glow);
+
+  /* Un seul easing "signature" utilisé partout : premium, décéléré, jamais linéaire */
+  --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --font-display: 'Fraunces', 'Georgia', serif;
+  --font-body: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --maxw: 1080px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--navy-950);
+  color: var(--paper);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *, *::before, *::after{
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+a{ color: inherit; }
+img{ max-width: 100%; display: block; }
+
+.container{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+/* ---- Typographie fluide : clamp() partout, jamais de taille figée ---- */
+h1, h2, h3{
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 0 .45em;
+  color: var(--paper);
+}
+h1{ font-size: clamp(2.5rem, 1.6rem + 4.2vw, 4.6rem); font-weight: 600; }
+h1 em{ font-style: italic; font-weight: 500; color: var(--orange-500); }
+h2{ font-size: clamp(1.7rem, 1.3rem + 1.8vw, 2.5rem); }
+h3{ font-size: clamp(1.15rem, 1.05rem + .5vw, 1.35rem); font-weight: 600; }
+
+p{ margin: 0 0 1em; color: var(--slate-300); }
+
+.eyebrow{
+  font-family: var(--font-body);
+  font-size: .78rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--orange-500);
+  display: inline-block;
+  margin-bottom: .9em;
+}
+
+/* =========================================================================
+   HEADER — statut d'ouverture en signal vivant
+   ========================================================================= */
+header{
+  background: rgba(6,11,20,.85);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border-bottom: 1px solid var(--navy-700);
+  position: sticky; top: 0; z-index: 50;
+}
+.header-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px 24px;
+  flex-wrap: wrap;
+}
+.logo{
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--paper);
+  margin: 0;
+}
+.logo strong{ font-weight: 700; color: var(--orange-500); }
+
+.header-right{ display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+
+/* Le point de statut : premier maillon du motif "signal" du site */
+.status-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--slate-300);
+  background: var(--navy-800);
+  border: 1px solid var(--navy-700);
+  padding: 7px 14px 7px 10px;
+  border-radius: 999px;
+}
+.status-dot{
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--green-500);
+  box-shadow: 0 0 0 0 rgba(53,208,127,.6);
+  animation: pulse-dot 2.2s var(--ease-premium) infinite;
+  flex-shrink: 0;
+}
+.status-dot.is-closed{
+  background: var(--amber-500);
+  box-shadow: 0 0 0 0 rgba(255,176,32,.6);
+  animation-name: pulse-dot-amber;
+}
+@keyframes pulse-dot{
+  0%   { box-shadow: 0 0 0 0 rgba(53,208,127,.55); }
+  70%  { box-shadow: 0 0 0 9px rgba(53,208,127,0); }
+  100% { box-shadow: 0 0 0 0 rgba(53,208,127,0); }
+}
+@keyframes pulse-dot-amber{
+  0%   { box-shadow: 0 0 0 0 rgba(255,176,32,.55); }
+  70%  { box-shadow: 0 0 0 9px rgba(255,176,32,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,176,32,0); }
+}
+
+/* =========================================================================
+   BOUTONS — le CTA respire, il ne clignote pas
+   ========================================================================= */
+.btn-emergency{
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  background: var(--orange-500);
+  color: var(--navy-950);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: .96rem;
+  padding: 13px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform .45s var(--ease-premium), box-shadow .45s var(--ease-premium), background .3s var(--ease-premium);
+  animation: pulse-cta 2.6s var(--ease-premium) infinite;
+}
+.btn-emergency:hover{
+  background: var(--orange-600);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-cta);
+  animation-play-state: paused;
+}
+.btn-large{ font-size: 1.1rem; padding: 18px 34px; }
+@keyframes pulse-cta{
+  0%   { box-shadow: 0 0 0 0 var(--orange-glow); }
+  70%  { box-shadow: 0 0 0 16px rgba(255,106,26,0); }
+  100% { box-shadow: 0 0 0 0 rgba(255,106,26,0); }
+}
+
+/* =========================================================================
+   HERO — anneaux radar : le signal irradie depuis l'appel à l'action
+   ========================================================================= */
+.hero{
+  position: relative;
+  padding: clamp(64px, 6vw + 20px, 120px) 24px clamp(56px, 5vw, 90px);
+  text-align: center;
+  overflow: hidden;
+  background:
+    radial-gradient(60% 55% at 50% 8%, rgba(255,106,26,.10), transparent 70%),
+    var(--navy-950);
+}
+.hero .container{ position: relative; z-index: 2; }
+.hero p.lede{
+  font-size: clamp(1.05rem, .95rem + .4vw, 1.25rem);
+  color: var(--slate-300);
+  max-width: 560px;
+  margin: 0 auto 1.6em;
+}
+
+/* Anneaux radar décoratifs, positionnés derrière le CTA du hero */
+.radar{
+  position: absolute;
+  left: 50%; top: clamp(210px, 30vw, 340px);
+  width: 1px; height: 1px;
+  pointer-events: none;
+  z-index: 1;
+}
+.radar span{
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 60px; height: 60px;
+  margin: -30px 0 0 -30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,106,26,.35);
+  animation: radar-ping 3.2s var(--ease-premium) infinite;
+}
+.radar span:nth-child(2){ animation-delay: .8s; }
+.radar span:nth-child(3){ animation-delay: 1.6s; }
+@keyframes radar-ping{
+  0%   { transform: scale(1);   opacity: .8; }
+  100% { transform: scale(6.5); opacity: 0; }
+}
+
+.trust-chips{
+  display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+  margin-top: 2em;
+}
+.trust-chips span{
+  font-size: .78rem; font-weight: 600; letter-spacing: .02em;
+  color: var(--slate-300);
+  background: var(--navy-800);
+  border: 1px solid var(--navy-700);
+  padding: 7px 14px;
+  border-radius: 999px;
+}
+
+/* =========================================================================
+   SERVICES — cartes qui flottent au survol
+   ========================================================================= */
+section{ padding: clamp(56px, 6vw, 96px) 0; }
+.section-alt{ background: var(--navy-900); }
+
+.section-head{ max-width: 560px; margin: 0 auto 2.4em; text-align: center; }
+.section-head p.lede{ color: var(--slate-400); }
+
+.services-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 22px;
+}
+.service-card, article.service-card{
+  background: linear-gradient(160deg, var(--navy-800), var(--navy-900));
+  border: 1px solid var(--navy-700);
+  padding: 30px 26px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  transition: transform .5s var(--ease-premium), box-shadow .5s var(--ease-premium), border-color .5s var(--ease-premium);
+}
+.service-card:hover, article.service-card:hover{
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: rgba(255,106,26,.4);
+}
+.service-icon{
+  width: 46px; height: 46px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  background: rgba(255,106,26,.12);
+  border-radius: var(--radius-md);
+  margin-bottom: 1.1em;
+}
+.service-card h3{ margin-bottom: .3em; }
+.service-card p{ margin-bottom: 0; font-size: .95rem; }
+
+/* =========================================================================
+   FORMULAIRE DE DEVIS
+   ========================================================================= */
+.devis-panel{
+  background: linear-gradient(160deg, var(--navy-800), var(--navy-900));
+  border: 1px solid var(--navy-700);
+  border-radius: var(--radius-lg);
+  padding: clamp(28px, 4vw, 48px);
+  box-shadow: var(--shadow-card);
+  max-width: 640px;
+  margin: 0 auto;
+}
+form.devis-form{ display: grid; gap: 16px; }
+form.devis-form label{
+  display: block; font-size: .85rem; font-weight: 700;
+  color: var(--slate-300); margin-bottom: .4em;
+}
+form.devis-form input, form.devis-form textarea{
+  width: 100%;
+  background: var(--navy-950);
+  border: 1.5px solid var(--navy-700);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: .98rem;
+  transition: border-color .3s var(--ease-premium);
+}
+form.devis-form input:focus, form.devis-form textarea:focus{
+  outline: none;
+  border-color: var(--orange-500);
+}
+form.devis-form textarea{ min-height: 110px; resize: vertical; }
+form.devis-form button{ width: 100%; justify-content: center; }
+
+/* Confirmation "pop-in" : le signal aboutit, avec une réponse nette et calme */
+.success-msg{
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(53,208,127,.12);
+  border: 1px solid rgba(53,208,127,.4);
+  color: var(--green-500);
+  font-weight: 700;
+  padding: 18px 20px;
+  border-radius: var(--radius-md);
+  animation: pop-in .5s var(--ease-premium);
+}
+@keyframes pop-in{
+  0%   { opacity: 0; transform: scale(.92) translateY(6px); }
+  60%  { opacity: 1; transform: scale(1.015) translateY(0); }
+  100% { transform: scale(1); }
+}
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+footer{
+  border-top: 1px solid var(--navy-700);
+  padding: 32px 24px;
+  text-align: center;
+}
+footer p{ font-size: .85rem; color: var(--slate-400); margin: 0; }
+
+/* Focus visible clavier, gardé net sur fond sombre */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2.5px solid var(--orange-500);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px){
+  .btn-large{ display: block; width: 100%; }
+  .header-content{ justify-content: center; text-align: center; }
+}
