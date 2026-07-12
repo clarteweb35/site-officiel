@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commander — Cuisine comorienne | Chez Nadia</title>
+<meta name="description" content="Commandez vos plats comoriens faits maison : Madaba, langouste à la vanille, pilao, samoussas et plus, pour vos événements ou pour le plaisir. Prêt à manger ou à congeler.">
+<link rel="canonical" href="https://www.chez-nadia-comores.fr/commande.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Mulish:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Chez Norianne <span>Cuisine comorienne sur commande</span></a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="produits.html">Nos plats</a></li>
+        <li><a href="commande.html" class="nav-cta" aria-current="page">Commander</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="wrap contact-grid">
+
+      <div>
+        <p class="eyebrow">Commander</p>
+        <h1>Composez votre repas</h1>
+        <p class="lede">Précisez l'occasion, la date souhaitée et les plats qui vous intéressent : je vous recontacte pour confirmer la commande, les quantités et le prix final.</p>
+<p class="lede">Paiement par <strong>virement bancaire deux jours avant mise à disposition</strong> des produits, livraison possible pour 10€ dans la limite de 30Kms, offerte pour toute commande supérieure à 75€.</p>
+        <dl class="coordonnees">
+          <dt>Email</dt>
+          <dd><a href="mailto:contact@chez-nadia-comores.fr">contact@chez-nadia-comores.fr</a></dd>
+		  <dt>Instagram</dt>
+          <dd><a href="https://www.instagram.com/norianne">@norianne</a></dd>
+          <dt>Zone de livraison / retrait</dt>
+          <dd>Liffré / Rennes Nord</dd>
+          <dt>Délai</dt>
+          <dd>Commande à passer au moins 5 jours à l'avance</dd>
+        </dl>
+      </div>
+
+      <form class="order-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+        <input type="hidden" name="subject" value="Nouvelle commande — Chez Nadia">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <fieldset>
+          <legend>Votre événement</legend>
+
+          <div class="form-row">
+            <label for="type-evenement">Type d'occasion</label>
+            <select id="type-evenement" name="type_evenement" required>
+              <option value="" disabled selected>Choisissez une option</option>
+              <option value="fete">Fête / anniversaire</option>
+              <option value="evjf-evg">EVJF / EVG</option>
+              <option value="plaisir">Simple plaisir, sans occasion particulière</option>
+              <option value="autre">Autre</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="date-souhaitee">Date souhaitée</label>
+            <input type="date" id="date-souhaitee" name="date_souhaitee">
+          </div>
+
+          <div class="form-row">
+            <label for="nb-personnes">Nombre de personnes (environ)</label>
+            <input type="number" id="nb-personnes" name="nb_personnes" min="1" step="1">
+          </div>
+
+          <div class="form-row">
+            <label for="format">Format souhaité</label>
+            <select id="format" name="format">
+              <option value="pret-a-manger">Prêt à manger, livré le jour J</option>
+              <option value="pret-a-congeler">Prêt à congeler, pour plus tard</option>
+              <option value="les-deux">Un mélange des deux</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Plats souhaités</legend>
+          <div class="plats-checklist">
+            <label><input type="checkbox" name="plats[]" value="Madaba"> Madaba</label>
+            <label><input type="checkbox" name="plats[]" value="Langouste à la vanille"> Langouste à la vanille</label>
+            <label><input type="checkbox" name="plats[]" value="Mtsolola"> Mtsolola</label>
+            <label><input type="checkbox" name="plats[]" value="Pilao"> Pilao</label>
+            <label><input type="checkbox" name="plats[]" value="Rougail de poisson"> Rougail de poisson</label>
+            <label><input type="checkbox" name="plats[]" value="Samboussa"> Samboussa</label>
+            <label><input type="checkbox" name="plats[]" value="Samossa"> Samossa</label>
+            <label><input type="checkbox" name="plats[]" value="Jus de fruit de la passion"> Jus de fruit de la passion</label>
+            <label><input type="checkbox" name="plats[]" value="Jus gingembre-citronnelle"> Jus gingembre-citronnelle</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Vos coordonnées</legend>
+
+          <div class="form-row">
+            <label for="nom">Nom et prénom</label>
+            <input type="text" id="nom" name="nom" required autocomplete="name">
+          </div>
+
+          <div class="form-row">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" required
+                   pattern="^(0|\+33)[1-9](\s?\d{2}){4}$"
+                   placeholder="06 12 34 56 78" autocomplete="tel">
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+
+          <div class="form-row">
+            <label for="message">Précisions (allergies, niveau d'épices, autre)</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+          </div>
+        </fieldset>
+
+        <button type="submit">Envoyer ma demande</button>
+      </form>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-content">
+      <p class="footer-brand">Chez Norianne</p>
+      <p>Cuisine comorienne sur commande · Entreprise individuelle déclarée · Liffré, Ille-et-Vilaine</p>
+    </div>
+    
+    <nav class="footer-links">
+      <ul>
+        <li><a href="/mentions-legales">Mentions légales</a></li>
+        <li><a href="/plan-du-site">Plan du site</a></li>
+      </ul>
+    </nav>
+
+    <div class="footer-credits">
+      <p>Site conçu par <a href="https://www.arc-en-ciel-services.fr" target="_blank" rel="noopener">Arc en Ciel Services, Domagné</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
