@@ -81,6 +81,7 @@
 
 <footer class="site-footer">
   <div class="wrap"><p>Outil interne — non destiné aux visiteurs du site</p></div>
+  <p style="color: #999; font-size: 0.9rem; margin: 0;">site réalisé par <a href="https://www.clarte-web.fr" target="_blank" rel="noopener">Clarté Web</a></p>
 </footer>
 
 <script>
@@ -195,6 +196,17 @@ document.getElementById('telechargerBtn').addEventListener('click', function(){
   URL.revokeObjectURL(url);
 });
 </script>
-
+<a href="https://www.clarte-web.fr/realisations.html"
+   style="position:fixed; bottom:20px; left:20px; z-index:999;
+          display:inline-flex; align-items:center; gap:8px;
+          background:#12151A; color:#fff;
+          font-family:system-ui,-apple-system,sans-serif; font-size:14px; font-weight:600;
+          text-decoration:none; padding:10px 18px; border-radius:999px;
+          box-shadow:0 8px 20px -8px rgba(0,0,0,.45);
+          transition:transform .2s ease;"
+   onmouseover="this.style.transform='translateY(-3px)'"
+   onmouseout="this.style.transform='translateY(0)'">
+  ← Retour aux réalisations
+</a>
 </body>
 </html>
