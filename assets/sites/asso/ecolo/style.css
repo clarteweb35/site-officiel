@@ -1,0 +1,228 @@
+/* =========================================================================
+   RACINES — Association de défense de la forêt de Brandouet
+   -------------------------------------------------------------------------
+   Sobre, sérieux, nature — la crédibilité vient de la précision (chiffres,
+   échéances, répartition du budget), jamais de la surenchère visuelle.
+   Un seul accent chaud (ambre), réservé aux appels à l'action.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+
+:root{
+  --vert:      #1B3A2B;
+  --vert-dk:   #122A1F;
+  --terre:     #6B5842;
+  --terre-cl:  #A99178;
+  --fond:      #EFEBE1;
+  --panel:     #FFFFFF;
+  --ambre:     #E8A23D;
+  --ambre-dk:  #C4841F;
+  --ink:       #201C16;
+  --muted:     #6B6155;
+  --line:      rgba(32,28,22,.13);
+
+  --shadow-sm: 0 2px 10px -6px rgba(32,28,22,.18);
+  --shadow-md: 0 20px 40px -22px rgba(32,28,22,.30);
+  --ease: cubic-bezier(.22,1,.36,1);
+
+  --font-display: 'Spectral', Georgia, serif;
+  --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+
+  --maxw: 1040px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--fond);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition-duration: .01ms !important; }
+}
+
+.wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+a{ color: var(--vert); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+  outline: 2.5px solid var(--ambre-dk); outline-offset: 3px;
+}
+
+h1, h2, h3{ font-family: var(--font-display); font-weight: 600; line-height: 1.16; margin: 0 0 .5em; color: var(--vert-dk); }
+h1{ font-size: clamp(2.1rem, 1.6rem + 2.4vw, 3.2rem); }
+h2{ font-size: clamp(1.5rem, 1.3rem + 1vw, 2rem); }
+h3{ font-size: 1.1rem; font-weight: 700; font-family: var(--font-body); }
+p{ margin: 0 0 1em; color: var(--muted); }
+
+.eyebrow{
+  display: block; font-weight: 700; font-size: .74rem;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--ambre-dk);
+  margin-bottom: 1em;
+}
+.lede{ font-size: 1.06rem; color: var(--muted); max-width: 580px; }
+
+/* =========================================================================
+   HEADER
+   ========================================================================= */
+.site-header{
+  background: rgba(239,235,225,.94); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 40;
+}
+.header-row{ display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 14px 24px; }
+.brand{ font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; color: var(--vert-dk); text-decoration: none; }
+.header-nav{ display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.header-nav ul{ list-style: none; display: flex; gap: 18px; margin: 0; padding: 0; }
+.header-nav a{ text-decoration: none; color: var(--ink); font-weight: 600; font-size: .92rem; }
+.header-nav a[aria-current="page"]{ color: var(--vert); border-bottom: 2px solid var(--vert); padding-bottom: 2px; }
+.don-sticky{
+  background: var(--ambre); color: var(--ink) !important; font-weight: 700 !important;
+  padding: 8px 18px; border-radius: 999px; font-size: .88rem !important;
+}
+.don-sticky:hover{ background: var(--ambre-dk); }
+
+/* =========================================================================
+   BOUTONS
+   ========================================================================= */
+.btn{
+  display: inline-flex; align-items: center; gap: .5em;
+  font-weight: 700; font-size: .95rem; padding: 13px 26px; border-radius: 999px;
+  text-decoration: none; border: 1.5px solid transparent; cursor: pointer;
+  transition: transform .25s var(--ease), background .2s var(--ease), box-shadow .25s var(--ease);
+}
+.btn-primary{ background: var(--ambre); color: var(--ink); }
+.btn-primary:hover{ background: var(--ambre-dk); box-shadow: var(--shadow-md); transform: translateY(-2px); }
+.btn-vert{ background: var(--vert); color: #fff; }
+.btn-vert:hover{ background: var(--vert-dk); }
+.btn-ghost{ background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover{ background: var(--panel); }
+
+/* =========================================================================
+   HERO
+   ========================================================================= */
+.hero{ background: var(--vert-dk); color: #fff; padding: clamp(56px, 7vw, 96px) 0 clamp(40px, 5vw, 60px); }
+.hero .eyebrow{ color: var(--ambre); }
+.hero h1{ color: #fff; }
+.hero-lede{ font-size: 1.14rem; color: #D6D9CF; max-width: 600px; margin: 0 0 1.8em; }
+.hero-actions{ display: flex; gap: 12px; flex-wrap: wrap; }
+
+.chiffres-cles{ background: var(--terre); }
+.chiffres-cles dl{
+  display: grid; grid-template-columns: 1fr; gap: 20px; margin: 0; padding: 28px 0;
+}
+@media (min-width: 700px){ .chiffres-cles dl{ grid-template-columns: repeat(3, 1fr); } }
+.chiffres-cles div{ text-align: center; }
+.chiffres-cles dt{ font-size: .78rem; text-transform: uppercase; letter-spacing: .08em; color: #E8E0D2; margin-bottom: .4em; }
+.chiffres-cles dd{ margin: 0; font-family: var(--font-display); font-weight: 700; font-size: 1.9rem; color: #fff; }
+
+/* =========================================================================
+   SECTIONS génériques
+   ========================================================================= */
+section{ padding: clamp(48px, 6vw, 84px) 0; }
+.section-alt{ background: var(--panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.section-head{ max-width: 620px; margin-bottom: 2em; }
+
+/* =========================================================================
+   ACTIONS EN COURS
+   ========================================================================= */
+.actions-grid{ display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 780px){ .actions-grid{ grid-template-columns: repeat(3, 1fr); } }
+.action-card{
+  background: var(--panel); border: 1px solid var(--line); border-top: 3px solid var(--ambre);
+  border-radius: 8px; padding: 24px 22px; box-shadow: var(--shadow-sm);
+  display: flex; flex-direction: column;
+}
+.action-card p{ flex: 1; }
+
+/* =========================================================================
+   ACTUALITÉS
+   ========================================================================= */
+.actu-liste{ display: grid; gap: 20px; }
+.actu-item{ border-top: 1px solid var(--line); padding: 18px 0; }
+.actu-item:first-child{ border-top: none; padding-top: 0; }
+.actu-date{ font-size: .78rem; color: var(--ambre-dk); font-weight: 700; text-transform: uppercase; letter-spacing: .05em; }
+
+/* =========================================================================
+   L'ASSOCIATION
+   ========================================================================= */
+.comment-grid{ display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 700px){ .comment-grid{ grid-template-columns: repeat(2, 1fr); } }
+.comment-card{ padding: 20px 0; border-top: 3px solid var(--vert); }
+
+.bureau-grid{ display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 700px){ .bureau-grid{ grid-template-columns: repeat(2, 1fr); } }
+.membre-card{
+  display: flex; gap: 16px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; padding: 20px; box-shadow: var(--shadow-sm);
+}
+.membre-photo{ width: 68px; height: 68px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(150deg, var(--terre-cl), var(--vert)); }
+.membre-role{ font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ambre-dk); margin-bottom: .3em; }
+
+/* =========================================================================
+   SOUTIEN — adhésion / don
+   ========================================================================= */
+.soutien-intro{ text-align: center; max-width: 640px; margin: 0 auto; }
+
+.repartition{ display: grid; gap: 14px; max-width: 560px; margin: 1.6em auto 0; }
+.repartition-item{ display: grid; gap: 6px; }
+.repartition-label{ display: flex; justify-content: space-between; font-size: .9rem; font-weight: 600; }
+.repartition-barre{ height: 8px; background: var(--line); border-radius: 999px; overflow: hidden; }
+.repartition-barre span{ display: block; height: 100%; background: var(--vert); border-radius: 999px; }
+
+.blocs-soutien{ display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 2em; }
+@media (min-width: 780px){ .blocs-soutien{ grid-template-columns: repeat(2, 1fr); } }
+.bloc-soutien{
+  background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+  padding: 30px 28px; box-shadow: var(--shadow-sm);
+}
+.bloc-soutien.don{ border-top: 4px solid var(--ambre); }
+.bloc-soutien.adhesion{ border-top: 4px solid var(--vert); }
+
+.montants-dons{ display: flex; gap: 10px; flex-wrap: wrap; margin: 1.2em 0; }
+.montants-dons a{
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 64px; padding: 10px 16px; border: 1.5px solid var(--vert);
+  border-radius: 999px; font-weight: 700; color: var(--vert-dk); text-decoration: none;
+  transition: background .25s var(--ease), color .25s var(--ease);
+}
+.montants-dons a:hover{ background: var(--vert); color: #fff; }
+.montants-dons a.libre{ border-style: dashed; }
+
+.rgpd-note{
+  font-size: .82rem; color: var(--muted); background: var(--fond);
+  border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; margin-top: 1.4em;
+}
+
+.contact-form{ display: grid; gap: 16px; margin-top: 1.4em; }
+.form-row label{ display: block; font-weight: 600; font-size: .87rem; margin-bottom: 5px; }
+.form-row input, .form-row textarea, .form-row select{
+  width: 100%; padding: 11px 13px; border: 1px solid var(--line); border-radius: 8px;
+  font: inherit; background: var(--fond); color: var(--ink);
+}
+.form-row input:focus, .form-row textarea:focus, .form-row select:focus{ outline: none; border-color: var(--vert); }
+.form-row textarea{ resize: vertical; }
+.form-checkbox{ display: flex; align-items: flex-start; gap: 10px; font-size: .85rem; color: var(--muted); }
+.form-checkbox input{ margin-top: 3px; }
+
+.autres-facons{ list-style: none; padding: 0; margin: 1.6em 0 0; display: grid; gap: 10px; }
+.autres-facons li{ padding: 12px 0; border-top: 1px solid var(--line); font-size: .94rem; }
+.autres-facons li:first-child{ border-top: none; }
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.site-footer{ background: var(--vert-dk); color: #D6D9CF; padding: 36px 0; }
+.footer-row{ display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; }
+.footer-brand{ font-family: var(--font-display); font-weight: 700; color: #fff; font-size: 1.1rem; margin: 0 0 .3em; }
+.site-footer p{ margin: 0 0 .3em; font-size: .85rem; }
+.site-footer nav ul{ list-style: none; display: flex; gap: 16px; flex-wrap: wrap; margin: 0; padding: 0; }
+.site-footer nav a{ color: #D6D9CF; text-decoration: none; font-size: .88rem; }
+.site-footer nav a:hover{ color: var(--ambre); }
+
+@media (max-width: 480px){
+  .header-row{ justify-content: center; text-align: center; }
+}
