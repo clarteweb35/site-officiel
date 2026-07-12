@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Générateur de Site Express Gratuit | Clarté Web</title>
+<meta name="description" content="Créez gratuitement une première page web statique pour votre activité en moins de 2 minutes : formulaire simple, fichier HTML téléchargé, sans inscription.">
+<link rel="canonical" href="https://www.arc-en-ciel-services.fr/generateur.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo-mark.png" alt="">Clarté Web</a>
+    <nav class="primary" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offre.html">Notre offre</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="blog.html">Blog & Actu</a></li>
+        <li><a href="lexique.html">Lexique</a></li>
+        <li><a href="liens-utiles.html">Sites utiles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:24px;">
+  <div class="wrap">
+    <p class="eyebrow">Outil gratuit · sans inscription</p>
+    <h1>Générateur de site express</h1>
+    <p class="lede" style="max-width:640px;">Remplissez le formulaire, téléchargez votre fichier HTML, c'est prêt. Une <a href="lexique.html">page vitrine</a> simple pour exister en ligne — sans engagement, sans compte à créer.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <form class="gen-form" id="genForm">
+      <div>
+        <label for="nomEntreprise">Nom de votre activité</label>
+        <input type="text" id="nomEntreprise" placeholder="Ex. Garage Martin" required>
+      </div>
+      <div>
+        <label for="logoFile">Votre logo (optionnel)</label>
+        <input type="file" id="logoFile" accept="image/png,image/jpeg,image/svg+xml,image/webp">
+        <p id="logoStatus" style="font-size:.8rem; color:var(--slate); margin-top:6px;">Formats acceptés : PNG, JPG, WebP, SVG. Il sera intégré directement dans la page générée.</p>
+      </div>
+      <div>
+        <label for="accroche">Une phrase d'accroche</label>
+        <input type="text" id="accroche" placeholder="Ex. Entretien et réparation automobile à Domagné">
+      </div>
+      <div>
+        <label for="description">Description courte</label>
+        <textarea id="description" placeholder="Présentez votre activité en quelques lignes"></textarea>
+      </div>
+      <div>
+        <label for="horaires">Horaires</label>
+        <input type="text" id="horaires" placeholder="Ex. Du lundi au vendredi, 9h-18h">
+      </div>
+      <div>
+        <label for="telephone">Téléphone</label>
+        <input type="tel" id="telephone" placeholder="Ex. 02 XX XX XX XX">
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Ex. contact@votreactivite.fr">
+      </div>
+      <div>
+        <label for="adresse">Adresse / zone d'intervention</label>
+        <input type="text" id="adresse" placeholder="Ex. Domagné et communes alentours">
+      </div>
+      <div>
+        <label for="couleur">Couleur principale</label>
+        <input type="color" id="couleur" value="#17B978" style="height:44px; padding:4px;">
+      </div>
+      <div>
+        <button type="button" class="btn btn-primary" id="genBtn">Télécharger mon fichier HTML</button>
+      </div>
+      <p id="genStatus" style="font-size:.85rem; color:var(--slate);"></p>
+    </form>
+  </div>
+</section>
+
+<section class="section-alt">
+  <div class="wrap">
+    <div class="callout">
+      <div>
+        <h2>Envie d'aller plus loin ?</h2>
+        <p>Cette page suffit pour dépanner, mais un <a href="offre.html">vrai site avec référencement local</a> et fiche Google Maps va bien plus loin. Voir des <a href="realisations.html">exemples de styles</a> selon votre activité.</p>
+      </div>
+      <a class="btn btn-primary" href="contact.html">Discuter d'un vrai projet</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <nav aria-label="Navigation pied de page">
+        <ul>
+          <li><a href="offre.html">Notre offre</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="blog.html">Blog & Actu</a></li>
+          <li><a href="lexique.html">Lexique</a></li>
+          <li><a href="generateur.html">Générateur de site</a></li>
+          <li><a href="liens-utiles.html">Sites utiles</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="site-map.html">Plan du site</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Clarté Web — Tous droits réservés.</span>
+      <span>Domagné, Ille-et-Vilaine</span>
+    </div>
+  </div>
+</footer>
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentement aux cookies">
+  <p>Ce site utilise des cookies de mesure d'audience (Google Analytics). Vous pouvez accepter ou refuser ces traceurs.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-accept" onclick="acceptCookies()">Accepter</button>
+    <button type="button" class="cookie-reject" onclick="rejectCookies()">Refuser</button>
+  </div>
+</div>
+
+<script>
+function escapeHtml(str){
+  return (str || "").replace(/[&<>"']/g, function(c){
+    return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];
+  });
+}
+
+var logoDataUrl = null;
+
+document.getElementById('logoFile').addEventListener('change', function(e){
+  var file = e.target.files && e.target.files[0];
+  var status = document.getElementById('logoStatus');
+  if(!file){
+    logoDataUrl = null;
+    return;
+  }
+  if(file.size > 2 * 1024 * 1024){
+    status.textContent = "Ce fichier est trop lourd (2 Mo maximum). Choisissez une image plus légère.";
+    logoDataUrl = null;
+    e.target.value = "";
+    return;
+  }
+  var reader = new FileReader();
+  reader.onload = function(ev){
+    logoDataUrl = ev.target.result;
+    status.textContent = "Logo « " + file.name + " » chargé, il sera inclus dans la page générée.";
+  };
+  reader.onerror = function(){
+    status.textContent = "Impossible de lire ce fichier, réessayez avec une autre image.";
+    logoDataUrl = null;
+  };
+  reader.readAsDataURL(file);
+});
+
+function buildSiteHtml(data){
+  var logoBlock = data.logo
+    ? '<img src="' + data.logo + '" alt="' + data.nom + '" style="max-height:72px; margin-bottom:14px; display:block;">'
+    : '';
+  var parts = [];
+  parts.push('<!DOCTYPE html>');
+  parts.push('<html lang="fr">');
+  parts.push('<head>');
+  parts.push('<meta charset="UTF-8">');
+  parts.push('<meta name="viewport" content="width=device-width, initial-scale=1.0">');
+  parts.push('<title>' + data.nom + '</title>');
+  parts.push('<style>');
+  parts.push('body{font-family:Arial,Helvetica,sans-serif; margin:0; color:#1E2521; background:#F6F7F9;}');
+  parts.push('header{background:' + data.couleur + '; color:#fff; padding:40px 24px;}');
+  parts.push('header h1{margin:0 0 8px; font-size:2rem;}');
+  parts.push('main{max-width:680px; margin:0 auto; padding:32px 24px;}');
+  parts.push('section{margin-bottom:28px; background:#fff; border-radius:10px; padding:18px 22px; box-shadow:0 1px 2px rgba(0,0,0,.05);}');
+  parts.push('h2{font-size:1.05rem; text-transform:uppercase; letter-spacing:.05em; color:' + data.couleur + '; margin-top:0;}');
+  parts.push('footer{padding:20px 24px; font-size:.85rem; color:#555; border-top:1px solid #ddd; text-align:center;}');
+  parts.push('a{color:' + data.couleur + ';}');
+  parts.push('</style>');
+  parts.push('</head>');
+  parts.push('<body>');
+  parts.push('<header>');
+  parts.push(logoBlock);
+  parts.push('<h1>' + data.nom + '</h1>');
+  parts.push('<p>' + data.accroche + '</p>');
+  parts.push('</header>');
+  parts.push('<main>');
+  parts.push('<section><h2>À propos</h2><p>' + (data.description || 'Description à compléter.') + '</p></section>');
+  parts.push('<section><h2>Horaires</h2><p>' + (data.horaires || 'Horaires à compléter.') + '</p></section>');
+  var contact = '';
+  if(data.telephone){ contact += 'Téléphone : ' + data.telephone + '<br>'; }
+  if(data.email){ contact += 'Email : <a href="mailto:' + data.email + '">' + data.email + '</a><br>'; }
+  if(data.adresse){ contact += 'Adresse / zone : ' + data.adresse; }
+  parts.push('<section><h2>Contact</h2><p>' + contact + '</p></section>');
+  parts.push('</main>');
+  parts.push('<footer>Page générée avec le générateur gratuit d\'Clarté Web.</footer>');
+  parts.push('</body>');
+  parts.push('</html>');
+  return parts.join('\n');
+}
+
+document.getElementById('genBtn').addEventListener('click', function(){
+  var nom = document.getElementById('nomEntreprise').value.trim();
+  if(!nom){
+    document.getElementById('genStatus').textContent = "Merci d'indiquer au moins le nom de votre activité.";
+    return;
+  }
+
+  var data = {
+    nom: escapeHtml(nom),
+    accroche: escapeHtml(document.getElementById('accroche').value.trim()),
+    description: escapeHtml(document.getElementById('description').value.trim()),
+    horaires: escapeHtml(document.getElementById('horaires').value.trim()),
+    telephone: escapeHtml(document.getElementById('telephone').value.trim()),
+    email: escapeHtml(document.getElementById('email').value.trim()),
+    adresse: escapeHtml(document.getElementById('adresse').value.trim()),
+    couleur: document.getElementById('couleur').value,
+    logo: logoDataUrl
+  };
+
+  var html = buildSiteHtml(data);
+  var blob = new Blob([html], {type: "text/html"});
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  var fileName = nom.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '') || 'mon-site';
+  a.download = fileName + '.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  document.getElementById('genStatus').textContent = "Votre fichier " + fileName + ".html a été téléchargé.";
+});
+
+(function(){
+  var banner = document.getElementById('cookie-banner');
+  var consent = localStorage.getItem('cookie_consent');
+  if(!consent){
+    banner.classList.add('show');
+  } else if(consent === 'accepted'){
+    loadAnalytics();
+  }
+})();
+function acceptCookies(){
+  localStorage.setItem('cookie_consent','accepted');
+  document.getElementById('cookie-banner').classList.remove('show');
+  loadAnalytics();
+}
+function rejectCookies(){
+  localStorage.setItem('cookie_consent','rejected');
+  document.getElementById('cookie-banner').classList.remove('show');
+}
+function loadAnalytics(){
+  // Insérer ici le script Google Analytics (GA4) une fois l'identifiant de mesure disponible
+}
+</script>
+
+</body>
+</html>

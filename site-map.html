@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan du site | Clarté Web</title>
+<meta name="description" content="Plan du site Clarté Web : toutes les pages accessibles.">
+<link rel="canonical" href="https://www.arc-en-ciel-services.fr/site-map.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo-mark.png" alt="">Clarté Web</a>
+    <nav class="primary" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offre.html">Notre offre</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="blog.html">Blog & Actu</a></li>
+        <li><a href="lexique.html">Lexique</a></li>
+        <li><a href="liens-utiles.html">Sites utiles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:32px;">
+  <div class="wrap">
+    <p class="eyebrow">Plan du site</p>
+    <h1>Toutes les pages d'Clarté Web</h1>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <ul class="arrow-list">
+      <li><a href="index.html">Accueil</a> — présentation générale de l'offre et de la méthode d'accompagnement.</li>
+      <li><a href="offre.html">Notre offre</a> — ce qui est inclus, déroulé du projet, tarifs indicatifs, questions fréquentes.</li>
+      <li><a href="realisations.html">Réalisations</a> — exemples de styles de sites vitrines selon votre activité.</li>
+      <li><a href="contact.html">Contact</a> — coordonnées et formulaire de demande de devis.</li>
+      <li><a href="blog.html">Blog & Actu</a> — articles sur la présence en ligne des artisans et commerçants locaux.</li>
+      <li><a href="lexique.html">Lexique</a> — le vocabulaire du web expliqué simplement, sans jargon.</li>
+      <li><a href="generateur.html">Générateur de site express</a> — outil gratuit pour créer une première page HTML.</li>
+      <li><a href="liens-utiles.html">Sites utiles</a> — documentation et outils gratuits liés au web et au SEO.</li>
+      <li><a href="mentions-legales.html">Mentions légales</a> — informations légales de l'éditeur du site.</li>
+      <li><a href="site-map.html">Plan du site</a> — cette page.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <nav aria-label="Navigation pied de page">
+        <ul>
+          <li><a href="offre.html">Notre offre</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="blog.html">Blog & Actu</a></li>
+          <li><a href="lexique.html">Lexique</a></li>
+          <li><a href="generateur.html">Générateur de site</a></li>
+          <li><a href="liens-utiles.html">Sites utiles</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="site-map.html">Plan du site</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Clarté Web — Tous droits réservés.</span>
+      <span>Domagné, Ille-et-Vilaine</span>
+    </div>
+  </div>
+</footer>
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentement aux cookies">
+  <p>Ce site utilise des cookies de mesure d'audience (Google Analytics). Vous pouvez accepter ou refuser ces traceurs.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-accept" onclick="acceptCookies()">Accepter</button>
+    <button type="button" class="cookie-reject" onclick="rejectCookies()">Refuser</button>
+  </div>
+</div>
+<script>
+(function(){
+  var banner = document.getElementById('cookie-banner');
+  var consent = localStorage.getItem('cookie_consent');
+  if(!consent){
+    banner.classList.add('show');
+  } else if(consent === 'accepted'){
+    loadAnalytics();
+  }
+})();
+function acceptCookies(){
+  localStorage.setItem('cookie_consent','accepted');
+  document.getElementById('cookie-banner').classList.remove('show');
+  loadAnalytics();
+}
+function rejectCookies(){
+  localStorage.setItem('cookie_consent','rejected');
+  document.getElementById('cookie-banner').classList.remove('show');
+}
+function loadAnalytics(){
+  if(window.__gtmLoaded) return;
+  window.__gtmLoaded = true;
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KLNWW7NJ');
+}
+</script>
+
+</body>
+</html>

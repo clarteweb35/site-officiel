@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.arc-en-ciel-services.fr/sitemap.xml

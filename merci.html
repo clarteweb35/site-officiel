@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Merci | Clarté Web</title>
+<meta name="description" content="Votre demande a bien été envoyée à Clarté Web.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.arc-en-ciel-services.fr/merci.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo-mark.png" alt="">Clarté Web</a>
+    <nav class="primary" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offre.html">Notre offre</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="blog.html">Blog & Actu</a></li>
+        <li><a href="lexique.html">Lexique</a></li>
+        <li><a href="liens-utiles.html">Sites utiles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap" style="text-align:center; max-width:560px; margin:0 auto;">
+    <p class="eyebrow">Message envoyé</p>
+    <h1>Merci pour votre message</h1>
+    <p class="lede">Votre demande a bien été transmise. Vous recevrez une réponse sous quelques jours ouvrés. En attendant, vous pouvez consulter <a href="offre.html">notre offre en détail</a>.</p>
+    <a class="btn btn-primary" href="index.html">Retour à l'accueil</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <nav aria-label="Navigation pied de page">
+        <ul>
+          <li><a href="offre.html">Notre offre</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="blog.html">Blog & Actu</a></li>
+          <li><a href="lexique.html">Lexique</a></li>
+          <li><a href="generateur.html">Générateur de site</a></li>
+          <li><a href="liens-utiles.html">Sites utiles</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="site-map.html">Plan du site</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Clarté Web — Tous droits réservés.</span>
+      <span>Domagné, Ille-et-Vilaine</span>
+    </div>
+  </div>
+</footer>
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentement aux cookies">
+  <p>Ce site utilise des cookies de mesure d'audience (Google Analytics). Vous pouvez accepter ou refuser ces traceurs.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-accept" onclick="acceptCookies()">Accepter</button>
+    <button type="button" class="cookie-reject" onclick="rejectCookies()">Refuser</button>
+  </div>
+</div>
+<script>
+(function(){
+  var banner = document.getElementById('cookie-banner');
+  var consent = localStorage.getItem('cookie_consent');
+  if(!consent){
+    banner.classList.add('show');
+  } else if(consent === 'accepted'){
+    loadAnalytics();
+  }
+})();
+function acceptCookies(){
+  localStorage.setItem('cookie_consent','accepted');
+  document.getElementById('cookie-banner').classList.remove('show');
+  loadAnalytics();
+}
+function rejectCookies(){
+  localStorage.setItem('cookie_consent','rejected');
+  document.getElementById('cookie-banner').classList.remove('show');
+}
+function loadAnalytics(){
+  if(window.__gtmLoaded) return;
+  window.__gtmLoaded = true;
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KLNWW7NJ');
+}
+</script>
+
+</body>
+</html>

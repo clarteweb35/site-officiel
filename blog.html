@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog & Actu | Clarté Web</title>
+<meta name="description" content="Conseils simples sur la présence en ligne des artisans et commerçants de Domagné : site vitrine, référencement local, fiche Google Maps.">
+<link rel="canonical" href="https://www.arc-en-ciel-services.fr/blog.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo-mark.png" alt="">Clarté Web</a>
+    <nav class="primary" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offre.html">Notre offre</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="blog.html" aria-current="page">Blog & Actu</a></li>
+        <li><a href="lexique.html">Lexique</a></li>
+        <li><a href="liens-utiles.html">Sites utiles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:32px;">
+  <div class="wrap">
+    <p class="eyebrow">Blog & actu</p>
+    <h1>Des repères simples pour votre présence en ligne</h1>
+    <p class="lede" style="max-width:640px;">Pas de jargon marketing : des explications concrètes pour les artisans et commerçants de Domagné.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+
+    <article class="article-card" id="artisan-un-site">
+      <p class="eyebrow">05 juillet 2026</p>
+      <h2>Pourquoi un artisan de Domagné a intérêt à avoir un site, même sans en faire son métier</h2>
+      <p>Beaucoup d'artisans du secteur travaillent très bien sans site internet, uniquement par le bouche-à-oreille. Le site ne remplace pas cette réputation : il la prolonge. Quand un client potentiel entend parler de vous, son premier réflexe est souvent de vérifier votre nom sur son téléphone. S'il ne trouve rien, ou une <a href="lexique.html">fiche</a> incomplète, le doute s'installe. Une <a href="offre.html">page simple</a> avec vos coordonnées, vos horaires et votre zone d'intervention suffit à lever ce doute en quelques secondes.</p>
+      <p>C'est aussi un support pratique au quotidien : un <a href="lexique.html">QR code</a> sur votre camion permet à un client croisé sur la route d'enregistrer directement votre numéro, sans carte de visite à chercher dans la boîte à gants. Envie de voir à quoi ça peut ressembler ? Direction nos <a href="realisations.html">exemples de sites vitrines</a>. Un projet en tête ? <a href="contact.html">Parlons-en</a>.</p>
+    </article>
+
+    <article class="article-card" id="fiche-google-maps">
+      <p class="eyebrow">À venir</p>
+      <h2>Fiche Google Maps : ce qui change quand elle est bien remplie</h2>
+      <p>Un prochain article détaillera les éléments qui font la différence sur une <a href="lexique.html">fiche d'établissement locale</a> : horaires à jour, photos, avis clients, zone d'intervention. En attendant, la fiche peut être créée via <a href="liens-utiles.html">Google Business Profile</a>.</p>
+    </article>
+
+    <article class="article-card" id="qr-code-terrain">
+      <p class="eyebrow">À venir</p>
+      <h2>QR code sur véhicule : ce qui fonctionne sur le terrain</h2>
+      <p>Retour d'expérience à venir sur l'emplacement, la taille et le contenu à privilégier pour un <a href="lexique.html">QR code</a> réellement utilisé par vos clients. Ce type d'outil fait partie de <a href="offre.html">notre offre</a> de base.</p>
+    </article>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <nav aria-label="Navigation pied de page">
+        <ul>
+          <li><a href="offre.html">Notre offre</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="blog.html">Blog & Actu</a></li>
+          <li><a href="lexique.html">Lexique</a></li>
+          <li><a href="generateur.html">Générateur de site</a></li>
+          <li><a href="liens-utiles.html">Sites utiles</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="site-map.html">Plan du site</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Clarté Web — Tous droits réservés.</span>
+      <span>Domagné, Ille-et-Vilaine</span>
+    </div>
+  </div>
+</footer>
+
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentement aux cookies">
+  <p>Ce site utilise des cookies de mesure d'audience (Google Analytics). Vous pouvez accepter ou refuser ces traceurs.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-accept" onclick="acceptCookies()">Accepter</button>
+    <button type="button" class="cookie-reject" onclick="rejectCookies()">Refuser</button>
+  </div>
+</div>
+<script>
+(function(){
+  var banner = document.getElementById('cookie-banner');
+  var consent = localStorage.getItem('cookie_consent');
+  if(!consent){
+    banner.classList.add('show');
+  } else if(consent === 'accepted'){
+    loadAnalytics();
+  }
+})();
+function acceptCookies(){
+  localStorage.setItem('cookie_consent','accepted');
+  document.getElementById('cookie-banner').classList.remove('show');
+  loadAnalytics();
+}
+function rejectCookies(){
+  localStorage.setItem('cookie_consent','rejected');
+  document.getElementById('cookie-banner').classList.remove('show');
+}
+function loadAnalytics(){
+  // Insérer ici le script Google Analytics (GA4) une fois l'identifiant de mesure disponible
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions Légales | Clarté Web</title>
+<meta name="description" content="Mentions légales d'Clarté Web.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.arc-en-ciel-services.fr/mentions-legales.html">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo-mark.png" alt="">Clarté Web</a>
+    <nav class="primary" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offre.html">Notre offre</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="blog.html">Blog & Actu</a></li>
+        <li><a href="lexique.html">Lexique</a></li>
+        <li><a href="liens-utiles.html">Sites utiles</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:24px;">
+  <div class="wrap">
+    <p class="eyebrow">Informations légales</p>
+    <h1>Mentions légales</h1>
+  </div>
+</section>
+
+<section>
+  <div class="wrap legal">
+
+    <h2>Éditeur du site</h2>
+    <p>
+      Clarté Web est une marque de l'EURL JGS.<br>
+      EURL JGS, [forme juridique] au capital de [montant à compléter] €<br>
+      Siège social : [adresse à compléter]<br>
+      SIRET : [SIRET à compléter]<br>
+      RCS : [ville d'immatriculation à compléter]<br>
+      Email : [email à compléter]<br>
+      Téléphone : [numéro à compléter]
+    </p>
+
+    <h2>Statut professionnel</h2>
+    <p>Clarté Web est le nom commercial sous lequel l'EURL JGS exerce son activité de conception de sites web et de référencement local. Les prestations proposées sur ce site sont facturées directement par l'EURL JGS.</p>
+
+    <h2>Directeur de la publication</h2>
+    <p>[Prénom Nom], gérant·e de l'EURL JGS</p>
+
+    <h2>Hébergement du site</h2>
+    <p>
+      GitHub, Inc.<br>
+      88 Colin P. Kelly Jr. Street - San Francisco, CA 94107 - États-Unis d'Amériques<br>
+      +1 (877) 448-4820 / https://github.com 
+    </p>
+
+    <h2>Nom de domaine</h2>
+    <p>o2switch<br>
+	Chemin des Pardiaux, 63000 Clermont-Ferrand, France<br>
+	+33 (0)4 44 44 60 40 / https://www.o2switch.fr</p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble des contenus présents sur ce site (textes, images, mise en page) est la propriété d'Clarté Web, sauf mention contraire. Toute reproduction sans autorisation préalable est interdite.</p>
+
+    <h2>Données personnelles</h2>
+    <p>Les informations transmises via le <a href="contact.html">formulaire de contact</a> sont utilisées uniquement pour répondre à votre demande. Elles ne sont ni cédées ni utilisées à d'autres fins. Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression de vos données, à exercer en écrivant à contact@arc-en-ciel-services.fr.</p>
+
+    <h2>Cookies</h2>
+    <p>Ce site utilise des cookies de mesure d'audience (Google Analytics). Vous pouvez à tout moment accepter ou refuser ces cookies via le bandeau prévu à cet effet.</p>
+
+    <h2>Limitation de responsabilité</h2>
+    <p>Clarté Web s'efforce d'assurer l'exactitude des informations diffusées sur ce site, sans garantie d'exhaustivité. L'éditeur ne saurait être tenu responsable d'éventuelles erreurs ou omissions.</p>
+
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <nav aria-label="Navigation pied de page">
+        <ul>
+          <li><a href="offre.html">Notre offre</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="blog.html">Blog & Actu</a></li>
+          <li><a href="lexique.html">Lexique</a></li>
+          <li><a href="generateur.html">Générateur de site</a></li>
+          <li><a href="liens-utiles.html">Sites utiles</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="site-map.html">Plan du site</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Clarté Web — Tous droits réservés.</span>
+      <span>Domagné, Ille-et-Vilaine</span>
+    </div>
+  </div>
+</footer>
+
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentement aux cookies">
+  <p>Ce site utilise des cookies de mesure d'audience (Google Analytics). Vous pouvez accepter ou refuser ces traceurs.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-accept" onclick="acceptCookies()">Accepter</button>
+    <button type="button" class="cookie-reject" onclick="rejectCookies()">Refuser</button>
+  </div>
+</div>
+<script>
+(function(){
+  var banner = document.getElementById('cookie-banner');
+  var consent = localStorage.getItem('cookie_consent');
+  if(!consent){
+    banner.classList.add('show');
+  } else if(consent === 'accepted'){
+    loadAnalytics();
+  }
+})();
+function acceptCookies(){
+  localStorage.setItem('cookie_consent','accepted');
+  document.getElementById('cookie-banner').classList.remove('show');
+  loadAnalytics();
+}
+function rejectCookies(){
+  localStorage.setItem('cookie_consent','rejected');
+  document.getElementById('cookie-banner').classList.remove('show');
+}
+function loadAnalytics(){
+  // Insérer ici le script Google Analytics (GA4) une fois l'identifiant de mesure disponible
+}
+</script>
+
+</body>
+</html>

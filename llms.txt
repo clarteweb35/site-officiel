@@ -1,0 +1,23 @@
+# Clarté Web
+
+> Clarté Web conçoit des sites vitrines et travaille le référencement local pour les artisans, commerçants et petites entreprises de Domagné (Ille-et-Vilaine, France) et des communes alentours. Accompagnement direct par un interlocuteur unique, sans plateforme automatisée : le client reste propriétaire de son nom de domaine et de son site.
+
+Zone d'intervention : Domagné et environs (Ille-et-Vilaine, France).
+Public visé : artisans, commerçants et petites entreprises locales, principalement contactés par démarchage direct plutôt que via la recherche en ligne.
+
+## Pages
+
+- [Accueil](https://www.arc-en-ciel-services.fr/index.html): présentation générale de l'offre et de la méthode d'accompagnement.
+- [Notre offre](https://www.arc-en-ciel-services.fr/offre.html): détail de ce qui est inclus (site, nom de domaine, référencement local, fiche Google Maps), déroulé du projet en 5 étapes, tarifs indicatifs sur devis, foire aux questions.
+- [Réalisations](https://www.arc-en-ciel-services.fr/realisations.html): exemples de styles de sites vitrines selon l'activité du client (artisan, commerce, service local...) ; maquettes de démonstration destinées à illustrer les rendus possibles.
+- [Contact](https://www.arc-en-ciel-services.fr/contact.html): coordonnées et formulaire de contact.
+- [Blog & Actu](https://www.arc-en-ciel-services.fr/blog.html): articles courts sur la présence en ligne des artisans et commerçants locaux.
+- [Lexique](https://www.arc-en-ciel-services.fr/lexique.html): vocabulaire du web (nom de domaine, hébergement, référencement, fiche Google Maps, QR code...) expliqué en langage simple, sans jargon informatique, destiné à un public d'artisans et commerçants non familiers du web.
+- [Générateur de site express](https://www.arc-en-ciel-services.fr/generateur.html): outil gratuit côté navigateur pour générer une page HTML statique simple, sans inscription.
+
+## Optional
+
+- [Outils SEO](https://www.arc-en-ciel-services.fr/outils-seo.html): sélection commentée de 4 scanners SEO gratuits (Screaming Frog, Google Search Console, SEOptimer, Ahrefs Webmaster Tools) avec conseils d'usage selon le besoin.
+- [Sites utiles](https://www.arc-en-ciel-services.fr/liens-utiles.html): documentation officielle et outils gratuits liés au web et au SEO (Google Search Central, Google PageSpeed Insights, iLoveIMG, iLovePDF, 123apps, Remove.bg, Smash, Google Business Profile).
+- [Plan du site](https://www.arc-en-ciel-services.fr/site-map.html): liste de toutes les pages du site.
+- [Mentions légales](https://www.arc-en-ciel-services.fr/mentions-legales.html): informations légales de l'éditeur du site.

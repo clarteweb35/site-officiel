@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Clarté Web — Domagné</title>
+<meta name="description" content="Contactez Clarté Web pour discuter de votre projet de site vitrine et de référencement local à Domagné, sans engagement.">
+<link rel="canonical" href="https://www.arc-en-ciel-services.fr/contact.html">
+<link rel="stylesheet" href="style.css">
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo-mark.png" alt="">Clarté Web</a>
+    <nav class="primary" aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="offre.html">Notre offre</a></li>
+        <li><a href="realisations.html">Réalisations</a></li>
+        <li><a href="blog.html">Blog & Actu</a></li>
+        <li><a href="lexique.html">Lexique</a></li>
+        <li><a href="liens-utiles.html">Sites utiles</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section class="hero" style="padding-bottom:32px;">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h1>Parlons de votre projet</h1>
+    <p class="lede" style="max-width:640px;">Un échange rapide suffit pour savoir si votre projet colle avec cet accompagnement. Pas de démarchage automatisé, pas de plateforme : vous parlez directement à la personne qui fera votre site. Vous ne savez pas encore ce dont vous avez besoin ? Consultez <a href="offre.html">notre offre</a> ou notre <a href="lexique.html">lexique du web</a> si certains mots vous sont inconnus.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <p class="eyebrow">Coordonnées</p>
+      <dl>
+        <dt>Téléphone/Courriel</dt>
+        <dd>accessible après un contact via le formulaire</dd>
+        <dt>Secteur d'intervention</dt>
+        <dd>Domagné et communes proches uniquement</dd>
+        <dt>Disponibilité</dt>
+        <dd>Selon vos demandes</dd>
+      </dl>
+    </div>
+    <div>
+      <p class="eyebrow">Demande de devis ou renseignement</p>
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
+        <input type="hidden" name="access_key" value="5f69cbfc-d7bc-4039-9607-198dfc494e57">
+        <input type="hidden" name="redirect" value="https://www.arc-en-ciel-services.fr/merci.html">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div>
+          <label for="name">Nom / Prénom</label>
+          <input type="text" id="name" name="name" required placeholder="Votre nom complet">
+        </div>
+        <div>
+          <label for="email">Adresse email</label>
+          <input type="email" id="email" name="email" required placeholder="vous@exemple.fr">
+        </div>
+        <div>
+          <label for="phone">Téléphone</label>
+          <input type="tel" id="phone" name="phone" placeholder="06 ...">
+        </div>
+        <div>
+          <label for="service">Votre demande concerne</label>
+          <select id="service" name="service" required>
+            <option value="" disabled selected>Choisissez une option</option>
+            <option value="nouveau-site">Création d'un site vitrine</option>
+            <option value="referencement">Référencement local / fiche Google Maps</option>
+            <option value="mise-a-jour">Mise à jour d'un site existant</option>
+            <option value="autre">Autre demande</option>
+          </select>
+        </div>
+        <div>
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" required placeholder="Décrivez votre besoin en quelques lignes"></textarea>
+        </div>
+
+        <div class="h-captcha" data-captcha="true"></div>
+
+        <div>
+          <button type="submit" class="btn btn-primary">Envoyer ma demande</button>
+        </div>
+        <p style="font-size:.85rem; color:var(--slate);">Réponse sous quelques jours ouvrés. Vos coordonnées ne servent qu'à traiter votre demande.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot-grid">
+      <nav aria-label="Navigation pied de page">
+        <ul>
+          <li><a href="offre.html">Notre offre</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="blog.html">Blog & Actu</a></li>
+          <li><a href="lexique.html">Lexique</a></li>
+          <li><a href="generateur.html">Générateur de site</a></li>
+          <li><a href="liens-utiles.html">Sites utiles</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="site-map.html">Plan du site</a></li>
+          <li><a href="mentions-legales.html">Mentions légales</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Clarté Web — Tous droits réservés.</span>
+      <span>Domagné, Ille-et-Vilaine</span>
+    </div>
+  </div>
+</footer>
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Consentement aux cookies">
+  <p>Ce site utilise des cookies de mesure d'audience (Google Analytics). Vous pouvez accepter ou refuser ces traceurs.</p>
+  <div class="cookie-actions">
+    <button type="button" class="cookie-accept" onclick="acceptCookies()">Accepter</button>
+    <button type="button" class="cookie-reject" onclick="rejectCookies()">Refuser</button>
+  </div>
+</div>
+<script>
+(function(){
+  var banner = document.getElementById('cookie-banner');
+  var consent = localStorage.getItem('cookie_consent');
+  if(!consent){
+    banner.classList.add('show');
+  } else if(consent === 'accepted'){
+    loadAnalytics();
+  }
+})();
+function acceptCookies(){
+  localStorage.setItem('cookie_consent','accepted');
+  document.getElementById('cookie-banner').classList.remove('show');
+  loadAnalytics();
+}
+function rejectCookies(){
+  localStorage.setItem('cookie_consent','rejected');
+  document.getElementById('cookie-banner').classList.remove('show');
+}
+function loadAnalytics(){
+  // Charge Google Tag Manager uniquement après consentement (RGPD)
+  if(window.__gtmLoaded) return;
+  window.__gtmLoaded = true;
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KLNWW7NJ');
+}
+</script>
+
+</body>
+</html>
