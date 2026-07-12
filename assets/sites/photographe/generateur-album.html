@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outil interne — Générateur d'album (ne pas lier publiquement)</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .outil-note{
+    background: var(--laiton-wash); border: 1px solid rgba(176,141,87,.4);
+    padding: 18px 20px; font-size: .9rem; color: var(--papier); margin-bottom: 2em;
+  }
+  textarea.sortie{
+    width:100%; min-height:90px; background:var(--noir-soft); color:var(--papier);
+    border:1px solid var(--line); border-radius:2px; padding:12px 14px; font-family:monospace; font-size:.85rem;
+  }
+</style>
+</head>
+<body>
+
+<!--
+  ⚠️ OUTIL À USAGE PERSONNEL DU PHOTOGRAPHE UNIQUEMENT ⚠️
+  Ne pas lier ce fichier dans le menu public du site. Il ne doit être
+  ouvert que par toi — il ne contient rien de sensible en lui-même
+  (aucune donnée n'est envoyée nulle part, tout reste dans le navigateur),
+  mais il n'a pas vocation à être découvert par un visiteur.
+-->
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Quentin <em>Guillo</em></a>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap" style="max-width:640px;">
+      <p class="eyebrow">Outil interne</p>
+      <h1>Créer un nouvel album</h1>
+
+      <div class="outil-note">
+        Cet outil t'aide à préparer un nouvel album : il ne fait rien automatiquement sur ton site. Après génération, tu dois toi-même :<br>
+        1) copier la ligne de code dans <code>albums-data.js</code><br>
+        2) télécharger le fichier d'album et l'envoyer dans le dossier <code>albums/</code> de ton hébergement.
+      </div>
+
+      <form id="genForm" class="contact-form">
+        <div class="form-row">
+          <label for="nomClient">Nom du client / de l'événement</label>
+          <input type="text" id="nomClient" placeholder="Ex. Mariage Dupuis & Renaud" required>
+        </div>
+        <div class="form-row">
+          <label for="dateEvenement">Date</label>
+          <input type="text" id="dateEvenement" placeholder="Ex. 14 septembre 2026">
+        </div>
+        <div class="form-row">
+          <label for="codeAcces">Code d'accès</label>
+          <div style="display:flex; gap:10px;">
+            <input type="text" id="codeAcces" placeholder="Ex. DUPUIS-2026" style="flex:1;">
+            <button type="button" class="btn btn-ghost" id="genCodeBtn" style="flex-shrink:0;">Générer</button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Générer l'album</button>
+      </form>
+
+      <div id="resultat" hidden style="margin-top:2.4em;">
+        <h2 style="font-size:1.3rem;">1. Ligne à ajouter dans albums-data.js</h2>
+        <textarea class="sortie" id="sortieJs" readonly></textarea>
+
+        <h2 style="font-size:1.3rem; margin-top:1.6em;">2. Fichier d'album à uploader</h2>
+        <p class="lede" style="font-size:.9rem;">Nom de fichier : <strong id="sortieNomFichier"></strong> — à placer dans le dossier <code>albums/</code>.</p>
+        <button type="button" class="btn btn-primary" id="telechargerBtn">Télécharger le fichier album</button>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap"><p>Outil interne — non destiné aux visiteurs du site</p></div>
+</footer>
+
+<script>
+function slugify(str){
+  return str
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '') || 'album';
+}
+
+function genererCode(nom){
+  var base = nom
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toUpperCase().replace(/[^A-Z]+/g, '-').replace(/(^-|-$)/g, '');
+  var suffixe = Math.floor(1000 + Math.random() * 9000);
+  return (base || 'ALBUM') + '-' + suffixe;
+}
+
+document.getElementById('genCodeBtn').addEventListener('click', function(){
+  var nom = document.getElementById('nomClient').value.trim() || 'album';
+  document.getElementById('codeAcces').value = genererCode(nom);
+});
+
+function escapeHtml(str){
+  return (str || '').replace(/[&<>"']/g, function(c){
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+  });
+}
+
+var dernierFichier = { nom: '', contenu: '' };
+
+document.getElementById('genForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  var nom = document.getElementById('nomClient').value.trim();
+  var date = document.getElementById('dateEvenement').value.trim();
+  var code = document.getElementById('codeAcces').value.trim().toUpperCase() || genererCode(nom);
+  document.getElementById('codeAcces').value = code;
+
+  var slug = slugify(nom);
+  var nomFichier = slug + '.html';
+  var urlRelative = 'albums/' + nomFichier;
+
+  var ligneJs = '  "' + code + '": { nom: "' + nom.replace(/"/g, '\\"') + '", url: "' + urlRelative + '" },';
+  document.getElementById('sortieJs').value = ligneJs;
+  document.getElementById('sortieNomFichier').textContent = nomFichier;
+
+  var html = [
+    '<!DOCTYPE html>',
+    '<html lang="fr">',
+    '<head>',
+    '<meta charset="UTF-8">',
+    '<meta name="viewport" content="width=device-width, initial-scale=1.0">',
+    '<title>Album — ' + escapeHtml(nom) + '</title>',
+    '<meta name="robots" content="noindex, nofollow">',
+    '<link rel="preconnect" href="https://fonts.googleapis.com">',
+    '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
+    '<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">',
+    '<link rel="stylesheet" href="../style.css">',
+    '</head>',
+    '<body>',
+    '',
+    '<!-- ⚠️ Page de démonstration, non protégée réellement — voir albums-data.js -->',
+    '',
+    '<header class="site-header">',
+    '  <div class="wrap header-row">',
+    '    <a class="brand" href="../index.html">Marc <em>Solane</em></a>',
+    '    <nav aria-label="Navigation principale">',
+    '      <ul><li><a href="../espace-clients.html">&larr; Retour espace clients</a></li></ul>',
+    '    </nav>',
+    '  </div>',
+    '</header>',
+    '',
+    '<main>',
+    '  <section class="album-header">',
+    '    <div class="wrap">',
+    '      <p class="eyebrow">Album privé</p>',
+    '      <h1>' + escapeHtml(nom) + '</h1>',
+    '      <p class="lede" style="margin:0 auto;">' + escapeHtml(date) + '</p>',
+    '    </div>',
+    '  </section>',
+    '  <section>',
+    '    <div class="wrap">',
+    '      <div class="galerie-grid" aria-label="Galerie de photos (emplacements réservés)">',
+    '        <div></div><div></div><div></div>',
+    '        <div></div><div></div><div></div>',
+    '      </div>',
+    '      <p class="lede" style="margin-top:2em; font-size:.85rem;">Emplacements réservés — à remplacer par les vraies photos.</p>',
+    '    </div>',
+    '  </section>',
+    '</main>',
+    '<footer class="site-footer"><div class="wrap"><p>Marc Solane — Photographe</p></div></footer>',
+    '</body>',
+    '</html>'
+  ].join('\n');
+
+  dernierFichier = { nom: nomFichier, contenu: html };
+  document.getElementById('resultat').hidden = false;
+});
+
+document.getElementById('telechargerBtn').addEventListener('click', function(){
+  if(!dernierFichier.nom) return;
+  var blob = new Blob([dernierFichier.contenu], { type: 'text/html' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = dernierFichier.nom;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+});
+</script>
+
+</body>
+</html>

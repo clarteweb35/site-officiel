@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Quentin GUILLO, Photographe</title>
+<meta name="description" content="Contactez Marc Solane pour un devis mariage ou une séance privée. Basé à Rennes, déplacements possibles.">
+<link rel="canonical" href="https://www.Quentin-guillo-photographe.fr/contact.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Quentin <em>Guillo</em></a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="prestations.html">Prestations</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
+        <li><a href="espace-clients.html" class="nav-espace">Espace clients</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="wrap contact-grid">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h1>Parlons de votre projet</h1>
+        <p class="lede">Mariage, shooting privé, ou simple question : écrivez-moi, je réponds sous 48h.</p>
+        <dl class="coordonnees">
+          <dt>Email</dt>
+          <dd><a href="mailto:contact@marc-solane-photographe.fr">contact@marc-solane-photographe.fr</a></dd>
+          <dt>Zone</dt>
+          <dd>Rennes et alentours, déplacements possibles</dd>
+        </dl>
+      </div>
+
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row">
+          <label for="nom">Nom</label>
+          <input type="text" id="nom" name="nom" required autocomplete="name">
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+
+        <div class="form-row">
+          <label for="type-prestation">Type de prestation</label>
+          <select id="type-prestation" name="type_prestation" required>
+            <option value="" disabled selected>Choisissez une option</option>
+            <option value="mariage">Mariage</option>
+            <option value="shooting">Shooting privé</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="date">Date envisagée (si connue)</label>
+          <input type="date" id="date" name="date">
+        </div>
+
+        <div class="form-row">
+          <label for="message">Votre message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Quentin Guillo — Photographe · Rennes et alentours</p>
+    <p><a href="contact.html">Contact</a> · <a href="espace-clients.html">Espace clients</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

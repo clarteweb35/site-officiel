@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Espace clients — Quentin Guillo, Photographe</title>
+<meta name="description" content="Accédez à votre album personnel avec le code qui vous a été communiqué.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://www.marc-solane-photographe.fr/espace-clients.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!--
+  ⚠️ DÉMO PORTFOLIO — PAS UN VRAI SYSTÈME SÉCURISÉ ⚠️
+  Voir les commentaires détaillés dans albums-data.js.
+  Le code est vérifié uniquement en JavaScript, dans le navigateur du
+  visiteur : n'importe qui peut lire ce fichier et la liste complète des
+  codes/albums. Ne jamais utiliser tel quel pour de vraies photos privées.
+-->
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Quentin <em>Guillo</em></a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="prestations.html">Prestations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="espace-clients.html" aria-current="page" class="nav-espace">Espace clients</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="wrap acces-panel">
+      <p class="eyebrow" style="justify-content:center; display:flex;">Espace clients</p>
+      <h1>Accédez à votre album</h1>
+      <p class="lede" style="margin:0 auto;">Entrez le code personnel qui vous a été communiqué par email ou remis en main propre.</p>
+
+      <form class="acces-form" id="accesForm" novalidate>
+        <label for="code" class="visually-hidden">Code d'accès</label>
+        <input type="text" id="code" name="code" placeholder="VOTRE CODE" autocomplete="off" required>
+        <button type="submit" class="btn btn-primary">Voir mon album</button>
+        <p class="acces-erreur" id="accesErreur" role="alert" hidden>Ce code ne correspond à aucun album. Vérifiez la saisie ou contactez-moi.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Quentin Guillo — Photographe · Rennes et alentours</p>
+    <p><a href="contact.html">Contact</a> · <a href="espace-clients.html">Espace clients</a></p>
+  </div>
+</footer>
+
+<script src="albums-data.js"></script>
+<script>
+  // Démo côté navigateur uniquement — voir l'avertissement dans albums-data.js
+  document.getElementById('accesForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var saisie = document.getElementById('code').value.trim().toUpperCase();
+    var erreur = document.getElementById('accesErreur');
+    var album = ALBUMS[saisie];
+
+    if (album) {
+      erreur.hidden = true;
+      window.location.href = album.url;
+    } else {
+      erreur.hidden = false;
+    }
+  });
+</script>
+
+</body>
+</html>
