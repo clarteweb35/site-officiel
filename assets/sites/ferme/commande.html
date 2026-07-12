@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commande & contact — Ferme des Trois Chênes, Domagné</title>
+<meta name="description" content="Précommandez miel, jus de pomme, fromage et veau de la Ferme des Trois Chênes, ou contactez-nous pour convenir d'un retrait à Domagné (35).">
+<link rel="canonical" href="https://www.ferme-des-trois-chenes.fr/commande.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,600;1,6..72,500&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html">Ferme des Trois Chênes <span>· Domagné (35)</span></a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="a-propos.html">À propos</a></li>
+        <li><a href="nos-produits.html">Nos produits</a></li>
+        <li><a href="commande.html" aria-current="page">Commande & contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="intro">
+    <div class="wrap">
+      <span class="eyebrow">Commande & contact</span>
+      <h1>Précommander <em>ou nous écrire</em></h1>
+      <p class="lede lede--intro">Sélectionnez les produits souhaités et laissez vos coordonnées. Vous êtes recontacté pour convenir du retrait à la ferme.</p>
+    </div>
+  </section>
+
+  <section class="precommande">
+    <div class="wrap">
+
+      <div class="contact-info">
+        <span class="eyebrow">Coordonnées</span>
+        <dl>
+          <dt>Adresse</dt>
+          <dd>Lieu-dit la Basse Cour, 35113 Domagné</dd>
+          <dt>Téléphone</dt>
+          <dd><a href="tel:+33299000000">02 99 00 00 00</a></dd>
+          <dt>Vente directe à la ferme</dt>
+          <dd>Mercredis et samedis, 9h-12h30</dd>
+        </dl>
+      </div>
+
+      <form class="order-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+        <input type="hidden" name="subject" value="Nouvelle précommande — Ferme des Trois Chênes">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <fieldset>
+          <legend>Produits souhaités</legend>
+
+          <div class="order-line" id="produit-miel">
+            <label for="qte-miel">
+              <input type="checkbox" id="check-miel" name="produits[]" value="Miel de terroir">
+              Miel de terroir (pot 250 g)
+            </label>
+            <input type="number" id="qte-miel" name="qte_miel" min="0" max="20" step="1" value="0" aria-label="Quantité de pots de miel">
+          </div>
+
+          <div class="order-line" id="produit-jus-de-pomme">
+            <label for="qte-jus">
+              <input type="checkbox" id="check-jus" name="produits[]" value="Jus de pomme artisanal">
+              Jus de pomme (bouteille 75 cl)
+            </label>
+            <input type="number" id="qte-jus" name="qte_jus" min="0" max="20" step="1" value="0" aria-label="Quantité de bouteilles de jus de pomme">
+          </div>
+
+          <div class="order-line" id="produit-fromage">
+            <label for="qte-fromage">
+              <input type="checkbox" id="check-fromage" name="produits[]" value="Fromage fermier">
+              Fromage fermier (au kilo)
+            </label>
+            <input type="number" id="qte-fromage" name="qte_fromage" min="0" max="10" step="0.5" value="0" aria-label="Quantité de fromage en kilos">
+          </div>
+
+          <div class="order-line" id="produit-veau">
+            <label for="qte-veau">
+              <input type="checkbox" id="check-veau" name="produits[]" value="Veau élevé sous la mère">
+              Veau sous la mère (colis 5 kg)
+            </label>
+            <input type="number" id="qte-veau" name="qte_veau" min="0" max="5" step="1" value="0" aria-label="Nombre de colis de veau">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Vos coordonnées</legend>
+
+          <div class="form-row">
+            <label for="nom">Nom et prénom</label>
+            <input type="text" id="nom" name="nom" required autocomplete="name">
+          </div>
+
+          <div class="form-row">
+            <label for="telephone">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" required
+                   pattern="^(0|\+33)[1-9](\s?\d{2}){4}$"
+                   placeholder="06 12 34 56 78" autocomplete="tel">
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+
+          <div class="form-row">
+            <label for="date-retrait">Date de retrait souhaitée</label>
+            <input type="date" id="date-retrait" name="date_retrait">
+          </div>
+
+          <div class="form-row">
+            <label for="message">Message (optionnel)</label>
+            <textarea id="message" name="message" rows="3"></textarea>
+          </div>
+        </fieldset>
+
+        <button type="submit">Envoyer ma précommande</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p class="footer-brand">Ferme des Trois Chênes</p>
+    <p>Lieu-dit la Basse Cour, 35113 Domagné — Vente directe les mercredis et samedis, 9h-12h30.</p>
+    <p><a href="plan-du-site.html" style="color:#D9CFC0;">Plan du site</a> · <a href="mentions-legales.html" style="color:#D9CFC0;">Mentions légales</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

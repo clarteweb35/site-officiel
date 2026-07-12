@@ -1,0 +1,421 @@
+/* =========================================================================
+   FERME DES TROIS CHÊNES — "Artisanat Haut de Gamme"
+   -------------------------------------------------------------------------
+   Palette volontairement différente du duo "crème pâle + terracotta" trop
+   vu sur les sites artisanaux : sable plus profond, encre brune (pas noir
+   pur), un seul accent lie-de-vin, un filet or réservé aux détails.
+   Zéro JS : tout le rendu "magazine" vient de CSS Grid + marges négatives.
+   ========================================================================= */
+
+:root{
+  --ink:        #2B2420;  /* texte principal : brun encre */
+  --cream:      #F1E9DA;  /* fond de page : sable */
+  --panel:      #FEFCF8;  /* surfaces claires */
+  --wine:       #6E2A34;  /* accent unique : liens, prix, CTA */
+  --wine-wash:  #F1DEDD;  /* fond pâle pour citation */
+  --gold:       #B8873A;  /* filet fin, jamais en aplat */
+  --line:       rgba(43,36,32,.16);
+  --muted:      #6B6157;
+
+  --shadow-soft: 0 30px 60px -34px rgba(43,36,32,.30);
+  --shadow-card: 0 18px 40px -26px rgba(43,36,32,.28);
+  --ease: cubic-bezier(.22,1,.36,1);
+
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Karla', system-ui, sans-serif;
+
+  --maxw: 1120px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+.wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+a{ color: var(--wine); }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--wine); outline-offset: 3px;
+}
+
+.eyebrow{
+  display: block;
+  font-weight: 700;
+  font-size: .78rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--wine);
+  margin-bottom: 1.1em;
+}
+
+h1, h2{
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  margin: 0 0 .55em;
+  color: var(--ink);
+}
+h1{ font-size: clamp(2.3rem, 1.7rem + 2.6vw, 3.6rem); }
+h2{ font-size: clamp(2rem, 1.6rem + 1.8vw, 2.9rem); }
+h1 em, h2 em{ font-style: italic; font-weight: 500; color: var(--wine); }
+
+/* =========================================================================
+   HEADER
+   ========================================================================= */
+.site-header{
+  background: rgba(241,233,218,.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 20;
+}
+.header-row{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 14px; flex-wrap: wrap; padding: 16px 24px;
+}
+.brand{
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+.brand span{ font-family: var(--font-body); font-weight: 400; font-size: .82rem; color: var(--muted); }
+
+.site-header nav ul{
+  list-style: none; display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 0; padding: 0;
+}
+.site-header nav a{
+  text-decoration: none; color: var(--ink); font-weight: 600; font-size: .93rem;
+  border-bottom: 1px solid transparent; padding-bottom: 2px;
+  transition: border-color .3s var(--ease), color .3s var(--ease);
+}
+.site-header nav a:hover{ border-color: var(--wine); color: var(--wine); }
+.nav-cta{
+  border: 1px solid var(--wine) !important;
+  border-radius: 999px;
+  padding: 6px 16px;
+  color: var(--wine) !important;
+}
+.nav-cta:hover{ background: var(--wine); color: var(--panel) !important; }
+
+/* =========================================================================
+   INTRO
+   ========================================================================= */
+.intro{ padding: clamp(56px, 8vw, 96px) 0 clamp(24px, 4vw, 40px); }
+.lede{ font-size: 1.08rem; color: var(--ink); }
+.lede--intro{ max-width: 620px; color: var(--muted); font-size: 1.12rem; }
+
+/* =========================================================================
+   PRODUIT — mise en page magazine asymétrique
+   ========================================================================= */
+.produit{ padding: clamp(48px, 7vw, 96px) 0; border-top: 1px solid var(--line); }
+
+.produit-grille{
+  display: grid; grid-template-columns: 1fr; gap: 36px;
+}
+@media (min-width: 860px){
+  .produit-grille{ grid-template-columns: 1.05fr 1fr; gap: 0 56px; align-items: center; }
+  .produit-visuel{ margin-right: -64px; }
+  .produit--inverse .produit-grille{ grid-template-columns: 1fr 1.05fr; }
+  .produit--inverse .produit-visuel{ order: 2; margin-right: 0; margin-left: -64px; }
+  .produit--inverse .produit-texte{ order: 1; }
+}
+
+.produit-visuel{ position: relative; }
+.visuel-bloc{
+  aspect-ratio: 4 / 5;
+  border-radius: 3px;
+  background: linear-gradient(155deg, #8C5A3A, #4A3324);
+  box-shadow: var(--shadow-soft);
+}
+.produit-visuel figcaption{ margin-top: 12px; font-size: .8rem; color: var(--muted); font-style: italic; }
+
+.produit-texte{ max-width: 480px; }
+
+.produit .lede::first-letter{
+  font-family: var(--font-display);
+  font-size: 3.4em; font-weight: 600; float: left; line-height: .82;
+  padding: .05em .07em 0 0; color: var(--wine);
+}
+
+.meta-row{
+  list-style: none; display: flex; flex-wrap: wrap; gap: 0;
+  margin: 1.6em 0; padding: 0;
+  border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.meta-row li{
+  padding: 14px 22px 14px 0; margin-right: 22px;
+  border-right: 1px solid var(--line); font-size: .92rem;
+}
+.meta-row li:last-child{ border-right: none; margin-right: 0; }
+.meta-row span{
+  display: block; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: .3em;
+}
+
+.citation{
+  background: var(--wine-wash);
+  border-left: 2px solid var(--wine);
+  padding: 16px 20px; margin: 1.6em 0;
+  font-family: var(--font-display); font-style: italic; font-size: 1.02rem;
+  color: var(--ink);
+}
+.citation footer{
+  margin-top: .6em; font-family: var(--font-body); font-style: normal;
+  font-size: .78rem; color: var(--muted);
+}
+
+.prix{ font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--ink); margin: 0 0 .2em; }
+.prix span{ font-family: var(--font-body); font-size: .85rem; font-weight: 400; color: var(--muted); }
+
+.lien-produit{
+  display: inline-flex; align-items: center; gap: .4em;
+  margin-top: .6em; font-weight: 700; font-size: .96rem;
+  text-decoration: none; color: var(--wine);
+  border-bottom: 1px solid transparent;
+  transition: border-color .35s var(--ease), gap .35s var(--ease);
+}
+.lien-produit:hover{ border-color: var(--wine); gap: .6em; }
+
+/* =========================================================================
+   PRÉCOMMANDE
+   ========================================================================= */
+.precommande{ padding: clamp(56px, 8vw, 100px) 0; border-top: 1px solid var(--line); }
+.precommande > .wrap > .lede{ max-width: 560px; color: var(--muted); margin-bottom: 2em; }
+
+.order-form{ max-width: 580px; display: grid; gap: 26px; }
+fieldset{
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 22px 24px;
+  margin: 0;
+  background: var(--panel);
+  box-shadow: var(--shadow-card);
+}
+legend{
+  font-family: var(--font-display); font-weight: 600; font-size: 1.15rem;
+  padding: 0 8px; color: var(--ink);
+}
+
+.order-line{
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 12px 0; border-bottom: 1px solid var(--line);
+}
+.order-line:last-child{ border-bottom: none; }
+.order-line label{ display: flex; align-items: center; gap: 8px; font-size: .95rem; }
+.order-line input[type="number"]{
+  width: 70px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px;
+  font: inherit; background: var(--cream); color: var(--ink);
+}
+
+.form-row{ margin-bottom: 16px; }
+.form-row:last-child{ margin-bottom: 0; }
+.form-row label{ display: block; font-weight: 600; font-size: .88rem; margin-bottom: 5px; color: var(--ink); }
+.form-row input, .form-row textarea{
+  width: 100%; padding: 11px 13px; border: 1px solid var(--line); border-radius: 6px;
+  font: inherit; background: var(--cream); color: var(--ink);
+  transition: border-color .3s var(--ease);
+}
+.form-row input:focus, .form-row textarea:focus{ border-color: var(--wine); outline: none; }
+.form-row textarea{ resize: vertical; }
+
+.order-form button{
+  justify-self: start;
+  background: var(--wine); color: var(--panel);
+  border: none; font: inherit; font-weight: 700;
+  padding: 14px 30px; border-radius: 999px; cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.order-form button:hover{ transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.site-footer{
+  background: var(--ink); color: #EDE6DA;
+  padding: 40px 0; margin-top: 20px;
+}
+.footer-brand{
+  font-family: var(--font-display); font-size: 1.1rem; font-weight: 600;
+  margin: 0 0 .3em; color: #fff;
+}
+.site-footer p{ margin: 0 0 .3em; font-size: .9rem; color: #D9CFC0; }
+
+@media (max-width: 480px){
+  .header-row{ justify-content: center; text-align: center; }
+}
+
+/* =========================================================================
+   PAGE PRODUIT (détail) — hero + galerie + process de fabrication
+   ========================================================================= */
+.produit-hero{ padding: clamp(48px, 7vw, 90px) 0 clamp(32px, 5vw, 56px); }
+.produit-hero .wrap{ max-width: 760px; }
+.produit-hero .lede{ max-width: 600px; color: var(--muted); font-size: 1.1rem; }
+
+.produit-hero-visuel{
+  aspect-ratio: 21 / 9;
+  border-radius: 4px;
+  box-shadow: var(--shadow-soft);
+  margin: 1.6em 0 0;
+}
+
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 1.6em 0;
+}
+.gallery-grid .visuel-bloc{ aspect-ratio: 1 / 1; box-shadow: var(--shadow-card); }
+@media (max-width: 640px){
+  .gallery-grid{ grid-template-columns: 1fr 1fr; }
+  .gallery-grid > :first-child{ grid-column: 1 / -1; aspect-ratio: 16/9; }
+}
+
+.process{ padding: clamp(40px, 6vw, 72px) 0; border-top: 1px solid var(--line); }
+.process-steps{ counter-reset: etape; list-style: none; padding: 0; margin: 2em 0 0; max-width: 640px; }
+.process-steps li{
+  counter-increment: etape;
+  position: relative;
+  padding: 0 0 30px 56px;
+  border-left: 1px solid var(--line);
+  margin-left: 20px;
+}
+.process-steps li:last-child{ border-left-color: transparent; padding-bottom: 0; }
+.process-steps li::before{
+  content: counter(etape);
+  position: absolute; left: -21px; top: -2px;
+  width: 40px; height: 40px;
+  background: var(--wine); color: var(--panel);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 600; font-size: 1rem;
+}
+.process-steps h3{
+  font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; margin: 0 0 .3em;
+}
+.process-steps p{ color: var(--muted); margin: 0; }
+
+.produit-detail-footer{
+  padding: clamp(40px, 6vw, 72px) 0 clamp(56px, 8vw, 90px);
+  border-top: 1px solid var(--line);
+}
+.retour-lien{
+  display: inline-block; margin-bottom: 1.6em; font-weight: 600; font-size: .92rem;
+  color: var(--muted); text-decoration: none;
+}
+.retour-lien:hover{ color: var(--wine); }
+
+/* =========================================================================
+   PAGE À PROPOS
+   ========================================================================= */
+.about-grid{
+  display: grid; grid-template-columns: 1fr; gap: 32px;
+}
+@media (min-width: 860px){
+  .about-grid{ grid-template-columns: 1fr 1fr; gap: 56px; align-items: start; }
+}
+.valeurs-list{ list-style: none; padding: 0; margin: 1.6em 0 0; display: grid; gap: 18px; }
+.valeurs-list li{
+  padding: 18px 20px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: var(--shadow-card);
+}
+.valeurs-list h3{
+  font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin: 0 0 .3em;
+}
+.valeurs-list p{ margin: 0; color: var(--muted); font-size: .95rem; }
+
+/* =========================================================================
+   NOS PRODUITS — carte de renvoi vers chaque fiche produit
+   ========================================================================= */
+.produit-carte-lien{
+  text-decoration: none; color: inherit; display: block;
+  margin-top: .8em; font-weight: 700; font-size: .96rem; color: var(--wine);
+}
+.produit-carte-lien:hover{ text-decoration: underline; }
+
+/* =========================================================================
+   ACCUEIL — aperçus condensés (pas de duplication du contenu détaillé)
+   ========================================================================= */
+.apercu{ padding: clamp(48px, 7vw, 88px) 0; border-top: 1px solid var(--line); }
+.apercu .lede{ max-width: 640px; color: var(--muted); }
+
+.produits-teaser-grid{
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;
+  margin-top: 2em;
+}
+@media (min-width: 860px){
+  .produits-teaser-grid{ grid-template-columns: repeat(4, 1fr); }
+}
+.produit-teaser-card{
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: transform .4s var(--ease), box-shadow .4s var(--ease);
+}
+.produit-teaser-card:hover{ transform: translateY(-5px); box-shadow: var(--shadow-soft); }
+.produit-teaser-card .visuel-bloc{
+  aspect-ratio: 4 / 3; border-radius: 0; box-shadow: none;
+}
+.produit-teaser-card .teaser-corps{ padding: 16px 18px 20px; }
+.produit-teaser-card .eyebrow{ margin-bottom: .5em; font-size: .68rem; }
+.produit-teaser-card h3{
+  font-family: var(--font-display); font-weight: 600; font-size: 1.1rem; margin: 0 0 .3em;
+}
+.produit-teaser-card p{ margin: 0; font-size: .88rem; color: var(--muted); }
+
+/* =========================================================================
+   CONTACT / COORDONNÉES (page commande)
+   ========================================================================= */
+.contact-info{ margin-bottom: 2.4em; }
+.contact-info dl{ margin: 0; }
+.contact-info dt{
+  font-size: .74rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin-top: 1.2em;
+}
+.contact-info dd{ margin: 0; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+
+/* =========================================================================
+   MENTIONS LÉGALES
+   ========================================================================= */
+.legal{ max-width: 680px; }
+.legal h2{ font-size: 1.3rem; margin-top: 1.6em; }
+.legal p{ color: var(--muted); }
+
+/* =========================================================================
+   PLAN DU SITE
+   ========================================================================= */
+.sitemap-list{ list-style: none; padding: 0; margin: 1.6em 0 0; display: grid; gap: 10px; max-width: 480px; }
+.sitemap-list a{ font-weight: 600; text-decoration: none; }
+.sitemap-list a:hover{ text-decoration: underline; }
+.sitemap-list .sub{ margin: 8px 0 0 18px; padding: 0; list-style: none; display: grid; gap: 8px; }
+.sitemap-list .sub a{ font-weight: 400; color: var(--ink); font-size: .95rem; }
+
+
+.icon-valeur {
+    width: 240px !important;    /* Force la largeur à 40px */
+    height:140px !important;   /* Force la hauteur à 40px */
+    object-fit: contain;       /* S'assure que l'image ne soit pas déformée */
+    display: block;            /* Évite les espaces bizarres sous l'image */
+}
