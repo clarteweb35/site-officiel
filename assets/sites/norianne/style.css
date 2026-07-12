@@ -1,11 +1,10 @@
 /* =========================================================================
-   CHEZ NADIA — Cuisine comorienne sur commande
+   FELIZCOOK — Saveurs artisanales, plaisir maximal
    -------------------------------------------------------------------------
-   Palette inspirée des Comores plutôt que d'un thème "food" générique :
-   vanille (l'archipel en est l'un des premiers producteurs mondiaux),
-   lagon turquoise profond, épices (safran/curcuma), piment en accent
-   ponctuel réservé au badge "épicé" — jamais utilisé ailleurs, pour
-   qu'il garde sa fonction de signal.
+   Palette chaleureuse et festive : vanille en fond, lagon profond en
+   accent principal, piment réservé aux mentions "épicé"/mise en avant
+   ponctuelle. Adaptée d'une base existante, conservée pour sa lisibilité
+   et son ambiance conviviale — sans lien avec une cuisine en particulier.
    ========================================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&family=Mulish:wght@400;500;600;700;800&display=swap');
@@ -16,8 +15,8 @@
   --lagon:    #0B5D5A;  /* accent principal : liens, CTA, en-têtes */
   --lagon-dk: #084543;
   --epice:    #E2793A;  /* accent chaud : bordures, éléments secondaires */
-  --piment:   #C23B3B;  /* réservé au badge "épicé", nulle part ailleurs */
-  --clou:     #2B1B14;  /* texte principal, brun clou de girofle */
+  --piment:   #C23B3B;  /* réservé aux mentions "épicé" / mise en avant */
+  --clou:     #2B1B14;  /* texte principal */
   --muted:    #6E6154;
   --line:     rgba(43,27,20,.14);
 
@@ -135,13 +134,6 @@ h3{ font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; marg
   position: relative;
   overflow: hidden;
 }
-.hero-visual::after{
-  content: "";
-  position: absolute; inset: 0;
-  background:
-    radial-gradient(circle at 25% 30%, rgba(255,255,255,.25), transparent 40%),
-    radial-gradient(circle at 75% 75%, rgba(255,255,255,.15), transparent 45%);
-}
 
 .occasions-chips{ display: flex; flex-wrap: wrap; gap: 10px; }
 .occasions-chips span{
@@ -156,28 +148,6 @@ h3{ font-family: var(--font-display); font-weight: 400; font-size: 1.25rem; marg
 section{ padding: clamp(48px, 6vw, 88px) 0; }
 .section-alt{ background: var(--panel); }
 .section-head{ max-width: 620px; margin-bottom: 2em; }
-
-/* =========================================================================
-   BADGES plats (épicé, halal, viande, format)
-   ========================================================================= */
-.badges{ display: flex; flex-wrap: wrap; gap: 8px; margin: .8em 0 1em; }
-.badge{
-  display: inline-flex; align-items: center; gap: 5px;
-  font-size: .74rem; font-weight: 700;
-  padding: 5px 11px; border-radius: 999px;
-  border: 1px solid var(--line);
-  background: var(--vanille);
-  color: var(--clou);
-}
-.badge-epice{ background: #FBEAE8; border-color: rgba(194,59,59,.35); color: var(--piment); }
-.badge-halal{ background: #E9F3F1; border-color: rgba(11,93,90,.3); color: var(--lagon-dk); }
-.badge-vege{ background: #EEF4E4; border-color: rgba(90,120,50,.3); color: #4E6B2A; }
-
-.format-tag{
-  display: inline-flex; align-items: center; gap: 6px;
-  font-size: .78rem; font-weight: 700; color: var(--lagon-dk);
-}
-.format-tag::before{ content: "●"; font-size: .6rem; color: var(--epice); }
 
 /* =========================================================================
    TEASER PLATS (accueil)
@@ -198,36 +168,59 @@ section{ padding: clamp(48px, 6vw, 88px) 0; }
 .plat-teaser-card p{ margin: 0; font-size: .86rem; color: var(--muted); }
 
 /* =========================================================================
-   FICHES PLATS (page produits)
+   CATÉGORIES & FICHES PRODUIT (page produits)
    ========================================================================= */
-.menu-liste{ display: grid; gap: 22px; margin-top: 1.4em; }
+.categorie-titre{
+  font-family: var(--font-display); color: var(--lagon-dk);
+  text-align: center; font-size: 1.1rem; letter-spacing: .06em; text-transform: uppercase;
+  margin: 0 0 1.6em;
+  position: relative;
+}
+.categorie-titre::before, .categorie-titre::after{
+  content: ""; display: inline-block; width: 40px; height: 1px;
+  background: var(--epice); vertical-align: middle; margin: 0 14px;
+}
+
+.menu-liste{ display: grid; gap: 18px; margin-bottom: 3em; }
+.menu-liste:last-child{ margin-bottom: 0; }
 .plat-carte{
   background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
-  padding: 26px 28px; box-shadow: var(--shadow-card);
+  padding: 24px 26px; box-shadow: var(--shadow-card);
   display: grid; grid-template-columns: 1fr; gap: 14px;
 }
 @media (min-width: 700px){
   .plat-carte{ grid-template-columns: 1fr auto; align-items: center; gap: 24px; }
 }
-.plat-carte h3{ font-size: 1.35rem; }
+.plat-carte h3{ font-size: 1.3rem; }
 .plat-carte p.desc{ color: var(--muted); margin: .4em 0 0; max-width: 560px; }
+.plat-image{ width: 100%; max-width: 220px; border-radius: 10px; object-fit: cover; aspect-ratio: 1; }
+
 .plat-prix{
-  font-family: var(--font-display); font-size: 1.4rem; color: var(--lagon-dk);
+  font-family: var(--font-display); color: var(--lagon-dk);
   white-space: nowrap; text-align: right;
 }
-.plat-prix span{ display: block; font-family: var(--font-body); font-size: .74rem; font-weight: 600; color: var(--muted); }
+.plat-prix .prix-piece{ font-size: 1.3rem; display: block; }
+.plat-prix .prix-lot{
+  display: block; font-family: var(--font-body); font-size: .82rem; font-weight: 700;
+  color: var(--epice); margin-top: .3em;
+}
+.plat-prix .prix-unite{ font-family: var(--font-body); font-size: .74rem; font-weight: 600; color: var(--muted); display:block; }
 
-.boissons-liste{ display: grid; grid-template-columns: 1fr; gap: 18px; margin-top: 1.2em; }
-@media (min-width: 620px){ .boissons-liste{ grid-template-columns: 1fr 1fr; } }
-.boisson-carte{
-  background: var(--vanille); border: 1px solid var(--line); border-radius: 12px;
-  padding: 20px 22px;
+.badges{ display: flex; flex-wrap: wrap; gap: 8px; margin: .8em 0 0; }
+.badge{
+  display: inline-flex; align-items: center; gap: 5px;
+  font-size: .74rem; font-weight: 700;
+  padding: 5px 11px; border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--vanille);
+  color: var(--clou);
 }
 
-.note-format{
-  background: #E9F3F1; border: 1px solid rgba(11,93,90,.25); border-radius: 10px;
-  padding: 16px 20px; margin-top: 2em; font-size: .92rem; color: var(--lagon-dk);
+.devis-note{
+  background: #E9F3F1; border: 1px solid rgba(11,93,90,.25); border-radius: 12px;
+  padding: 22px 26px; margin-top: 2em; text-align: center;
 }
+.devis-note p{ margin: 0; color: var(--lagon-dk); font-weight: 600; }
 
 /* =========================================================================
    COMMANDE / CONTACT
@@ -245,8 +238,13 @@ fieldset{
 }
 legend{ font-family: var(--font-display); font-weight: 400; font-size: 1.1rem; padding: 0 8px; color: var(--lagon-dk); }
 
-.plats-checklist{ display: grid; gap: 8px; }
-.plats-checklist label{ display: flex; align-items: center; gap: 10px; font-size: .94rem; }
+.plats-checklist{ display: grid; gap: 10px; }
+.plats-checklist label{ display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: .94rem; }
+.plats-checklist .qte{ display: flex; align-items: center; gap: 8px; }
+.plats-checklist input[type="number"]{
+  width: 60px; padding: 6px 8px; border: 1px solid var(--line); border-radius: 6px;
+  font: inherit; background: var(--vanille); color: var(--clou);
+}
 
 .form-row{ margin-bottom: 14px; }
 .form-row:last-child{ margin-bottom: 0; }
@@ -268,84 +266,33 @@ legend{ font-family: var(--font-display); font-weight: 400; font-size: 1.1rem; p
 .order-form button:hover{ background: var(--lagon-dk); transform: translateY(-2px); }
 
 /* =========================================================================
+   RÉSEAUX (bandeau contact)
+   ========================================================================= */
+.reseaux-liste{ list-style: none; padding: 0; margin: 1.4em 0 0; display: flex; flex-wrap: wrap; gap: 12px; }
+.reseaux-liste a{
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 999px;
+  padding: 9px 18px; font-weight: 700; font-size: .88rem; color: var(--lagon-dk);
+  text-decoration: none;
+}
+.reseaux-liste a:hover{ border-color: var(--lagon); }
+
+/* =========================================================================
    FOOTER
    ========================================================================= */
 .site-footer{ background: var(--lagon-dk); color: #DCEAE8; padding: 36px 0; margin-top: 20px; }
 .footer-brand{ font-family: var(--font-display); font-weight: 400; font-size: 1.15rem; color: #fff; margin: 0 0 .3em; }
 .site-footer p{ margin: 0 0 .3em; font-size: .87rem; color: #C3D8D5; }
+.site-footer a{ color: #fff; }
+.footer-links ul{ list-style:none; display:flex; gap:16px; margin: 10px 0; padding: 0; }
+.footer-credits{ margin-top: 14px; font-size: .8rem; opacity: .8; }
 
 @media (max-width: 480px){
   .header-row{ justify-content: center; text-align: center; }
 }
 
 /* =========================================================================
-   FICHE PRODUIT DÉTAILLÉE
+   CGV
    ========================================================================= */
-.fiche-hero{ padding: clamp(48px, 6vw, 84px) 0 clamp(32px, 5vw, 48px); }
-.fiche-hero .wrap{ max-width: 820px; }
-.retour-lien{
-  display: inline-block; margin-bottom: 1.4em; font-weight: 700; font-size: .9rem;
-  color: var(--muted); text-decoration: none;
-}
-.retour-lien:hover{ color: var(--lagon); }
-
-.fiche-photo{
-  aspect-ratio: 4 / 3;
-  border-radius: 20px;
-  background: linear-gradient(150deg, var(--epice), var(--lagon));
-  box-shadow: var(--shadow-soft);
-  position: relative;
-  margin: 1.4em 0 1.2em;
-  overflow: hidden;
-}
-/* Anneau décoratif façon bord d'assiette, en attendant la vraie photo */
-.fiche-photo::before{
-  content: "";
-  position: absolute; inset: 14px;
-  border: 2px solid rgba(255,255,255,.35);
-  border-radius: 14px;
-  pointer-events: none;
-}
-.fiche-photo-note{ font-size: .8rem; color: var(--muted); font-style: italic; margin-top: -.6em; }
-
-.fiche-tagline{
-  font-family: var(--font-display); font-weight: 400; font-style: normal;
-  font-size: 1.15rem; color: var(--lagon-dk);
-  border-left: 3px solid var(--epice);
-  padding-left: 16px;
-  margin: 1.4em 0;
-}
-
-.fiche-section{ padding: clamp(36px, 5vw, 60px) 0; border-top: 1px solid var(--line); }
-.fiche-section .wrap{ max-width: 820px; }
-.fiche-section h2{ font-size: clamp(1.4rem, 1.2rem + 1vw, 1.9rem); }
-
-.ingredients-list{
-  list-style: none; padding: 0; margin: 1em 0;
-  display: flex; flex-wrap: wrap; gap: 8px;
-}
-.ingredients-list li{
-  font-size: .88rem; background: var(--vanille);
-  border: 1px solid var(--line); border-radius: 999px;
-  padding: 6px 14px; color: var(--clou);
-}
-.badge-allergene{ background: #FCEFD9; border-color: rgba(226,121,58,.4); color: #8A4E14; }
-
-.info-cards-grid{
-  display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 1.4em;
-}
-@media (min-width: 700px){ .info-cards-grid{ grid-template-columns: repeat(2, 1fr); } }
-.info-card{
-  background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
-  padding: 20px 22px; box-shadow: var(--shadow-card);
-}
-.info-card .icone{ font-size: 1.4rem; display: block; margin-bottom: .4em; }
-.info-card h3{ font-size: 1.02rem; margin-bottom: .3em; }
-.info-card p{ margin: 0; font-size: .92rem; color: var(--muted); }
-
-.fiche-footer{
-  padding: clamp(40px, 6vw, 68px) 0 clamp(56px, 7vw, 84px);
-  border-top: 1px solid var(--line);
-  text-align: center;
-}
-.fiche-footer .plat-prix{ font-size: 1.7rem; }
+.cgv-body h3{ margin-top: 1.8em; }
+.cgv-body p{ color: var(--muted); }
