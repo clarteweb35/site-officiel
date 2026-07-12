@@ -1,0 +1,347 @@
+/* =========================================================================
+   SMASH CLUB — direction "Trajectoire"
+   -------------------------------------------------------------------------
+   Un seul motif signature : l'arc du smash, répété avec discipline (séparateurs
+   de section, soulignement animé des liens) plutôt que dix micro-interactions
+   sans rapport entre elles. Palette volontairement hors bleu/blanc/rouge :
+   encre profonde + citron-vert (couleur réelle d'un volant de compétition),
+   corail réservé exclusivement à la rubrique Tournois pour garder sa valeur
+   de signal.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Figtree:wght@400;500;600;700&display=swap');
+
+:root{
+  --ink:       #14171C;
+  --ink-soft:  #1E222A;
+  --paper:     #F5F4EF;
+  --panel:     #FFFFFF;
+  --citron:    #D4E157;
+  --citron-dk: #7C8A1E;  /* version foncée, utilisable comme texte/lien sur fond clair */
+  --corail:    #E8542E;  /* réservé exclusivement à Tournois */
+  --line:      rgba(20,23,28,.13);
+  --muted:     #5C6168;
+
+  --shadow-sm: 0 2px 10px -6px rgba(20,23,28,.18);
+  --shadow-md: 0 20px 40px -22px rgba(20,23,28,.30);
+  --ease: cubic-bezier(.22,1,.36,1);
+
+  --font-display: 'Archivo', system-ui, sans-serif;
+  --font-body: 'Figtree', system-ui, sans-serif;
+
+  --maxw: 1100px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+.wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+img{ max-width: 100%; display: block; }
+
+/* Lien : soulignement courbe façon trajectoire de volant, au survol */
+a{
+  color: var(--ink); text-decoration: none;
+  background-image: linear-gradient(var(--citron), var(--citron));
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  background-position: 0 100%;
+  transition: background-size .35s var(--ease);
+  padding-bottom: 1px;
+}
+a:hover{ background-size: 100% 2px; }
+a.btn, a.tile, a.card-link, .no-underline{ background-image: none; }
+
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible{
+  outline: 2px solid var(--citron-dk); outline-offset: 3px;
+}
+
+h1, h2, h3{
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -.01em;
+  margin: 0 0 .5em;
+  color: var(--ink);
+}
+h1{ font-size: clamp(2.3rem, 1.7rem + 2.8vw, 3.8rem); }
+h2{ font-size: clamp(1.7rem, 1.4rem + 1.4vw, 2.4rem); }
+h3{ font-size: 1.15rem; font-weight: 700; }
+
+.eyebrow{
+  display: block; font-weight: 700; font-size: .74rem;
+  letter-spacing: .14em; text-transform: uppercase; color: var(--citron-dk);
+  margin-bottom: 1em;
+}
+.lede{ font-size: 1.06rem; color: var(--muted); max-width: 580px; }
+
+/* =========================================================================
+   HEADER + dropdown "Le Club" via <details> (zéro JS)
+   ========================================================================= */
+.site-header{
+  background: rgba(245,244,239,.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 40;
+}
+.header-row{
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px; padding: 16px 24px;
+}
+.brand{
+  font-family: var(--font-display); font-weight: 900; font-size: 1.2rem;
+  color: var(--ink); text-decoration: none; background-image: none;
+  display: flex; align-items: center; gap: 8px;
+}
+.brand .mark{ color: var(--citron-dk); }
+
+.site-header nav{ display: flex; align-items: center; }
+.site-header nav ul{ list-style: none; display: flex; align-items: center; flex-wrap: wrap; gap: 6px 22px; margin: 0; padding: 0; }
+.site-header nav > ul > li > a, .nav-summary{
+  text-decoration: none; color: var(--ink); font-weight: 700; font-size: .92rem;
+  background-image: none; cursor: pointer;
+}
+.site-header nav > ul > li > a[aria-current="page"]{ color: var(--citron-dk); }
+
+.nav-dropdown{ position: relative; }
+.nav-dropdown summary{ list-style: none; display:flex; align-items:center; gap:4px; }
+.nav-dropdown summary::-webkit-details-marker{ display:none; }
+.nav-dropdown summary::after{ content:"▾"; font-size:.7em; color: var(--muted); }
+.nav-dropdown[open] summary::after{ content:"▴"; }
+.nav-dropdown .sous-menu{
+  position: absolute; top: calc(100% + 12px); left: 0;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 8px;
+  box-shadow: var(--shadow-md); padding: 8px; min-width: 200px;
+  list-style: none; margin: 0;
+}
+.nav-dropdown .sous-menu li a{ display: block; padding: 9px 12px; border-radius: 6px; font-weight: 600; font-size: .9rem; background-image:none; }
+.nav-dropdown .sous-menu li a:hover{ background: var(--paper); }
+
+.nav-cta{
+  background: var(--ink); color: var(--paper) !important;
+  padding: 9px 18px; border-radius: 999px; font-weight: 700;
+}
+.nav-cta:hover{ background: var(--citron-dk); }
+
+/* =========================================================================
+   BOUTONS
+   ========================================================================= */
+.btn{
+  display: inline-flex; align-items: center; gap: .5em;
+  font-family: var(--font-body); font-weight: 700; font-size: .95rem;
+  padding: 13px 26px; border-radius: 999px; text-decoration: none;
+  border: 1.5px solid transparent; cursor: pointer;
+  transition: transform .3s var(--ease), background .25s var(--ease), box-shadow .3s var(--ease);
+}
+.btn-primary{ background: var(--ink); color: var(--paper); }
+.btn-primary:hover{ background: var(--citron-dk); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-citron{ background: var(--citron); color: var(--ink); }
+.btn-citron:hover{ background: var(--ink); color: var(--paper); }
+.btn-ghost{ background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover{ background: var(--panel); }
+.btn-corail{ background: var(--corail); color: #fff; }
+.btn-corail:hover{ background: #C7431F; }
+
+/* =========================================================================
+   ARC DIVIDER — motif signature entre sections
+   ========================================================================= */
+.arc-divider{ line-height: 0; }
+.arc-divider svg{ width: 100%; height: 40px; display: block; }
+
+/* =========================================================================
+   HERO
+   ========================================================================= */
+.hero{ background: var(--ink); color: var(--paper); padding: clamp(56px, 7vw, 96px) 0 clamp(40px, 5vw, 56px); }
+.hero .eyebrow{ color: var(--citron); }
+.hero h1{ color: #fff; }
+.hero-lede{ font-size: 1.12rem; color: #C7CBCF; max-width: 560px; margin: 0 0 1.8em; }
+.hero-actions{ display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 2.2em; }
+
+.tiles-grid{ display: grid; grid-template-columns: 1fr; gap: 14px; }
+@media (min-width: 700px){ .tiles-grid{ grid-template-columns: repeat(3, 1fr); } }
+.tile{
+  display: block; background: var(--ink-soft); border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px; padding: 20px 22px; text-decoration: none; color: var(--paper);
+  transition: transform .3s var(--ease), border-color .3s var(--ease);
+}
+.tile:hover{ transform: translateY(-4px); border-color: var(--citron); }
+.tile .tile-emoji{ font-size: 1.4rem; display:block; margin-bottom:.4em; }
+.tile strong{ display: block; font-family: var(--font-display); font-size: 1rem; margin-bottom: .2em; }
+.tile span{ font-size: .85rem; color: #A8ADB3; }
+
+/* =========================================================================
+   SECTIONS génériques
+   ========================================================================= */
+section{ padding: clamp(48px, 6vw, 84px) 0; }
+.section-alt{ background: var(--panel); }
+.section-head{ max-width: 620px; margin-bottom: 2.2em; }
+
+/* Chronique éditoriale */
+.chronique{
+  background: var(--panel); border: 1px solid var(--line); border-radius: 14px;
+  padding: clamp(28px, 4vw, 40px); box-shadow: var(--shadow-sm);
+  max-width: 720px;
+}
+.chronique .eyebrow{ margin-bottom: .6em; }
+
+/* Cartes teaser accueil */
+.teaser-grid{ display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 700px){ .teaser-grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 980px){ .teaser-grid{ grid-template-columns: repeat(4, 1fr); } }
+.teaser-card{
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 22px 20px; box-shadow: var(--shadow-sm); text-decoration: none; color: var(--ink);
+  background-image: none; display: block;
+  transition: transform .3s var(--ease), box-shadow .3s var(--ease);
+}
+.teaser-card:hover{ transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.teaser-card h3{ margin-bottom: .3em; }
+.teaser-card p{ margin: 0; font-size: .88rem; color: var(--muted); }
+
+/* =========================================================================
+   VALEURS (Association)
+   ========================================================================= */
+.valeurs-grid{ display: grid; grid-template-columns: 1fr; gap: 18px; }
+@media (min-width: 700px){ .valeurs-grid{ grid-template-columns: repeat(3, 1fr); } }
+.valeur-card{ padding: 20px 0; border-top: 3px solid var(--citron); }
+.valeur-card h3{ margin-bottom: .3em; }
+.valeur-card p{ color: var(--muted); margin: 0; font-size: .93rem; }
+
+/* =========================================================================
+   BUREAU — cartes membres
+   ========================================================================= */
+.bureau-grid{ display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 700px){ .bureau-grid{ grid-template-columns: repeat(2, 1fr); } }
+.membre-card{
+  display: flex; gap: 18px; background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; padding: 20px; box-shadow: var(--shadow-sm);
+}
+.membre-photo{
+  width: 76px; height: 76px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(150deg, var(--citron), var(--ink));
+}
+.membre-role{ font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--citron-dk); margin-bottom: .3em; }
+.membre-card h3{ margin-bottom: .3em; }
+.membre-card p{ margin: 0; color: var(--muted); font-size: .92rem; }
+
+/* =========================================================================
+   ENTRAÎNEMENTS — filtre + liste de créneaux
+   ========================================================================= */
+.filtre-bar{
+  display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: 20px 24px; margin-bottom: 1.6em;
+}
+.filtre-groupe{ display: flex; flex-direction: column; gap: 8px; }
+.filtre-groupe span{ font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.filtre-chips{ display: flex; flex-wrap: wrap; gap: 8px; }
+.filtre-chips button{
+  font-family: var(--font-body); font-weight: 600; font-size: .85rem;
+  background: var(--paper); border: 1.5px solid var(--line); border-radius: 999px;
+  padding: 7px 16px; cursor: pointer; transition: all .25s var(--ease); color: var(--ink);
+}
+.filtre-chips button.actif{ background: var(--citron); border-color: var(--citron); color: var(--ink); }
+.filtre-chips button:hover{ border-color: var(--citron-dk); }
+
+.creneaux-liste{ display: grid; gap: 14px; }
+.creneau-card{
+  display: grid; grid-template-columns: 1fr; gap: 6px;
+  background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--citron);
+  border-radius: 8px; padding: 18px 22px;
+}
+@media (min-width: 700px){
+  .creneau-card{ grid-template-columns: 1.4fr 1fr 1fr auto; align-items: center; gap: 16px; }
+}
+.creneau-jour{ font-family: var(--font-display); font-weight: 800; }
+.creneau-tag{
+  display: inline-block; font-size: .74rem; font-weight: 700; text-transform: uppercase;
+  background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 4px 10px;
+  color: var(--muted); width: fit-content;
+}
+.creneau-card[hidden]{ display: none; }
+.aucun-resultat{ color: var(--muted); font-style: italic; padding: 20px 0; }
+
+/* =========================================================================
+   TOURNOIS — accent corail exclusif à cette page
+   ========================================================================= */
+.tournoi-hero{ background: var(--ink); color: var(--paper); }
+.tournoi-hero .eyebrow{ color: var(--corail); }
+.tournoi-card{
+  background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--corail);
+  border-radius: 10px; padding: 26px 28px; box-shadow: var(--shadow-sm);
+  display: grid; gap: 10px;
+}
+.tournoi-date{
+  font-family: var(--font-display); font-weight: 800; font-size: .85rem;
+  color: var(--corail); text-transform: uppercase; letter-spacing: .05em;
+}
+
+/* =========================================================================
+   GALERIE
+   ========================================================================= */
+.galerie-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+@media (min-width: 700px){ .galerie-grid{ grid-template-columns: repeat(4, 1fr); } }
+.galerie-item{
+  aspect-ratio: 1; border-radius: 8px; overflow: hidden; position: relative;
+}
+.galerie-item div{ width: 100%; height: 100%; transition: transform .5s var(--ease); }
+.galerie-item:hover div{ transform: scale(1.08) rotate(-1deg); }
+
+/* =========================================================================
+   CONTACT — formulaire conversationnel
+   ========================================================================= */
+.choix-motif{ display: grid; grid-template-columns: 1fr; gap: 14px; max-width: 640px; }
+@media (min-width: 700px){ .choix-motif{ grid-template-columns: repeat(3, 1fr); } }
+.motif-btn{
+  background: var(--panel); border: 2px solid var(--line); border-radius: 12px;
+  padding: 24px 18px; text-align: center; cursor: pointer;
+  font-family: var(--font-body); font-weight: 700; font-size: .98rem; color: var(--ink);
+  transition: border-color .25s var(--ease), transform .25s var(--ease);
+}
+.motif-btn .motif-emoji{ font-size: 1.8rem; display: block; margin-bottom: .4em; }
+.motif-btn:hover{ transform: translateY(-3px); }
+.motif-btn.actif{ border-color: var(--citron-dk); background: var(--citron); }
+
+.form-dynamique{ max-width: 560px; margin-top: 2em; display: none; gap: 16px; }
+.form-dynamique.visible{ display: grid; }
+.form-dynamique fieldset{ border: none; padding: 0; margin: 0; display: grid; gap: 16px; }
+.form-row label{ display: block; font-weight: 700; font-size: .9rem; margin-bottom: 6px; }
+.form-row input, .form-row textarea, .form-row select{
+  width: 100%; padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 8px;
+  font: inherit; background: var(--panel); color: var(--ink);
+}
+.form-row input:focus, .form-row textarea:focus, .form-row select:focus{ outline: none; border-color: var(--citron-dk); }
+.form-row textarea{ resize: vertical; }
+.choix-inline{ display: flex; gap: 10px; flex-wrap: wrap; }
+.choix-inline label{
+  display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: .9rem;
+  border: 1.5px solid var(--line); border-radius: 999px; padding: 8px 16px; cursor: pointer;
+}
+.choix-inline input{ width: auto; }
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.site-footer{ background: var(--ink); color: #C7CBCF; padding: 40px 0; margin-top: 10px; }
+.footer-row{ display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; }
+.footer-brand{ font-family: var(--font-display); font-weight: 900; color: #fff; font-size: 1.1rem; margin: 0 0 .3em; }
+.site-footer p{ margin: 0 0 .3em; font-size: .85rem; }
+.site-footer nav ul{ list-style: none; display: flex; gap: 16px; flex-wrap: wrap; margin: 0; padding: 0; }
+.site-footer nav a{ color: #C7CBCF; background-image: none; font-size: .88rem; }
+.site-footer nav a:hover{ color: var(--citron); }
+
+@media (max-width: 480px){
+  .header-row{ justify-content: center; text-align: center; }
+}

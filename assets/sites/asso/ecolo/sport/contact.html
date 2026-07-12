@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Smash Club, Badminton à Domagné</title>
+<meta name="description" content="Inscription, question générale ou tournoi : contactez le Smash Club de Domagné via notre formulaire.">
+<link rel="canonical" href="https://www.smash-club-domagne.fr/contact.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html"><span class="mark">●</span> Smash Club</a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li class="nav-dropdown">
+          <details >
+            <summary class="nav-summary">Le Club</summary>
+            <ul class="sous-menu">
+              <li><a href="association.html">L'Association</a></li>
+              <li><a href="bureau.html">Le Bureau</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="entrainements.html">Entraînements</a></li>
+        <li><a href="tournois.html">Tournois</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h1>Qu'est-ce qui vous amène ?</h1>
+      <p class="lede">Choisissez ce qui correspond le mieux à votre demande — le formulaire s'adapte ensuite.</p>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+
+      <div class="choix-motif" role="group" aria-label="Motif de contact">
+        <button type="button" class="motif-btn" data-motif="inscription">
+          <span class="motif-emoji">🏸</span>
+          Je veux m'inscrire
+        </button>
+        <button type="button" class="motif-btn" data-motif="info">
+          <span class="motif-emoji">ℹ️</span>
+          J'ai une question
+        </button>
+        <button type="button" class="motif-btn" data-motif="tournoi">
+          <span class="motif-emoji">🏆</span>
+          Je viens pour un tournoi
+        </button>
+      </div>
+
+      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST" id="contactForm">
+        <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+        <input type="hidden" name="motif" id="motifChoisi" value="">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <!-- INSCRIPTION -->
+        <div class="form-dynamique" id="form-inscription">
+          <fieldset>
+            <div class="form-row">
+              <label>Vous avez déjà pratiqué le badminton, ou c'est une première ?</label>
+              <div class="choix-inline">
+                <label><input type="radio" name="experience" value="premiere"> Une première</label>
+                <label><input type="radio" name="experience" value="deja-pratique"> J'ai déjà pratiqué</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <label>Plutôt disponible en journée ou en soirée ?</label>
+              <div class="choix-inline">
+                <label><input type="radio" name="disponibilite" value="journee"> Journée</label>
+                <label><input type="radio" name="disponibilite" value="soiree"> Soirée</label>
+                <label><input type="radio" name="disponibilite" value="les-deux"> Les deux</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="nom-inscription">Prénom et nom</label>
+              <input type="text" id="nom-inscription" name="nom" autocomplete="name">
+            </div>
+            <div class="form-row">
+              <label for="email-inscription">Email</label>
+              <input type="email" id="email-inscription" name="email" autocomplete="email">
+            </div>
+            <div class="form-row">
+              <label for="tel-inscription">Téléphone</label>
+              <input type="tel" id="tel-inscription" name="telephone" autocomplete="tel" placeholder="06 12 34 56 78">
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- INFO GENERALE -->
+        <div class="form-dynamique" id="form-info">
+          <fieldset>
+            <div class="form-row">
+              <label for="message-info">Dites-nous en quelques mots ce que vous cherchez à savoir</label>
+              <textarea id="message-info" name="message" rows="4"></textarea>
+            </div>
+            <div class="form-row">
+              <label for="email-info">Email</label>
+              <input type="email" id="email-info" name="email" autocomplete="email">
+            </div>
+          </fieldset>
+        </div>
+
+        <!-- TOURNOI -->
+        <div class="form-dynamique" id="form-tournoi">
+          <fieldset>
+            <div class="form-row">
+              <label>Vous voulez participer, ou juste vous renseigner ?</label>
+              <div class="choix-inline">
+                <label><input type="radio" name="intention_tournoi" value="participer"> Participer</label>
+                <label><input type="radio" name="intention_tournoi" value="renseigner"> Me renseigner</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <label>Vous jouez en simple, en double, ou les deux ?</label>
+              <div class="choix-inline">
+                <label><input type="radio" name="format_jeu" value="simple"> Simple</label>
+                <label><input type="radio" name="format_jeu" value="double"> Double</label>
+                <label><input type="radio" name="format_jeu" value="les-deux"> Les deux</label>
+              </div>
+            </div>
+            <div class="form-row">
+              <label for="nom-tournoi">Prénom et nom</label>
+              <input type="text" id="nom-tournoi" name="nom" autocomplete="name">
+            </div>
+            <div class="form-row">
+              <label for="email-tournoi">Email</label>
+              <input type="email" id="email-tournoi" name="email" autocomplete="email">
+            </div>
+            <div class="form-row">
+              <label for="tel-tournoi">Téléphone</label>
+              <input type="tel" id="tel-tournoi" name="telephone" autocomplete="tel" placeholder="06 12 34 56 78">
+            </div>
+          </fieldset>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="btnEnvoyer" style="display:none; margin-top:8px;">Envoyer mon message</button>
+      </form>
+
+    </div>
+  </section>
+
+<script>
+(function(){
+  var boutons = document.querySelectorAll('.motif-btn');
+  var formulaires = {
+    inscription: document.getElementById('form-inscription'),
+    info: document.getElementById('form-info'),
+    tournoi: document.getElementById('form-tournoi')
+  };
+  var motifInput = document.getElementById('motifChoisi');
+  var btnEnvoyer = document.getElementById('btnEnvoyer');
+
+  boutons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      boutons.forEach(function(b){ b.classList.remove('actif'); });
+      btn.classList.add('actif');
+
+      var motif = btn.dataset.motif;
+      motifInput.value = motif;
+
+      Object.keys(formulaires).forEach(function(cle){
+        formulaires[cle].classList.toggle('visible', cle === motif);
+      });
+
+      btnEnvoyer.style.display = 'inline-flex';
+      formulaires[motif].scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  });
+})();
+</script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div>
+      <p class="footer-brand">Smash Club</p>
+      <p>Association de badminton — Gymnase municipal, Domagné</p>
+    </div>
+    <nav aria-label="Liens du pied de page">
+      <ul>
+        <li><a href="association.html">L'Association</a></li>
+        <li><a href="bureau.html">Le Bureau</a></li>
+        <li><a href="entrainements.html">Entraînements</a></li>
+        <li><a href="tournois.html">Tournois</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
