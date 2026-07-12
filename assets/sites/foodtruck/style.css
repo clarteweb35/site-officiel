@@ -1,0 +1,258 @@
+/* =========================================================================
+   [FOOD TRUCK PIZZA] — palette "Italie épurée"
+   -------------------------------------------------------------------------
+   Mobile-first strict : chaque règle de base s'applique au mobile sans
+   media query. Les media queries n'AJOUTENT que ce qui change à partir
+   d'un écran plus large — jamais l'inverse. Zéro icon-font : tout est en
+   SVG inline ou en <svg><use> pour la performance et la netteté.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Petrona:wght@500;600;700&family=Outfit:wght@400;500;600;700&display=swap');
+
+:root{
+  --vert-sapin: #1F4432;
+  --vert-sapin-dk: #163126;
+  --rouge-tomate: #A32B1F;
+  --rouge-tomate-dk: #7E2118;
+  --creme: #F7F2E7;
+  --panel: #FFFFFF;
+  --ink: #221D18;
+  --muted: #6B6259;
+  --line: rgba(34,29,24,.12);
+
+  --shadow-sm: 0 2px 10px -6px rgba(34,29,24,.18);
+  --shadow-md: 0 18px 36px -20px rgba(34,29,24,.30);
+  --ease: cubic-bezier(.25,.7,.3,1);
+
+  --font-display: 'Petrona', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+
+  --maxw: 1080px;
+  --barre-cta-h: 64px; /* hauteur de la barre CTA fixe mobile, réservée en padding-bottom du body */
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--creme);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  font-size: 16.5px;
+  -webkit-font-smoothing: antialiased;
+  padding-bottom: var(--barre-cta-h); /* laisse la place à la barre CTA fixe */
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition-duration: .01ms !important; }
+}
+@media (min-width: 861px){
+  body{ padding-bottom: 0; } /* la barre CTA fixe n'existe que sur mobile */
+}
+
+.wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 20px; }
+img, svg{ max-width: 100%; display: block; }
+
+h1, h2, h3{ font-family: var(--font-display); font-weight: 600; line-height: 1.15; margin: 0 0 .5em; color: var(--vert-sapin-dk); }
+h1{ font-size: clamp(1.9rem, 1.5rem + 2vw, 3rem); }
+h2{ font-size: clamp(1.5rem, 1.3rem + 1vw, 2rem); }
+p{ margin: 0 0 1em; color: var(--muted); }
+
+a{ color: var(--rouge-tomate); }
+
+/* =========================================================================
+   BOUTONS
+   ========================================================================= */
+.btn{
+  display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+  font-family: var(--font-body); font-weight: 700; font-size: .96rem;
+  padding: 13px 26px; border-radius: 999px; text-decoration: none;
+  border: 1.5px solid transparent; cursor: pointer;
+  transition: transform .25s var(--ease), background .2s var(--ease), box-shadow .25s var(--ease);
+}
+.btn-primary{ background: var(--rouge-tomate); color: #fff; }
+.btn-primary:hover{ background: var(--rouge-tomate-dk); box-shadow: var(--shadow-md); }
+.btn-ghost{ background: transparent; color: var(--vert-sapin-dk); border-color: var(--line); }
+.btn-ghost:hover{ background: var(--panel); }
+
+/* =========================================================================
+   HEADER — sticky, compact sur mobile
+   ========================================================================= */
+.site-header{
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(247,242,231,.94); backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.header-row{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; padding: 12px 20px;
+}
+.brand{ font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; color: var(--vert-sapin-dk); text-decoration: none; }
+
+/* Nav simplifiée sur mobile : liens essentiels seulement, pas de menu burger
+   supplémentaire à ouvrir — la friction en situation de marché doit être nulle */
+.header-row nav ul{
+  list-style: none; display: flex; gap: 16px; margin: 0; padding: 0;
+}
+.header-row nav a{
+  font-size: .85rem; font-weight: 600; color: var(--ink); text-decoration: none;
+}
+@media (min-width: 640px){
+  .header-row nav a{ font-size: .92rem; }
+}
+
+/* =========================================================================
+   HERO — empilé sur mobile, split dès 860px
+   ========================================================================= */
+.hero{
+  display: grid; grid-template-columns: 1fr; gap: 0;
+}
+@media (min-width: 861px){
+  .hero{ grid-template-columns: 1.1fr 1fr; align-items: stretch; min-height: 560px; }
+}
+.hero-visuel{
+  aspect-ratio: 4/3; background: linear-gradient(155deg, var(--rouge-tomate), var(--vert-sapin));
+}
+img.hero-visuel{ width: 100%; object-fit: cover; }
+@media (min-width: 861px){ .hero-visuel{ aspect-ratio: auto; height: 100%; } }
+
+.hero-copy{ padding: 32px 20px 40px; }
+@media (min-width: 861px){ .hero-copy{ padding: 64px 48px; display:flex; flex-direction:column; justify-content:center; } }
+
+.hero-lieu-du-jour{
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 14px; font-size: .82rem; font-weight: 600; color: var(--vert-sapin-dk);
+  margin-bottom: 1.2em;
+}
+.hero-lieu-du-jour svg{ width: 14px; height: 14px; fill: var(--rouge-tomate); }
+
+.hero-actions{ display: flex; gap: 12px; flex-wrap: wrap; margin-top: 1.6em; }
+
+/* =========================================================================
+   BANDEAU RÉASSURANCE — icônes SVG, jamais de police d'icônes
+   ========================================================================= */
+.reassurance{
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+  padding: 28px 20px; background: var(--panel); border-bottom: 1px solid var(--line);
+}
+@media (min-width: 640px){ .reassurance{ grid-template-columns: repeat(4, 1fr); } }
+.reassurance-item{ display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; }
+.reassurance-item svg{ width: 28px; height: 28px; fill: var(--vert-sapin); }
+.reassurance-item span{ font-size: .82rem; font-weight: 600; color: var(--ink); }
+
+/* =========================================================================
+   SECTIONS génériques
+   ========================================================================= */
+section{ padding: clamp(40px, 6vw, 72px) 0; }
+.section-head{ max-width: 560px; margin-bottom: 1.8em; }
+
+/* =========================================================================
+   CALENDRIER DES TOURNÉES — cartes filtrables
+   ========================================================================= */
+.filtre-jours{
+  display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 1.4em;
+  -webkit-overflow-scrolling: touch;
+}
+.filtre-jours button{
+  flex-shrink: 0; font-family: var(--font-body); font-weight: 600; font-size: .85rem;
+  background: var(--panel); border: 1.5px solid var(--line); border-radius: 999px;
+  padding: 8px 16px; cursor: pointer; color: var(--ink);
+}
+.filtre-jours button.actif{ background: var(--vert-sapin); border-color: var(--vert-sapin); color: #fff; }
+
+.tournees-liste{ display: grid; gap: 12px; }
+.tournee-card{
+  display: grid; grid-template-columns: 1fr; gap: 6px;
+  background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--rouge-tomate);
+  border-radius: 8px; padding: 16px 18px;
+}
+@media (min-width: 640px){
+  .tournee-card{ grid-template-columns: 100px 1fr auto; align-items: center; gap: 16px; }
+}
+.tournee-jour{ font-family: var(--font-display); font-weight: 700; color: var(--vert-sapin-dk); }
+.tournee-card[hidden]{ display: none; }
+
+/* =========================================================================
+   MENU TEASER
+   ========================================================================= */
+.menu-grid{ display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+@media (min-width: 640px){ .menu-grid{ grid-template-columns: repeat(4, 1fr); } }
+.pizza-card{
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  overflow: hidden; box-shadow: var(--shadow-sm);
+}
+.pizza-card .visuel{ aspect-ratio: 1; background: linear-gradient(160deg, var(--rouge-tomate), var(--vert-sapin-dk)); }
+img.pizza-card-img, .pizza-card img.visuel{ width:100%; height:100%; object-fit: cover; display:block; }
+.pizza-card .corps-haut{
+  padding: 12px 14px 8px;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;
+}
+.pizza-card .corps-haut h3{ margin-bottom: 0; }
+.pizza-card .badges{ display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; }
+.pizza-card .corps-bas{ padding: 10px 14px 16px; }
+.pizza-card .corps-bas p:first-child{ font-style: italic; }
+.pizza-card h3{ font-size: .98rem; margin-bottom: .3em; }
+.tag-vegan, .tag-vege{
+  display: inline-block; font-size: .68rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .04em; padding: 3px 8px; border-radius: 999px; margin-bottom: .5em;
+}
+.tag-vegan{ background: #E4EEE7; color: var(--vert-sapin-dk); }
+.tag-vege{ background: #F0E9D8; color: #7A5A20; }
+.tag-epice{ background: #FBE3DD; color: var(--rouge-tomate-dk); }
+.tag-porc{ background: #EFE1E0; color: #7A4A44; }
+
+/* =========================================================================
+   PROMO DU JOUR — façon bandeau soldes
+   ========================================================================= */
+.promo-jour{
+  position: relative;
+  background: var(--rouge-tomate);
+  color: #fff;
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin-bottom: 28px;
+  display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap;
+  overflow: hidden;
+}
+.promo-jour::before{
+  content: "PROMO";
+  position: absolute; top: 14px; right: -34px;
+  background: var(--vert-sapin-dk); color: #fff;
+  font-family: var(--font-body); font-weight: 700; font-size: .7rem; letter-spacing: .08em;
+  padding: 4px 40px; transform: rotate(35deg);
+}
+.promo-jour-titre{ font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; margin: 0 0 .2em; color: #fff; }
+.promo-jour-desc{ margin: 0; color: rgba(255,255,255,.9); font-size: .88rem; max-width: 360px; }
+.promo-jour-prix{ display: flex; align-items: baseline; gap: 10px; flex-shrink: 0; }
+.promo-jour-prix .avant{ text-decoration: line-through; opacity: .7; font-size: 1rem; }
+.promo-jour-prix .apres{ font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; }
+
+/* =========================================================================
+   CTA PRÉCOMMANDE — rappel mi-page
+   ========================================================================= */
+.cta-precommande{
+  background: var(--vert-sapin); color: #fff; border-radius: 14px;
+  padding: clamp(28px, 4vw, 44px); text-align: center;
+}
+.cta-precommande h2{ color: #fff; }
+.cta-precommande p{ color: rgba(255,255,255,.85); max-width: 480px; margin-left: auto; margin-right: auto; }
+
+/* =========================================================================
+   BARRE CTA FIXE — mobile uniquement, toujours accessible au pouce
+   ========================================================================= */
+.barre-cta-mobile{
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  background: var(--panel); border-top: 1px solid var(--line);
+  padding: 10px 16px; box-shadow: 0 -8px 24px -12px rgba(34,29,24,.25);
+}
+.barre-cta-mobile .btn{ width: 100%; }
+@media (min-width: 861px){ .barre-cta-mobile{ display: none; } }
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.site-footer{ background: var(--vert-sapin-dk); color: #D8E2DB; padding: 32px 0; text-align: center; }
+.site-footer p{ margin: 0 0 .3em; font-size: .85rem; color: #B9C6BE; }
+.site-footer a{ color: #fff; }

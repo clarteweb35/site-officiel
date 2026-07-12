@@ -1,1 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basilico — Pizzas Artisanales, Locales & Végé/Vegan | Food Truck</title>
+<meta name="description" content="Basilico, food truck de pizzas artisanales : produits locaux et bio, options végé et vegan. Calendrier des tournées et précommande en ligne.">
+<link rel="canonical" href="https://www.basilico-foodtruck.fr/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Petrona:wght@500;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEstablishment",
+  "name": "Basilico",
+  "description": "Food truck de pizzas artisanales, produits locaux et bio, options végé et vegan.",
+  "servesCuisine": "Pizza",
+  "priceRange": "€€"
+}
+</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top">🍕 Basilico</a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="#calendrier">Calendrier</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#precommande">Précommander</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <img src="images/feu.jpg" alt="Pizza artisanale fraîchement sortie du four à bois" class="hero-visuel" width="640" height="480" fetchpriority="high">
+    <div class="hero-copy">
+      <span class="hero-lieu-du-jour">
+        <svg viewBox="0 0 24 24"><path d="M12 2C7.6 2 4 5.6 4 10c0 6 8 12 8 12s8-6 8-12c0-4.4-3.6-8-8-8zm0 11a3 3 0 110-6 3 3 0 010 6z"/></svg>
+        Aujourd'hui : Place du Marché, Domagné — 11h30-14h
+      </span>
+      <h1>Une pizza artisanale<br>
+cuite près de chez vous</h1>
+      <p>Pâte au levain, produits locaux et de saison, la moitié de la carte en végé ou vegan — pas comme option de secours, comme de vraies pizzas à part entière.</p>
+      <div class="hero-actions">
+        <a href="#precommande" class="btn btn-primary">Précommander</a>
+        <a href="#calendrier" class="btn btn-ghost">Voir le calendrier</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RÉASSURANCE ================= -->
+  <div class="reassurance">
+    <div class="reassurance-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+      <span>Produits locaux</span>
+    </div>
+    <div class="reassurance-item">
+      <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a7 7 0 017 7c0 1-3-2-7-2s-7 3-7 2a7 7 0 017-7z"/></svg>
+      <span>Bio quand c'est indiqué</span>
+    </div>
+    <div class="reassurance-item">
+      <svg viewBox="0 0 24 24"><path d="M12 21s-8-4.5-8-11a5 5 0 019-3 5 5 0 019 3c0 6.5-8 11-8 11z"/></svg>
+      <span>Options végé & vegan</span>
+    </div>
+    <div class="reassurance-item">
+      <svg viewBox="0 0 24 24"><path d="M4 4h16v4H4zM4 10h16v10H4z"/></svg>
+      <span>Pâte maison, levain 48h</span>
+    </div>
+  </div>
+
+  <!-- ================= NOTRE ENGAGEMENT ================= -->
+  <section id="engagement">
+    <div class="wrap" style="max-width:640px;">
+      <div class="section-head">
+        <h2>Notre engagement</h2>
+      </div>
+      <p><strong>Des produits qu'on connaît, pas juste qu'on annonce.</strong></p>
+      <p>Notre pâte lève 48 heures, comme toutes les bonnes pâtes à pizza — rien d'exceptionnel là-dedans, juste du temps qu'on ne raccourcit pas. Les légumes viennent de maraîchers de la région, achetés selon la saison plutôt que sur un catalogue à l'année. Quand un produit est bio, on l'indique sur la carte — pas de mention vague, juste ce qui est vérifiable.</p>
+      <p>La moitié de notre carte est végétarienne ou vegan, pas comme option de secours mais comme des pizzas pensées pour elles-mêmes, avec autant de travail que les autres.</p>
+      <p>On ne prétend pas révolutionner la pizza. On essaie juste de la faire bien, avec des produits qu'on peut nommer un par un.</p>
+    </div>
+  </section>
+
+  <!-- ================= CALENDRIER DES TOURNÉES ================= -->
+  <section id="calendrier" style="background:var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Le calendrier des tournées</h2>
+        <p>Filtrez par jour pour savoir où nous trouver.</p>
+      </div>
+
+      <div class="filtre-jours" id="filtreJours">
+        <button type="button" class="actif" data-jour="tous">Tous</button>
+        <button type="button" data-jour="mardi">Mardi</button>
+        <button type="button" data-jour="jeudi">Jeudi</button>
+        <button type="button" data-jour="vendredi">Vendredi</button>
+        <button type="button" data-jour="samedi">Samedi</button>
+      </div>
+
+      <div class="tournees-liste" id="tourneesListe">
+
+        <article class="tournee-card" data-jour="mardi">
+          <span class="tournee-jour">Mardi</span>
+          <span>Place de l'Église, Domagné — 18h30-21h</span>
+          <a href="https://www.google.com/maps/search/?api=1&query=Place+de+l%27Eglise+Domagn%C3%A9" target="_blank" rel="noopener" class="btn btn-ghost">Itinéraire</a>
+        </article>
+
+        <article class="tournee-card" data-jour="jeudi">
+          <span class="tournee-jour">Jeudi</span>
+          <span>Parking Intermarché, Châteaubourg — 18h-21h</span>
+          <a href="https://www.google.com/maps/search/?api=1&query=Intermarch%C3%A9+Chateaubourg" target="_blank" rel="noopener" class="btn btn-ghost">Itinéraire</a>
+        </article>
+
+        <article class="tournee-card" data-jour="vendredi">
+          <span class="tournee-jour">Vendredi</span>
+          <span>Place du Marché, Domagné — 11h30-14h</span>
+          <a href="https://www.google.com/maps/search/?api=1&query=Place+du+Marche+Domagne" target="_blank" rel="noopener" class="btn btn-ghost">Itinéraire</a>
+        </article>
+
+        <article class="tournee-card" data-jour="samedi">
+          <span class="tournee-jour">Samedi</span>
+          <span>Marché des artisans, Rennes — 10h-14h</span>
+          <a href="https://www.google.com/maps/search/?api=1&query=Marche+des+artisans+Rennes" target="_blank" rel="noopener" class="btn btn-ghost">Itinéraire</a>
+        </article>
+
+        <p class="aucun-resultat" id="aucunResultat" hidden style="color:var(--muted); font-style:italic;">Aucune tournée ce jour-là pour le moment.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MENU ================= -->
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Un aperçu de la carte</h2>
+        <p>Huit pizzas fixes, une ardoise qui change selon la saison — toutes disponibles à la précommande.</p>
+      </div>
+
+      <div class="promo-jour">
+        <div>
+          <p class="promo-jour-titre">🔥 Pizza du jour : Contadina</p>
+          <p class="promo-jour-desc">Aujourd'hui seulement, sur place et en précommande — dans la limite du stock.</p>
+        </div>
+        <div class="promo-jour-prix">
+          <span class="avant">13 €</span>
+          <span class="apres">10 €</span>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+
+        <div class="pizza-card">
+          <div class="corps-haut">
+            <h3>Margherita</h3>
+            <div class="badges"><span class="tag-vege">Végé</span></div>
+          </div>
+          <img src="images/margherita.jpg" alt="Pizza Margherita — tomate, mozzarella, basilic frais" class="visuel" width="400" height="400" loading="lazy">
+          <div class="corps-bas">
+            <p style="font-size:.85rem; margin:0;">Tomate, mozzarella, basilic frais</p>
+            <p style="font-weight:700; margin:.4em 0 0;">11 €</p>
+          </div>
+        </div>
+		
+		        <div class="pizza-card">
+          <div class="corps-haut">
+            <h3>Reine</h3>
+            <div class="badges"><span class="tag-porc">Porc</span></div>
+          </div>
+          <img src="images/reine.jpg" alt="Pizza Reine — sauce tomate, mozzarella, jambon blanc, champignons frais" class="visuel" width="400" height="400" loading="lazy">
+          <div class="corps-bas">
+            <p style="font-size:.85rem; margin:0;">Sauce tomate, mozzarella, jambon blanc, champignons frais</p>
+            <p style="font-weight:700; margin:.4em 0 0;">11 €</p>
+          </div>
+        </div>
+
+        <div class="pizza-card">
+          <div class="corps-haut">
+            <h3>Verde</h3>
+            <div class="badges"><span class="tag-vegan">Vegan</span></div>
+          </div>
+          <img src="images/verde.jpg" alt="Pizza Verde — crème de courgette, légumes rôtis, roquette" class="visuel" width="400" height="400" loading="lazy">
+          <div class="corps-bas">
+            <p style="font-size:.85rem; margin:0;">Crème de courgette, légumes rôtis, roquette</p>
+            <p style="font-weight:700; margin:.4em 0 0;">12,50 €</p>
+          </div>
+        </div>
+		
+		        <div class="pizza-card">
+          <div class="corps-haut">
+            <h3>Contadina</h3>
+            <div class="badges"><span class="tag-porc">Porc</span></div>
+          </div>
+          <img src="images/contadina.jpg" alt="Pizza Contadina — jambon local, champignons, oignons rôtis" class="visuel" width="400" height="400" loading="lazy">
+          <div class="corps-bas">
+            <p style="font-size:.85rem; margin:0;">Jambon local, champignons, oignons rôtis</p>
+            <p style="font-weight:700; margin:.4em 0 0;">13 €</p>
+          </div>
+        </div>
+		
+		        <div class="pizza-card">
+          <div class="corps-haut">
+            <h3>Verdate</h3>
+            <div class="badges"><span class="tag-vegan">Vegan</span></div>
+          </div>
+          <img src="images/verdate.jpg" alt="Pizza Verdate — crème de courgette, légumes rôtis, roquette" class="visuel" width="400" height="400" loading="lazy">
+          <div class="corps-bas">
+            <p style="font-size:.85rem; margin:0;">Crème de courgette, légumes rôtis, roquette, </p>
+            <p style="font-weight:700; margin:.4em 0 0;">11,53 €</p>
+          </div>
+        </div>
+
+        <div class="pizza-card">
+          <div class="corps-haut">
+            <h3>🌶️ Picante</h3>
+            <div class="badges"><span class="tag-epice">🌶️ Épicé</span></div>
+          </div>
+          <img src="images/picante.jpg" alt="Pizza Picante — sauce tomate, chorizo, piment" class="visuel" width="400" height="400" loading="lazy">
+          <div class="corps-bas">
+            <p style="font-size:.85rem; margin:0;">Sauce tomate, chorizo, piment</p>
+            <p style="font-weight:700; margin:.4em 0 0;">13 €</p>
+          </div>
+        </div>
+		
+		        <div class="pizza-card">
+          <div class="corps-haut">
+            <h3>Norma</h3>
+            <div class="badges"><span class="tag-vege">Végé</span></div>
+          </div>
+          <img src="images/norma.jpg" alt="Pizza Norma — aubergine confite, tomate, ricotta salée" class="visuel" width="400" height="400" loading="lazy">
+          <div class="corps-bas">
+            <p style="font-size:.85rem; margin:0;">Aubergine confite, tomate, ricotta salée</p>
+            <p style="font-weight:700; margin:.4em 0 0;">12 €</p>
+          </div>
+        </div>
+
+        <div class="pizza-card">
+          <div class="corps-haut">
+            <h3>Forestière</h3>
+            <div class="badges"><span class="tag-porc">Porc</span></div>
+          </div>
+          <img src="images/forestiere.jpg" alt="Pizza Forestière — crème, champignons, oignons rôtis, salade" class="visuel" width="400" height="400" loading="lazy">
+          <div class="corps-bas">
+            <p style="font-size:.85rem; margin:0;">Crème, champignons, oignons rôtis, salade</p>
+            <p style="font-weight:700; margin:.4em 0 0;">13 €</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CTA PRÉCOMMANDE (rappel mi-page) ================= -->
+  <section>
+    <div class="wrap">
+      <div class="cta-precommande">
+        <h2>Évitez l'attente sur place</h2>
+        <p>🛒 Précommandez, on prépare votre pizza pour l'heure de votre choix.</p>
+        <a href="#precommande" class="btn btn-primary" style="background:#fff; color:var(--vert-sapin-dk);">Précommander maintenant</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRÉCOMMANDE ================= -->
+  <section id="precommande" style="background:var(--panel); border-top:1px solid var(--line);">
+    <div class="wrap" style="max-width:560px;">
+      <div class="section-head">
+        <h2>Précommander</h2>
+        <p>Choisissez vos pizzas, un créneau de retrait, c'est prêt à l'heure dite.</p>
+      </div>
+
+      <!-- Explication du fonctionnement : réservation + acompte -->
+      <div style="background:var(--creme); border:1px solid var(--line); border-radius:10px; padding:18px 20px; margin-bottom:24px; font-size:.9rem;">
+        <p style="font-weight:700; margin-bottom:.5em; color:var(--vert-sapin-dk);">Comment ça marche</p>
+        <ol style="margin:0; padding-left:1.2em; color:var(--muted);">
+          <li style="margin-bottom:.4em;">Vous choisissez vos pizzas, le jour et le créneau de retrait.</li>
+          <li style="margin-bottom:.4em;">Vous êtes redirigé vers <strong>Stripe</strong> (paiement sécurisé) pour régler un acompte de <strong>10 €</strong>, qui valide votre réservation.</li>
+          <li>Dès le paiement confirmé, votre créneau est bloqué. Le solde se règle au camion, au retrait.</li>
+        </ol>
+      </div>
+
+      <form id="precommandeForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
+        <input type="hidden" name="access_key" value="VOTRE_CLE_WEB3FORMS">
+        <input type="hidden" name="subject" value="Nouvelle précommande — Basilico">
+        <!-- Redirection après envoi de la commande : vers le lien de paiement Stripe -->
+        <input type="hidden" name="redirect" value="https://buy.stripe.com/VOTRE_LIEN_STRIPE">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div style="display:grid; gap:14px; margin-bottom:20px;">
+
+          <label style="display:flex; justify-content:space-between; align-items:center; background:var(--creme); border:1px solid var(--line); border-radius:8px; padding:12px 16px;">
+            <span>Margherita — 11 €</span>
+            <input type="number" name="qte_margherita" min="0" max="10" value="0" style="width:60px; padding:6px; border:1px solid var(--line); border-radius:6px;">
+          </label>
+
+          <label style="display:flex; justify-content:space-between; align-items:center; background:var(--creme); border:1px solid var(--line); border-radius:8px; padding:12px 16px;">
+            <span>Reine — 11 €</span>
+            <input type="number" name="qte_reine" min="0" max="10" value="0" style="width:60px; padding:6px; border:1px solid var(--line); border-radius:6px;">
+          </label>
+
+          <label style="display:flex; justify-content:space-between; align-items:center; background:var(--creme); border:1px solid var(--line); border-radius:8px; padding:12px 16px;">
+            <span>Verde (vegan) — 12,50 €</span>
+            <input type="number" name="qte_verde" min="0" max="10" value="0" style="width:60px; padding:6px; border:1px solid var(--line); border-radius:6px;">
+          </label>
+
+          <label style="display:flex; justify-content:space-between; align-items:center; background:var(--creme); border:1px solid var(--line); border-radius:8px; padding:12px 16px;">
+            <span>Contadina — 13 €</span>
+            <input type="number" name="qte_contadina" min="0" max="10" value="0" style="width:60px; padding:6px; border:1px solid var(--line); border-radius:6px;">
+          </label>
+
+          <label style="display:flex; justify-content:space-between; align-items:center; background:var(--creme); border:1px solid var(--line); border-radius:8px; padding:12px 16px;">
+            <span>Verdate (vegan) — 11,53 €</span>
+            <input type="number" name="qte_verdate" min="0" max="10" value="0" style="width:60px; padding:6px; border:1px solid var(--line); border-radius:6px;">
+          </label>
+
+          <label style="display:flex; justify-content:space-between; align-items:center; background:var(--creme); border:1px solid var(--line); border-radius:8px; padding:12px 16px;">
+            <span>🌶️ Picante — 13 €</span>
+            <input type="number" name="qte_picante" min="0" max="10" value="0" style="width:60px; padding:6px; border:1px solid var(--line); border-radius:6px;">
+          </label>
+
+          <label style="display:flex; justify-content:space-between; align-items:center; background:var(--creme); border:1px solid var(--line); border-radius:8px; padding:12px 16px;">
+            <span>Norma — 12 €</span>
+            <input type="number" name="qte_norma" min="0" max="10" value="0" style="width:60px; padding:6px; border:1px solid var(--line); border-radius:6px;">
+          </label>
+
+          <label style="display:flex; justify-content:space-between; align-items:center; background:var(--creme); border:1px solid var(--line); border-radius:8px; padding:12px 16px;">
+            <span>Forestière — 13 €</span>
+            <input type="number" name="qte_forestiere" min="0" max="10" value="0" style="width:60px; padding:6px; border:1px solid var(--line); border-radius:6px;">
+          </label>
+
+        </div>
+
+        <div style="display:grid; gap:14px;">
+          <div>
+            <label for="jourRetrait" style="display:block; font-weight:600; font-size:.9rem; margin-bottom:6px;">Jour de retrait</label>
+            <select id="jourRetrait" name="jour" required style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:8px; font:inherit;">
+              <option value="" disabled selected>Choisir</option>
+              <option value="mardi">Mardi — Domagné</option>
+              <option value="jeudi">Jeudi — Châteaubourg</option>
+              <option value="vendredi">Vendredi — Domagné (marché)</option>
+              <option value="samedi">Samedi — Rennes</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="creneauRetrait" style="display:block; font-weight:600; font-size:.9rem; margin-bottom:6px;">Créneau de retrait</label>
+            <select id="creneauRetrait" name="creneau" required style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:8px; font:inherit;">
+              <option value="" disabled selected>Choisir</option>
+              <option value="12h15">12h15</option>
+              <option value="12h30">12h30</option>
+              <option value="12h45">12h45</option>
+              <option value="19h00">19h00</option>
+              <option value="19h15">19h15</option>
+              <option value="19h30">19h30</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="nom" style="display:block; font-weight:600; font-size:.9rem; margin-bottom:6px;">Prénom</label>
+            <input type="text" id="nom" name="nom" required style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:8px; font:inherit;">
+          </div>
+
+          <div>
+            <label for="telephone" style="display:block; font-weight:600; font-size:.9rem; margin-bottom:6px;">Téléphone</label>
+            <input type="tel" id="telephone" name="telephone" required placeholder="06 12 34 56 78" style="width:100%; padding:11px 13px; border:1px solid var(--line); border-radius:8px; font:inherit;">
+          </div>
+        </div>
+
+        <label style="display:flex; align-items:flex-start; gap:10px; font-size:.85rem; color:var(--muted); margin-top:18px;">
+          <input type="checkbox" name="cgv_acceptees" required style="margin-top:3px;">
+          J'accepte les <a href="cgv.html" target="_blank">conditions générales de vente</a>, notamment le principe d'acompte de 10 €.
+        </label>
+
+        <p id="precommandeErreur" role="alert" hidden style="color:var(--rouge-tomate); font-size:.88rem; margin-top:14px;"></p>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; margin-top:20px;">Réserver et payer l'acompte (10 €)</button>
+        <p style="font-size:.82rem; color:var(--muted); text-align:center; margin-top:10px;">Vous serez redirigé vers Stripe pour le paiement sécurisé de l'acompte.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Basilico — Food truck de pizzas artisanales</p>
+    <p>Domagné et alentours · <a href="mailto:contact@basilico-foodtruck.fr">contact@basilico-foodtruck.fr</a></p>
+    <p><a href="cgv.html">Conditions générales de vente</a></p>
+  </div>
+</footer>
+
+<!-- Barre CTA fixe, mobile uniquement -->
+<div class="barre-cta-mobile">
+  <a href="#precommande" class="btn btn-primary">Précommander</a>
+</div>
+
+<script>
+(function(){
+  /* ---------------- Filtre calendrier ---------------- */
+  var boutonsJours = document.querySelectorAll('#filtreJours button');
+  var cartesTournees = document.querySelectorAll('.tournee-card');
+  var aucunResultat = document.getElementById('aucunResultat');
+
+  boutonsJours.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      boutonsJours.forEach(function(b){ b.classList.remove('actif'); });
+      btn.classList.add('actif');
+      var jour = btn.dataset.jour;
+      var visibles = 0;
+      cartesTournees.forEach(function(carte){
+        var match = jour === 'tous' || carte.dataset.jour === jour;
+        carte.hidden = !match;
+        if(match) visibles++;
+      });
+      aucunResultat.hidden = visibles > 0;
+    });
+  });
+
+  /* ---------------- Formulaire de précommande ---------------- */
+  var form = document.getElementById('precommandeForm');
+  var erreur = document.getElementById('precommandeErreur');
+
+  form.addEventListener('submit', function(e){
+    // Validation côté client uniquement — si tout est valide, on NE bloque PAS
+    // l'envoi : le formulaire part réellement vers Web3Forms, qui redirige
+    // ensuite vers Stripe pour le paiement de l'acompte.
+    var qteTotale =
+      Number(form.qte_margherita.value || 0) +
+      Number(form.qte_reine.value || 0) +
+      Number(form.qte_verde.value || 0) +
+      Number(form.qte_contadina.value || 0) +
+      Number(form.qte_verdate.value || 0) +
+      Number(form.qte_picante.value || 0) +
+      Number(form.qte_norma.value || 0) +
+      Number(form.qte_forestiere.value || 0);
+
+    if(qteTotale === 0){
+      e.preventDefault();
+      erreur.hidden = false;
+      erreur.textContent = "Ajoutez au moins une pizza à votre commande.";
+      return;
+    }
+    if(!form.checkValidity()){
+      e.preventDefault();
+      erreur.hidden = false;
+      erreur.textContent = "Merci de compléter le jour, le créneau, votre prénom, votre téléphone et d'accepter les CGV.";
+      var premierInvalide = form.querySelector(':invalid');
+      if(premierInvalide) premierInvalide.focus();
+      return;
+    }
+
+    erreur.hidden = true;
+    // Pas de preventDefault ici : le formulaire s'envoie normalement,
+    // direction Web3Forms puis Stripe (voir l'attribut "redirect" du formulaire).
+  });
+})();
+</script>
+
+<a href="https://www.arc-en-ciel-services.fr/realisations.html"
+   style="position:fixed; bottom:20px; left:20px; z-index:999;
+          display:inline-flex; align-items:center; gap:8px;
+          background:#12151A; color:#fff;
+          font-family:system-ui,-apple-system,sans-serif; font-size:14px; font-weight:600;
+          text-decoration:none; padding:10px 18px; border-radius:999px;
+          box-shadow:0 8px 20px -8px rgba(0,0,0,.45);
+          transition:transform .2s ease;"
+   onmouseover="this.style.transform='translateY(-3px)'"
+   onmouseout="this.style.transform='translateY(0)'">
+  ← Retour aux réalisations
+</a>
+
+
+</body>
+</html>
