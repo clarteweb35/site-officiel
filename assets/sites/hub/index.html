@@ -1,1 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antoine Reverdy — Consultant en fiscalité & optimisation fiscale</title>
+<meta name="description" content="Antoine Reverdy, consultant en fiscalité : optimisation professionnelle et personnelle, audit fiscal, veille réglementaire. Un accompagnement humain, pas une usine à formulaires.">
+<link rel="canonical" href="https://www.antoine-reverdy-fiscaliste.fr/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<a class="skip-link" href="#version-texte">Voir le plan du site en version texte</a>
+
+<header class="site-header">
+  <a class="brand" href="#top">Antoine Reverdy <span>·</span> Fiscaliste</a>
+</header>
+
+<main id="top">
+
+  <!-- ================= LA CARTE / LE HUB ================= -->
+  <section class="stage-wrap">
+    <div class="wrap">
+
+      <div class="intro-carte">
+        <span class="label-mono">Cartographie du conseil</span>
+        <h1>Votre fiscalité, comme un système, pas une pile de dossiers</h1>
+        <p>Quatre piliers, un seul point d'entrée. Cliquez sur un pilier pour l'explorer.</p>
+      </div>
+
+      <div class="stage" id="stage">
+
+        <svg class="liens" id="liens" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <line data-ligne="pro"    x1="50" y1="50" x2="76.87" y2="76.87"></line>
+          <line data-ligne="perso"  x1="50" y1="50" x2="23.13" y2="76.87"></line>
+          <line data-ligne="audit"  x1="50" y1="50" x2="76.87" y2="23.13"></line>
+          <line data-ligne="veille" x1="50" y1="50" x2="23.13" y2="23.13"></line>
+        </svg>
+
+        <div class="hub">
+          <span class="label-mono">N.00 — Le conseil</span>
+          <h2>Un échange direct, avant toute optimisation</h2>
+          <p>Chaque dossier commence par une conversation, pas par un formulaire.</p>
+          <a href="#contact" class="btn">Prendre rendez-vous</a>
+        </div>
+
+        <div class="satellites">
+          <button type="button" class="satellite" data-panel="pro">
+            <span class="label-mono">N.01 — Optimisation Pro</span>
+            <span class="satellite-titre">Optimisation professionnelle</span>
+            <p class="satellite-accroche">Réduire la pression fiscale de votre activité, légalement et durablement.</p>
+          </button>
+
+          <button type="button" class="satellite" data-panel="perso">
+            <span class="label-mono">N.02 — Optimisation Perso</span>
+            <span class="satellite-titre">Optimisation personnelle</span>
+            <p class="satellite-accroche">Structurer votre patrimoine et vos revenus personnels sur le long terme.</p>
+          </button>
+
+          <button type="button" class="satellite" data-panel="audit">
+            <span class="label-mono">N.03 — Audit</span>
+            <span class="satellite-titre">Audit fiscal</span>
+            <p class="satellite-accroche">Savoir où vous en êtes, avant que l'administration ne le fasse.</p>
+          </button>
+
+          <button type="button" class="satellite" data-panel="veille">
+            <span class="label-mono">N.04 — Veille</span>
+            <span class="satellite-titre">Veille réglementaire</span>
+            <p class="satellite-accroche">Anticiper les changements de règles plutôt que les subir.</p>
+          </button>
+        </div>
+
+      </div>
+
+      <a class="lien-texte" href="#version-texte">Vous préférez une lecture linéaire ? Voir la version texte ↓</a>
+    </div>
+  </section>
+
+  <!-- ================= PANNEAUX DE DÉTAIL ================= -->
+  <div class="panel-overlay" id="panelOverlay" hidden></div>
+
+  <aside class="panel" id="panel-pro" data-panel="pro" hidden role="dialog" aria-labelledby="titre-pro">
+    <button type="button" class="panel-fermer" aria-label="Fermer">✕</button>
+    <span class="label-mono">N.01 — Optimisation Pro</span>
+    <h2 id="titre-pro">Optimisation professionnelle</h2>
+    <p class="resume">Choix de statut, arbitrage rémunération/dividendes, structuration de groupe : l'objectif est de réduire la charge fiscale de votre activité sans jamais sortir du cadre légal.</p>
+    <details class="approfondir">
+      <summary>Approfondir</summary>
+      <p>Ce pilier couvre notamment :</p>
+      <ul>
+        <li>Le choix ou l'évolution du statut juridique de l'entreprise</li>
+        <li>L'arbitrage entre rémunération et dividendes</li>
+        <li>La structuration en holding, selon la taille et les objectifs</li>
+        <li>Les dispositifs de défiscalisation liés à l'investissement professionnel</li>
+      </ul>
+      <p style="font-size:.82rem; font-style:italic;">Chaque situation étant différente, ces pistes sont examinées lors d'un premier échange — aucune ne s'applique automatiquement.</p>
+    </details>
+    <a class="lien-croise" data-ouvre="audit" href="#">Cela commence souvent par un audit →</a>
+  </aside>
+
+  <aside class="panel" id="panel-perso" data-panel="perso" hidden role="dialog" aria-labelledby="titre-perso">
+    <button type="button" class="panel-fermer" aria-label="Fermer">✕</button>
+    <span class="label-mono">N.02 — Optimisation Perso</span>
+    <h2 id="titre-perso">Optimisation personnelle</h2>
+    <p class="resume">Impôt sur le revenu, transmission de patrimoine, investissements : structurer vos choix personnels pour qu'ils s'inscrivent dans une trajectoire de long terme, pas seulement une déclaration annuelle.</p>
+    <details class="approfondir">
+      <summary>Approfondir</summary>
+      <p>Ce pilier couvre notamment :</p>
+      <ul>
+        <li>La stratégie de transmission (donation, démembrement)</li>
+        <li>Les dispositifs d'investissement à impact fiscal</li>
+        <li>L'arbitrage entre différents statuts d'investissement locatif</li>
+        <li>La coordination avec votre notaire ou votre expert-comptable</li>
+      </ul>
+      <p style="font-size:.82rem; font-style:italic;">Ces éléments sont donnés à titre indicatif : chaque stratégie de transmission ou d'investissement se construit au cas par cas.</p>
+    </details>
+    <a class="lien-croise" data-ouvre="veille" href="#">Ces dispositifs évoluent chaque année →</a>
+  </aside>
+
+  <aside class="panel" id="panel-audit" data-panel="audit" hidden role="dialog" aria-labelledby="titre-audit">
+    <button type="button" class="panel-fermer" aria-label="Fermer">✕</button>
+    <span class="label-mono">N.03 — Audit</span>
+    <h2 id="titre-audit">Audit fiscal</h2>
+    <p class="resume">Un état des lieux complet de votre situation fiscale actuelle, pour identifier les risques comme les opportunités avant qu'ils ne deviennent des urgences.</p>
+    <details class="approfondir">
+      <summary>Approfondir</summary>
+      <p>L'audit permet notamment de :</p>
+      <ul>
+        <li>Vérifier la cohérence entre vos déclarations et votre situation réelle</li>
+        <li>Repérer les optimisations non exploitées</li>
+        <li>Anticiper un contrôle plutôt que le découvrir</li>
+        <li>Poser une base claire avant toute nouvelle décision (pro ou perso)</li>
+      </ul>
+    </details>
+    <a class="lien-croise" data-ouvre="pro" href="#">Un audit débouche souvent sur une optimisation pro →</a>
+  </aside>
+
+  <aside class="panel" id="panel-veille" data-panel="veille" hidden role="dialog" aria-labelledby="titre-veille">
+    <button type="button" class="panel-fermer" aria-label="Fermer">✕</button>
+    <span class="label-mono">N.04 — Veille</span>
+    <h2 id="titre-veille">Veille réglementaire</h2>
+    <p class="resume">La fiscalité change chaque année. La veille consiste à surveiller ce qui vous concerne précisément, pour ajuster votre stratégie avant qu'un changement ne s'impose à vous.</p>
+    <details class="approfondir">
+      <summary>Approfondir</summary>
+      <p>Concrètement, cela peut prendre la forme de :</p>
+      <ul>
+        <li>Un point annuel suite aux lois de finances</li>
+        <li>Des alertes ciblées sur les dispositifs qui vous concernent</li>
+        <li>Un ajustement proactif de votre stratégie pro ou perso</li>
+      </ul>
+    </details>
+    <a class="lien-croise" data-ouvre="perso" href="#">La veille nourrit souvent l'optimisation perso →</a>
+  </aside>
+
+  <!-- ================= VERSION TEXTE (fallback accessible) ================= -->
+  <section class="version-texte" id="version-texte">
+    <div class="wrap">
+      <span class="label-mono" style="color:var(--cyan-dk);">Version texte</span>
+      <h2>Les quatre piliers, en lecture linéaire</h2>
+      <p class="lede">Le même contenu que la carte interactive ci-dessus, présenté ici de façon strictement séquentielle.</p>
+      <div class="version-texte-grid">
+        <div class="version-texte-carte">
+          <h3>Optimisation professionnelle</h3>
+          <p>Réduire la pression fiscale de votre activité, légalement et durablement : statut, rémunération, structuration.</p>
+        </div>
+        <div class="version-texte-carte">
+          <h3>Optimisation personnelle</h3>
+          <p>Structurer votre patrimoine et vos revenus personnels sur le long terme : transmission, investissement.</p>
+        </div>
+        <div class="version-texte-carte">
+          <h3>Audit fiscal</h3>
+          <p>Savoir où vous en êtes, avant que l'administration ne le fasse : état des lieux complet de votre situation.</p>
+        </div>
+        <div class="version-texte-carte">
+          <h3>Veille réglementaire</h3>
+          <p>Anticiper les changements de règles plutôt que les subir : suivi ciblé des évolutions qui vous concernent.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" style="padding:clamp(48px,6vw,80px) 0; text-align:center; border-top:1px solid var(--line-dk);">
+    <div class="wrap">
+      <span class="label-mono" style="color:var(--cyan-dk); justify-content:center; display:flex;">Prendre rendez-vous</span>
+      <h2>Un premier échange, sans engagement</h2>
+      <p class="lede" style="margin:0 auto 1.4em;">30 minutes suffisent pour savoir si et comment je peux vous aider.</p>
+      <a href="mailto:contact@antoine-reverdy-fiscaliste.fr" class="btn" style="background:var(--graphite); color:#fff; display:inline-flex; padding:13px 26px; border-radius:999px; text-decoration:none; font-weight:700;">Me contacter</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Antoine Reverdy — Consultant en fiscalité. Les informations présentées ont un caractère général et ne remplacent pas une analyse individualisée de votre situation.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var panelOverlay = document.getElementById('panelOverlay');
+  var satellites = document.querySelectorAll('.satellite');
+  var panels = document.querySelectorAll('.panel');
+  var lignes = document.querySelectorAll('.liens line');
+  var dernierFocus = null;
+
+  function ligneDe(cle){
+    return document.querySelector('.liens line[data-ligne="' + cle + '"]');
+  }
+
+  function ouvrirPanel(cle){
+    var panel = document.getElementById('panel-' + cle);
+    if(!panel) return;
+
+    panels.forEach(function(p){ p.hidden = true; p.classList.remove('ouvert'); });
+    panel.hidden = false;
+    // reflow pour que la transition de translation se joue
+    void panel.offsetWidth;
+    panel.classList.add('ouvert');
+
+    panelOverlay.hidden = false;
+    lignes.forEach(function(l){ l.classList.remove('actif'); });
+    var ligne = ligneDe(cle);
+    if(ligne) ligne.classList.add('actif');
+
+    var closeBtn = panel.querySelector('.panel-fermer');
+    if(closeBtn) closeBtn.focus();
+  }
+
+  function fermerPanels(){
+    panels.forEach(function(p){
+      p.classList.remove('ouvert');
+      setTimeout(function(){ p.hidden = true; }, 350);
+    });
+    panelOverlay.hidden = true;
+    lignes.forEach(function(l){ l.classList.remove('actif'); });
+    if(dernierFocus) dernierFocus.focus();
+  }
+
+  satellites.forEach(function(sat){
+    sat.addEventListener('click', function(){
+      dernierFocus = sat;
+      ouvrirPanel(sat.dataset.panel);
+    });
+    sat.addEventListener('mouseenter', function(){
+      var l = ligneDe(sat.dataset.panel);
+      if(l) l.classList.add('actif');
+    });
+    sat.addEventListener('mouseleave', function(){
+      var panelOuvert = document.querySelector('.panel.ouvert');
+      var cleOuverte = panelOuvert ? panelOuvert.dataset.panel : null;
+      if(sat.dataset.panel !== cleOuverte){
+        var l = ligneDe(sat.dataset.panel);
+        if(l) l.classList.remove('actif');
+      }
+    });
+  });
+
+  document.querySelectorAll('.panel-fermer').forEach(function(btn){
+    btn.addEventListener('click', fermerPanels);
+  });
+  panelOverlay.addEventListener('click', fermerPanels);
+
+  document.querySelectorAll('.lien-croise').forEach(function(lien){
+    lien.addEventListener('click', function(e){
+      e.preventDefault();
+      ouvrirPanel(lien.dataset.ouvre);
+    });
+  });
+
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape'){
+      var panelOuvert = document.querySelector('.panel.ouvert');
+      if(panelOuvert) fermerPanels();
+    }
+  });
+})();
+</script>
+
+<a href="https://www.arc-en-ciel-services.fr/realisations.html"
+   style="position:fixed; bottom:20px; left:20px; z-index:999;
+          display:inline-flex; align-items:center; gap:8px;
+          background:#12151A; color:#fff;
+          font-family:system-ui,-apple-system,sans-serif; font-size:14px; font-weight:600;
+          text-decoration:none; padding:10px 18px; border-radius:999px;
+          box-shadow:0 8px 20px -8px rgba(0,0,0,.45);
+          transition:transform .2s ease;"
+   onmouseover="this.style.transform='translateY(-3px)'"
+   onmouseout="this.style.transform='translateY(0)'">
+  ← Retour aux réalisations
+</a>
+
+</body>
+</html>

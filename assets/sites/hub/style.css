@@ -1,0 +1,226 @@
+/* =========================================================================
+   HUB FISCAL — direction "Plan technique"
+   -------------------------------------------------------------------------
+   Mobile-first : la base est une liste de cartes empilées, sans aucune
+   position absolue — ça marche partout, sans JS. La carte orbitale n'est
+   qu'une AMÉLIORATION progressive activée au-delà de 861px. Rien n'est
+   sacrifié sur mobile : c'est la version de référence, pas un repli.
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap');
+
+:root{
+  --graphite:  #12151A;
+  --graphite-2:#1B2027;
+  --blanc:     #F5F6F8;
+  --panel-bg:  #FFFFFF;
+  --cyan:      #38BFA7;
+  --cyan-dk:   #279E89;
+  --cuivre:    #C97B3D;  /* réservé exclusivement au hub central */
+  --line:      rgba(245,246,248,.12);
+  --line-dk:   rgba(18,21,26,.12);
+  --muted:     #9AA3AC;
+  --muted-dk:  #5C6570;
+
+  --shadow-md: 0 20px 44px -22px rgba(0,0,0,.45);
+  --ease: cubic-bezier(.22,1,.36,1);
+
+  --font-display: 'Sora', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --maxw: 1100px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--blanc);
+  color: var(--graphite);
+  font-family: var(--font-body);
+  line-height: 1.65;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior: auto; }
+  *{ transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+
+.wrap{ max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+a{ color: var(--cyan-dk); }
+button{ font-family: inherit; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2.5px solid var(--cuivre); outline-offset: 3px;
+}
+
+h1, h2, h3{ font-family: var(--font-display); font-weight: 700; line-height: 1.14; margin: 0 0 .5em; }
+.lede{ color: var(--muted-dk); max-width: 560px; }
+
+.skip-link{
+  position: absolute; left: -999px; top: 0;
+  background: var(--graphite); color: #fff; padding: 12px 18px; z-index: 100;
+  font-weight: 600; font-size: .9rem;
+}
+.skip-link:focus{ left: 12px; top: 12px; }
+
+/* =========================================================================
+   HEADER
+   ========================================================================= */
+.site-header{ padding: 18px 24px; border-bottom: 1px solid var(--line-dk); }
+.brand{ font-family: var(--font-display); font-weight: 800; font-size: 1.05rem; color: var(--graphite); text-decoration: none; }
+.brand span{ color: var(--cuivre); }
+
+/* =========================================================================
+   STAGE — mobile-first : liste de cartes (aucune position absolue)
+   ========================================================================= */
+.stage-wrap{ background: var(--graphite); padding: clamp(40px, 6vw, 76px) 0; }
+.intro-carte{ color: var(--blanc); text-align: center; max-width: 640px; margin: 0 auto 2.4em; }
+.intro-carte .label-mono{ color: var(--cyan); }
+.intro-carte h1{ color: #fff; font-size: clamp(1.9rem, 1.5rem + 2vw, 2.6rem); }
+.intro-carte p{ color: #B7BEC6; }
+
+.label-mono{
+  font-family: var(--font-mono); font-size: .72rem; letter-spacing: .1em;
+  text-transform: uppercase; display: block; margin-bottom: .6em;
+}
+
+.stage{ position: relative; }
+
+/* Le hub, en carte pleine largeur sur mobile */
+.hub{
+  background: linear-gradient(155deg, var(--cuivre), #8C5424);
+  color: #fff; border-radius: 14px; padding: 28px 26px;
+  max-width: 520px; margin: 0 auto 28px; box-shadow: var(--shadow-md);
+  text-align: center;
+}
+.hub h2{ color: #fff; font-size: 1.5rem; }
+.hub p{ color: rgba(255,255,255,.85); margin-bottom: 1.2em; }
+.hub .btn{
+  display: inline-flex; background: #fff; color: var(--cuivre); font-weight: 700;
+  padding: 11px 22px; border-radius: 999px; text-decoration: none; font-size: .92rem;
+}
+
+.satellites{ display: grid; grid-template-columns: 1fr; gap: 14px; max-width: 520px; margin: 0 auto; }
+.satellite{
+  display: block; width: 100%; text-align: left;
+  background: var(--graphite-2); border: 1px solid var(--line); border-radius: 12px;
+  padding: 20px 22px; cursor: pointer; color: var(--blanc);
+  transition: transform .3s var(--ease), border-color .3s var(--ease);
+}
+.satellite:hover, .satellite:focus-visible{ transform: translateY(-3px); border-color: var(--cyan); }
+.satellite .label-mono{ color: var(--cyan); }
+.satellite-titre{ font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; display: block; margin-bottom: .3em; }
+.satellite-accroche{ font-size: .92rem; color: #A9B0B8; margin: 0; }
+
+/* Le SVG des liens n'a de sens qu'en version orbitale desktop */
+.liens{ display: none; }
+
+/* Lien vers la version texte, toujours visible juste sous la carte */
+.lien-texte{
+  display: block; text-align: center; margin-top: 1.6em; font-size: .85rem; color: #8B939B;
+}
+
+/* =========================================================================
+   DESKTOP (≥861px) — bascule en carte orbitale
+   ========================================================================= */
+@media (min-width: 861px){
+
+  .stage{
+    width: min(640px, 90vw); aspect-ratio: 1; margin: 0 auto;
+  }
+
+  .liens{
+    display: block; position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible;
+  }
+  .liens line{
+    stroke: var(--line); stroke-width: .4; transition: stroke .3s var(--ease), stroke-width .3s var(--ease);
+  }
+  .liens line.actif{ stroke: var(--cyan); stroke-width: .8; }
+
+  .hub{
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 40%; aspect-ratio: 1; border-radius: 50%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    margin: 0; padding: 8%;
+  }
+  .hub h2{ font-size: clamp(1rem, .7rem + 1.2vw, 1.3rem); }
+  .hub p{ font-size: .82rem; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .hub .btn{ padding: 8px 16px; font-size: .78rem; }
+
+  .satellites{ display: contents; }
+  .satellite{
+    position: absolute; width: 30%; max-width: 220px;
+    transform: translate(-50%, -50%);
+    padding: 16px 18px; border-radius: 10px;
+  }
+  .satellite:hover, .satellite:focus-visible{ transform: translate(-50%, -50%) translateY(-4px) scale(1.04); }
+  .satellite-titre{ font-size: .92rem; }
+  .satellite-accroche{ font-size: .78rem; -webkit-line-clamp: 2; display: -webkit-box; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* Positions précalculées (angles 45/135/225/315°, rayon 38%) */
+  .satellite[data-panel="pro"]     { top: 76.87%; left: 76.87%; }
+  .satellite[data-panel="perso"]   { top: 76.87%; left: 23.13%; }
+  .satellite[data-panel="audit"]   { top: 23.13%; left: 76.87%; }
+  .satellite[data-panel="veille"]  { top: 23.13%; left: 23.13%; }
+}
+
+/* =========================================================================
+   PANNEAUX DE DÉTAIL
+   ========================================================================= */
+.panel-overlay{
+  position: fixed; inset: 0; background: rgba(18,21,26,.6);
+  backdrop-filter: blur(2px); z-index: 60;
+}
+.panel-overlay[hidden]{ display: none; }
+
+.panel{
+  position: fixed; top: 0; right: 0; height: 100%; width: min(440px, 100%);
+  background: var(--panel-bg); z-index: 61; overflow-y: auto;
+  padding: clamp(28px, 4vw, 40px);
+  transform: translateX(100%); transition: transform .4s var(--ease);
+}
+.panel.ouvert{ transform: translateX(0); }
+.panel[hidden]{ display: none; }
+
+.panel-fermer{
+  background: none; border: 1px solid var(--line-dk); border-radius: 999px;
+  width: 36px; height: 36px; cursor: pointer; font-size: 1rem; color: var(--graphite);
+  margin-bottom: 1.6em;
+}
+.panel .label-mono{ color: var(--cuivre); }
+.panel h2{ font-size: 1.5rem; }
+.panel .resume{ font-size: 1rem; color: var(--muted-dk); margin-bottom: 1.6em; }
+
+.approfondir{ border-top: 1px solid var(--line-dk); padding-top: 16px; margin-top: 8px; }
+.approfondir summary{
+  cursor: pointer; font-weight: 700; font-family: var(--font-display); font-size: .95rem;
+  list-style: none; display: flex; align-items: center; gap: 8px;
+}
+.approfondir summary::-webkit-details-marker{ display: none; }
+.approfondir summary::before{ content: "+"; color: var(--cyan-dk); font-weight: 800; }
+.approfondir[open] summary::before{ content: "–"; }
+.approfondir p, .approfondir li{ color: var(--muted-dk); font-size: .92rem; }
+.approfondir ul{ padding-left: 1.2em; }
+
+.lien-croise{
+  display: inline-block; margin-top: 1.8em; font-weight: 700; font-size: .9rem;
+  color: var(--cyan-dk); text-decoration: none; border-bottom: 1px solid currentColor;
+}
+
+/* =========================================================================
+   VERSION TEXTE (fallback accessible, contenu réel dans le DOM)
+   ========================================================================= */
+.version-texte{ padding: clamp(48px, 6vw, 80px) 0; }
+.version-texte-grid{ display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 2em; }
+@media (min-width: 700px){ .version-texte-grid{ grid-template-columns: repeat(2, 1fr); } }
+.version-texte-carte{ border-top: 3px solid var(--cyan); padding: 16px 0; }
+.version-texte-carte h3{ font-size: 1.1rem; }
+.version-texte-carte p{ color: var(--muted-dk); font-size: .93rem; margin: 0; }
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.site-footer{ border-top: 1px solid var(--line-dk); padding: 30px 0; text-align: center; }
+.site-footer p{ font-size: .85rem; color: var(--muted-dk); margin: 0; }
