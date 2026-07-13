@@ -105,6 +105,8 @@ p{ margin: 0 0 1em; color: var(--muted); }
    HERO
    ========================================================================= */
 .hero{ background: var(--vert-dk); color: #fff; padding: clamp(56px, 7vw, 96px) 0 clamp(40px, 5vw, 60px); }
+.hero-photo-band{ line-height: 0; }
+.hero-photo-band img{ width: 100%; height: clamp(220px, 32vw, 420px); object-fit: cover; display: block; }
 .hero .eyebrow{ color: var(--ambre); }
 .hero h1{ color: #fff; }
 .hero-lede{ font-size: 1.14rem; color: #D6D9CF; max-width: 600px; margin: 0 0 1.8em; }
@@ -155,12 +157,33 @@ section{ padding: clamp(48px, 6vw, 84px) 0; }
 
 .bureau-grid{ display: grid; grid-template-columns: 1fr; gap: 20px; }
 @media (min-width: 700px){ .bureau-grid{ grid-template-columns: repeat(2, 1fr); } }
-.membre-card{
-  display: flex; gap: 16px; background: var(--panel); border: 1px solid var(--line);
-  border-radius: 10px; padding: 20px; box-shadow: var(--shadow-sm);
+.membre-card {
+  display: flex; 
+  gap: 16px; 
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 20px 0;
+  box-shadow: none;
 }
-.membre-photo{ width: 68px; height: 68px; border-radius: 50%; flex-shrink: 0; background: linear-gradient(150deg, var(--terre-cl), var(--vert)); }
-.membre-role{ font-size: .76rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: var(--ambre-dk); margin-bottom: .3em; }
+
+.membre-photo { 
+  width: 68px; 
+  height: 68px; 
+  border-radius: 0;
+  flex-shrink: 0; 
+  background: linear-gradient(150deg, var(--terre-cl), var(--vert)); 
+  object-fit: cover; 
+}
+
+.membre-role { 
+  font-size: .76rem; 
+  font-weight: 700; 
+  text-transform: uppercase; 
+  letter-spacing: .06em; 
+  color: var(--ambre-dk); 
+  margin-bottom: .3em; 
+}
 
 /* =========================================================================
    SOUTIEN — adhésion / don
