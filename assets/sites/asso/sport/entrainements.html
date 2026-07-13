@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entraînements — Smash Club, Badminton à Domagné</title>
+<meta name="description" content="Tous les créneaux d'entraînement du Smash Club à Domagné, filtrables par niveau et par disponibilité.">
+<link rel="canonical" href="https://www.smash-club-domagne.fr/entrainements.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="index.html"><span class="mark">●</span> Smash Club</a>
+    <nav aria-label="Navigation principale">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li class="nav-dropdown">
+          <details >
+            <summary class="nav-summary">Le Club</summary>
+            <ul class="sous-menu">
+              <li><a href="association.html">L'Association</a></li>
+              <li><a href="bureau.html">Le Bureau</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="entrainements.html" aria-current="page">Entraînements</a></li>
+        <li><a href="tournois.html">Tournois</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="contact.html" class="nav-cta">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">Entraînements</p>
+      <h1>Trouvez votre créneau en 10 secondes</h1>
+      <p class="lede">Filtrez par niveau et par disponibilité — la liste se met à jour instantanément, sans recharger la page.</p>
+    </div>
+  </section>
+
+  <section class="section-alt">
+    <div class="wrap">
+
+      <div class="filtre-bar">
+        <div class="filtre-groupe">
+          <span>Niveau</span>
+          <div class="filtre-chips" data-filtre="niveau">
+            <button type="button" class="actif" data-valeur="tous">Tous</button>
+            <button type="button" data-valeur="debutant">Débutant</button>
+            <button type="button" data-valeur="loisir">Loisir</button>
+            <button type="button" data-valeur="competition">Compétition</button>
+          </div>
+        </div>
+        <div class="filtre-groupe">
+          <span>Disponibilité</span>
+          <div class="filtre-chips" data-filtre="moment">
+            <button type="button" class="actif" data-valeur="tous">Tous</button>
+            <button type="button" data-valeur="jour">Journée</button>
+            <button type="button" data-valeur="soir">Soirée</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="creneaux-liste" id="creneauxListe">
+
+        <article class="creneau-card" data-niveau="debutant" data-moment="soir">
+          <span class="creneau-jour">Lundi</span>
+          <span class="creneau-tag">Débutant</span>
+          <span>19h00 – 20h30</span>
+          <span style="color:var(--muted); font-size:.88rem;">Encadré par Yanis</span>
+        </article>
+
+        <article class="creneau-card" data-niveau="loisir" data-moment="soir">
+          <span class="creneau-jour">Mardi</span>
+          <span class="creneau-tag">Loisir</span>
+          <span>19h30 – 21h30</span>
+          <span style="color:var(--muted); font-size:.88rem;">Créneau libre, tous niveaux loisir</span>
+        </article>
+
+        <article class="creneau-card" data-niveau="competition" data-moment="soir">
+          <span class="creneau-jour">Mercredi</span>
+          <span class="creneau-tag">Compétition</span>
+          <span>20h00 – 22h00</span>
+          <span style="color:var(--muted); font-size:.88rem;">Entraînement encadré, licence compétition requise</span>
+        </article>
+
+        <article class="creneau-card" data-niveau="debutant" data-moment="jour">
+          <span class="creneau-jour">Jeudi</span>
+          <span class="creneau-tag">Débutant</span>
+          <span>10h00 – 11h30</span>
+          <span style="color:var(--muted); font-size:.88rem;">Créneau du matin, places limitées</span>
+        </article>
+
+        <article class="creneau-card" data-niveau="loisir" data-moment="jour">
+          <span class="creneau-jour">Vendredi</span>
+          <span class="creneau-tag">Loisir</span>
+          <span>14h00 – 16h00</span>
+          <span style="color:var(--muted); font-size:.88rem;">Créneau libre en journée</span>
+        </article>
+
+        <article class="creneau-card" data-niveau="competition" data-moment="jour">
+          <span class="creneau-jour">Samedi</span>
+          <span class="creneau-tag">Compétition</span>
+          <span>10h00 – 12h30</span>
+          <span style="color:var(--muted); font-size:.88rem;">Préparation tournois, sur inscription</span>
+        </article>
+
+        <p class="aucun-resultat" id="aucunResultat" hidden>Aucun créneau ne correspond à ces filtres pour le moment — contactez-nous, on trouve toujours une solution.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="text-align:center;">
+    <div class="wrap">
+      <p class="eyebrow" style="justify-content:center; display:flex;">Prêt à essayer ?</p>
+      <h2>Une première séance d'essai est toujours gratuite</h2>
+      <a href="contact.html" class="btn btn-primary">M'inscrire à un créneau</a>
+    </div>
+  </section>
+
+<script>
+(function(){
+  var etat = { niveau: 'tous', moment: 'tous' };
+
+  function appliquerFiltres(){
+    var cartes = document.querySelectorAll('.creneau-card');
+    var visibles = 0;
+    cartes.forEach(function(carte){
+      var okNiveau = etat.niveau === 'tous' || carte.dataset.niveau === etat.niveau;
+      var okMoment = etat.moment === 'tous' || carte.dataset.moment === etat.moment;
+      var match = okNiveau && okMoment;
+      carte.hidden = !match;
+      if(match) visibles++;
+    });
+    document.getElementById('aucunResultat').hidden = visibles > 0;
+  }
+
+  document.querySelectorAll('.filtre-chips').forEach(function(groupe){
+    var cle = groupe.dataset.filtre;
+    groupe.querySelectorAll('button').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        groupe.querySelectorAll('button').forEach(function(b){ b.classList.remove('actif'); });
+        btn.classList.add('actif');
+        etat[cle] = btn.dataset.valeur;
+        appliquerFiltres();
+      });
+    });
+  });
+})();
+</script>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-row">
+    <div>
+      <p class="footer-brand">Smash Club</p>
+      <p>Association de badminton — Gymnase municipal, Domagné</p>
+    </div>
+    <nav aria-label="Liens du pied de page">
+      <ul>
+        <li><a href="association.html">L'Association</a></li>
+        <li><a href="bureau.html">Le Bureau</a></li>
+        <li><a href="entrainements.html">Entraînements</a></li>
+        <li><a href="tournois.html">Tournois</a></li>
+        <li><a href="galerie.html">Galerie</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+</body>
+</html>
