@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog & actualités — Ecomotion</title>
+<meta name="description" content="Conseils sécurité nocturne, bonnes pratiques de trajet et actualités Ecomotion.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo"><span class="dot"></span>Ecomotion</a>
+    <nav class="nav-desktop" aria-label="Navigation principale">
+      <a href="index.html">Accueil</a>
+      <a href="services.html">Services</a>
+      <a href="a-propos.html">À propos</a>
+      <a href="blog.html" aria-current="page">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-toggle" aria-label="Basculer thème clair/sombre" title="Mode jour / nuit">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <a href="reserver.html" class="btn btn-primary">Réserver ma course</a>
+      <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div class="mobile-menu">
+    <a href="index.html">Accueil</a>
+    <a href="services.html">Services</a>
+    <a href="a-propos.html">À propos</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+    <a href="reserver.html" class="btn btn-primary btn-block">Réserver ma course</a>
+  </div>
+</header>
+
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Blog</p>
+      <h1>Conseils & actualités</h1>
+      <p>Sécurité nocturne, bonnes pratiques de trajet et vie d'Ecomotion.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="filters">
+        <button class="filter-chip active" data-filter="all">Tous les articles</button>
+        <button class="filter-chip" data-filter="securite">Sécurité nocturne</button>
+        <button class="filter-chip" data-filter="conseils">Conseils voyageurs</button>
+        <button class="filter-chip" data-filter="actus">Actus VTC</button>
+        <button class="filter-chip" data-filter="vie">Vie d'Ecomotion</button>
+      </div>
+
+      <div class="grid-3">
+        <a class="blog-card" href="blog-article.html" data-category="securite">
+          <div class="blog-thumb"></div>
+          <div class="blog-body">
+            <span class="blog-cat">Sécurité nocturne</span>
+            <h3>5 réflexes pour un trajet de nuit serein</h3>
+            <p>Les bons gestes avant, pendant et après votre course nocturne.</p>
+            <div class="blog-meta"><span>4 min de lecture</span><span>12 juin 2026</span></div>
+          </div>
+        </a>
+        <a class="blog-card" href="blog-article.html" data-category="conseils">
+          <div class="blog-thumb"></div>
+          <div class="blog-body">
+            <span class="blog-cat">Conseils voyageurs</span>
+            <h3>Vol de nuit : bien anticiper votre transfert</h3>
+            <p>Comment sécuriser votre trajet aéroport en horaires décalés.</p>
+            <div class="blog-meta"><span>3 min de lecture</span><span>28 mai 2026</span></div>
+          </div>
+        </a>
+        <a class="blog-card" href="blog-article.html" data-category="vie">
+          <div class="blog-thumb"></div>
+          <div class="blog-body">
+            <span class="blog-cat">Vie d'Ecomotion</span>
+            <h3>Comment nous sélectionnons nos chauffeurs</h3>
+            <p>Notre process de vérification, étape par étape.</p>
+            <div class="blog-meta"><span>5 min de lecture</span><span>14 mai 2026</span></div>
+          </div>
+        </a>
+        <a class="blog-card" href="blog-article.html" data-category="securite">
+          <div class="blog-thumb"></div>
+          <div class="blog-body">
+            <span class="blog-cat">Sécurité nocturne</span>
+            <h3>Que faire si votre trajet du soir prend du retard ?</h3>
+            <p>Nos conseils pour rester serein en cas d'imprévu.</p>
+            <div class="blog-meta"><span>3 min de lecture</span><span>2 mai 2026</span></div>
+          </div>
+        </a>
+        <a class="blog-card" href="blog-article.html" data-category="actus">
+          <div class="blog-thumb"></div>
+          <div class="blog-body">
+            <span class="blog-cat">Actus VTC</span>
+            <h3>Ecomotion étend sa couverture nocturne</h3>
+            <p>De nouvelles zones desservies pour vos trajets tardifs.</p>
+            <div class="blog-meta"><span>2 min de lecture</span><span>18 avril 2026</span></div>
+          </div>
+        </a>
+        <a class="blog-card" href="blog-article.html" data-category="conseils">
+          <div class="blog-thumb"></div>
+          <div class="blog-body">
+            <span class="blog-cat">Conseils voyageurs</span>
+            <h3>Sortie de soirée : organiser son retour en avance</h3>
+            <p>Pourquoi réserver son trajet retour avant de sortir.</p>
+            <div class="blog-meta"><span>3 min de lecture</span><span>5 avril 2026</span></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo"><span class="dot"></span>Ecomotion</a>
+        <p>Conduire, satisfaire, être recommandé. Votre chauffeur privé de confiance, jour et nuit.</p>
+        <div class="footer-night-badge"><span class="dot"></span>Service actif cette nuit</div>
+      </div>
+      <div>
+        <h4>Navigation</h4>
+        <a href="index.html">Accueil</a>
+        <a href="services.html">Services</a>
+        <a href="a-propos.html">À propos</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div>
+        <h4>Réservation</h4>
+        <a href="reserver.html">Réserver une course</a>
+        <a href="contact.html">Demander un devis</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <h4>Légal</h4>
+        <a href="#">Mentions légales</a>
+        <a href="#">CGV</a>
+        <a href="#">Politique de confidentialité</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year></span> Ecomotion. Tous droits réservés.</span>
+      <span>Ecomotion.fr</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
