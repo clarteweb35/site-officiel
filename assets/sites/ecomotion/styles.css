@@ -380,3 +380,102 @@ section{ padding:88px 0; }
   .cta-final{ padding:36px 22px; }
   .footer-bottom{ flex-direction:column; align-items:flex-start; }
 }
+
+/* =========================================================
+   Ajouts — chauffeur solo, éco-responsabilité, devis & dispo
+   ========================================================= */
+
+/* Pastille de disponibilité (header) */
+.avail-pill{
+  font-family:var(--f-mono); font-size:12px; padding:7px 12px; border-radius:999px;
+  border:1px solid var(--border-strong); color:var(--text-1); white-space:nowrap;
+}
+.avail-pill[data-state="ok"]{ color:var(--trust); border-color:transparent; background:var(--trust-soft); }
+.avail-pill[data-state="warn"]{ color:var(--gold); border-color:transparent; background:rgba(227,165,66,0.14); }
+.avail-pill[data-state="off"]{ color:var(--danger); border-color:transparent; background:rgba(224,101,79,0.14); }
+@media (max-width: 720px){ .avail-pill{ display:none; } }
+
+/* Bannière de disponibilité (page réservation) */
+.availability-banner{
+  display:none; align-items:flex-start; gap:12px; background:var(--bg-3);
+  border:1px solid var(--border-strong); border-left:3px solid var(--gold);
+  border-radius:var(--radius-m); padding:16px 18px; margin-bottom:28px; font-size:14.5px; color:var(--text-0);
+}
+.availability-banner.show{ display:flex; }
+.availability-banner svg{ width:19px; height:19px; color:var(--gold); flex-shrink:0; margin-top:2px; }
+
+/* Étapes du formulaire de réservation */
+.step-label{
+  font-family:var(--f-mono); font-size:12px; text-transform:uppercase; letter-spacing:0.06em;
+  color:var(--text-2); margin-bottom:6px; display:block;
+}
+.step-hidden{ display:none; }
+.step-divider{ height:1px; background:var(--border); margin:26px 0; }
+
+/* Avertissement de distance (autonomie véhicule) */
+.distance-warning{
+  display:none; font-size:13px; color:var(--gold); background:rgba(227,165,66,0.1);
+  border:1px solid rgba(227,165,66,0.3); border-radius:var(--radius-s); padding:10px 14px; margin-bottom:16px;
+}
+.distance-warning.show{ display:block; }
+.distance-warning.danger{ color:var(--danger); background:rgba(224,101,79,0.1); border-color:rgba(224,101,79,0.35); }
+
+/* Service fermé — masque le CTA de réservation */
+#reservation-flow.is-closed .estimate-actions,
+#reservation-flow.is-closed #reservation-step-1 button[type="button"]{
+  opacity:0.5; pointer-events:none;
+}
+
+/* Badge éco / véhicule */
+.eco-badge{
+  display:inline-flex; align-items:center; gap:7px; padding:6px 12px; border-radius:999px;
+  font-size:12.5px; font-weight:600; background:var(--trust-soft); color:var(--trust); margin-bottom:14px;
+}
+.eco-badge svg{ width:14px; height:14px; }
+
+.zone-note{
+  font-size:13px; color:var(--text-2); background:var(--bg-3); border:1px solid var(--border);
+  border-radius:var(--radius-s); padding:12px 14px; margin-top:16px;
+}
+
+/* =========================================================
+   Ajouts — intégration Google Maps (autocomplétion, géoloc, itinéraire)
+   ========================================================= */
+
+.input-with-action{ position:relative; }
+.input-with-action input{ padding-right:44px; }
+.geo-btn{
+  position:absolute; right:6px; top:50%; transform:translateY(-50%);
+  width:32px; height:32px; border-radius:50%; border:1px solid var(--border-strong);
+  background:var(--bg-2); color:var(--text-1); display:flex; align-items:center; justify-content:center;
+  transition:border-color .2s, color .2s, background .2s;
+}
+.geo-btn:hover{ color:var(--gold); border-color:var(--gold); }
+.geo-btn.loading{ animation: spin 1s linear infinite; color:var(--signal); }
+.geo-btn svg{ width:16px; height:16px; }
+@keyframes spin{ to{ transform:translateY(-50%) rotate(360deg); } }
+
+.geo-status{
+  font-size:12px; margin-top:6px; min-height:16px; color:var(--text-2);
+}
+.geo-status.error{ color:var(--danger); }
+.geo-status.success{ color:var(--trust); }
+
+.route-summary{
+  display:flex; gap:10px; margin:14px 0; flex-wrap:wrap;
+}
+.route-summary .chip{
+  display:flex; align-items:center; gap:7px; background:var(--bg-3); border:1px solid var(--border);
+  border-radius:999px; padding:8px 14px; font-size:13px; color:var(--text-1); font-family:var(--f-mono);
+}
+.route-summary .chip svg{ width:14px; height:14px; color:var(--signal); }
+.route-summary .chip.loading{ opacity:0.6; }
+
+#map-canvas{
+  width:100%; height:100%; min-height:280px; border-radius:var(--radius-l);
+  display:none;
+}
+#map-canvas.show{ display:block; }
+.route-svg-wrap.hide-fallback{ display:none; }
+
+.pac-container{ z-index:9999 !important; }

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Réserver une course — Ecomotion</title>
-<meta name="description" content="Réservez votre chauffeur privé Ecomotion en quelques instants : adresse, heure, options. Tarif confirmé avant le départ, annulation gratuite.">
+<title>Obtenir un devis — Ecomotion</title>
+<meta name="description" content="Obtenez un devis pour votre trajet local avec Ecomotion, chauffeur indépendant en Renault Zoé 100% électrique. Devis annoncé avant toute réservation.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -22,10 +22,11 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-actions">
+      <span class="avail-pill" data-state="loading">● Vérification…</span>
       <button class="theme-toggle" aria-label="Basculer thème clair/sombre" title="Mode jour / nuit">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="reserver.html" class="btn btn-primary" aria-current="page">Réserver ma course</a>
+      <a href="reserver.html" class="btn btn-primary" aria-current="page">Obtenir un devis</a>
       <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -35,16 +36,16 @@
     <a href="a-propos.html">À propos</a>
     <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
-    <a href="reserver.html" class="btn btn-primary btn-block">Réserver ma course</a>
+    <a href="reserver.html" class="btn btn-primary btn-block">Obtenir un devis</a>
   </div>
 </header>
 
 <main>
   <section class="page-hero">
     <div class="container">
-      <p class="eyebrow">Réservation</p>
-      <h1>Votre trajet, confirmé en deux minutes</h1>
-      <p>Renseignez votre départ et votre arrivée : nous vous confirmons un chauffeur et un tarif fixe avant votre départ.</p>
+      <p class="eyebrow">Devis & réservation</p>
+      <h1>Votre trajet, chiffré en toute transparence</h1>
+      <p>Renseignez votre trajet pour obtenir une estimation, puis transmettez votre demande. Je valide personnellement chaque réservation avant de vous envoyer un lien de paiement sécurisé.</p>
     </div>
   </section>
 
@@ -52,85 +53,117 @@
     <div class="container">
       <div class="grid-2" style="grid-template-columns:1.3fr 0.9fr; align-items:flex-start;">
 
-        <div class="form-card">
-          <form id="reservation-form" data-demo-submit novalidate>
-            <div class="form-row">
-              <div class="field">
-                <label for="depart">Adresse de départ</label>
-                <input type="text" id="depart" name="depart" placeholder="Ex. 12 rue de la Gare, Lyon" required>
+        <div id="reservation-flow">
+          <div class="availability-banner" id="availability-banner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>
+            <span class="availability-text">Le service est momentanément fermé. Vous pouvez laisser une demande de réservation à l'avance.</span>
+          </div>
+
+          <div class="form-card">
+            <form id="reservation-form" data-demo-submit novalidate>
+              <div id="reservation-step-1">
+                <span class="step-label">Étape 1 — Estimation</span>
+
+                <div class="form-row">
+                  <div class="field">
+                    <label for="depart">Adresse de départ</label>
+                    <div class="input-with-action">
+                      <input type="text" id="depart" name="depart" placeholder="Ex. 12 rue de la Gare" required autocomplete="off">
+                      <button type="button" id="btn-geoloc" class="geo-btn" title="Utiliser ma position actuelle" aria-label="Utiliser ma position actuelle">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2 2M17 17l2 2M19.1 4.9l-2 2M7 17l-2 2"/></svg>
+                      </button>
+                    </div>
+                    <p class="geo-status" id="geo-status"></p>
+                  </div>
+                  <div class="field">
+                    <label for="arrivee">Adresse d'arrivée</label>
+                    <input type="text" id="arrivee" name="arrivee" placeholder="Ex. 4 avenue des Lumières" required autocomplete="off">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="field">
+                    <label for="date">Date souhaitée</label>
+                    <input type="date" id="date" name="date" required>
+                  </div>
+                  <div class="field">
+                    <label for="heure">Heure de prise en charge</label>
+                    <input type="time" id="heure" name="heure" required>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="distance">Distance estimée (km)</label>
+                  <input type="number" id="distance" name="distance" min="1" value="6">
+                  <p class="hint">Renseignée automatiquement si Google Maps est configuré, sinon modifiable manuellement.</p>
+                </div>
+                <div class="route-summary" id="route-summary"></div>
+
+                <div class="distance-warning" id="distance-warning"></div>
+
+                <div class="estimate-box">
+                  <div>
+                    <div class="label">Estimation (3,13 € + 1,77 €/km)</div>
+                  </div>
+                  <div class="amount" id="estimate-amount">13,75 €</div>
+                </div>
+
+                <div class="estimate-actions">
+                  <button type="button" id="btn-continue" class="btn btn-primary btn-block btn-lg">Continuer vers ma demande de réservation</button>
+                </div>
+                <p class="form-note">Ce montant est une estimation. Le devis définitif vous sera confirmé après validation de votre demande.</p>
               </div>
-              <div class="field">
-                <label for="arrivee">Adresse d'arrivée</label>
-                <input type="text" id="arrivee" name="arrivee" placeholder="Ex. Aéroport Lyon Saint-Exupéry" required>
+
+              <div id="reservation-step-2" class="step-hidden">
+                <div class="step-divider"></div>
+                <span class="step-label">Étape 2 — Demande de réservation</span>
+
+                <div class="form-row">
+                  <div class="field">
+                    <label for="nom-res">Nom complet</label>
+                    <input type="text" id="nom-res" name="nom-res" placeholder="Votre nom" required>
+                  </div>
+                  <div class="field">
+                    <label for="tel-res">Téléphone</label>
+                    <input type="tel" id="tel-res" name="tel-res" placeholder="06 12 34 56 78" required>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="email-res">E-mail</label>
+                  <input type="email" id="email-res" name="email-res" placeholder="vous@exemple.fr" required>
+                </div>
+
+                <div class="field">
+                  <label>Options</label>
+                  <div class="radio-group">
+                    <label class="radio-chip"><input type="checkbox" name="option" value="bagages">Bagages</label>
+                    <label class="radio-chip"><input type="checkbox" name="option" value="silencieux">Trajet silencieux</label>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="notes">Note (optionnel)</label>
+                  <textarea id="notes" name="notes" placeholder="Étage, code d'accès, précisions utiles..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg" data-demo-submit-trigger>Envoyer ma demande de réservation</button>
+                <p class="form-note">Ceci est une demande, pas une confirmation. Après validation, vous recevrez un lien de paiement sécurisé pour confirmer définitivement votre course.</p>
               </div>
+            </form>
+
+            <div class="form-success">
+              <div class="check"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>
+              <h3>Demande transmise</h3>
+              <p style="color:var(--text-1); margin-top:8px;">Je valide personnellement chaque demande. Vous recevrez ensuite un lien de paiement sécurisé (Stripe) pour confirmer définitivement votre course.</p>
             </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label for="date">Date</label>
-                <input type="date" id="date" name="date" required>
-              </div>
-              <div class="field">
-                <label for="heure">Heure de prise en charge</label>
-                <input type="time" id="heure" name="heure" required>
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div class="field">
-                <label for="passagers">Nombre de passagers</label>
-                <select id="passagers" name="passagers">
-                  <option>1</option><option>2</option><option>3</option><option>4</option>
-                </select>
-              </div>
-              <div class="field">
-                <label for="distance">Distance estimée (km)</label>
-                <input type="number" id="distance" name="distance" min="1" value="6">
-                <p class="hint">Une estimation précise vous sera confirmée après validation.</p>
-              </div>
-            </div>
-
-            <div class="field">
-              <label>Options</label>
-              <div class="radio-group">
-                <label class="radio-chip"><input type="checkbox" name="option" value="bagages">Bagages supplémentaires</label>
-                <label class="radio-chip"><input type="checkbox" name="option" value="siege-enfant">Siège enfant</label>
-                <label class="radio-chip"><input type="checkbox" name="option" value="silencieux">Trajet silencieux</label>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="tel">Téléphone</label>
-              <input type="tel" id="tel" name="tel" placeholder="06 12 34 56 78" required>
-            </div>
-
-            <div class="field">
-              <label for="notes">Note pour le chauffeur (optionnel)</label>
-              <textarea id="notes" name="notes" placeholder="Étage, code d'accès, précisions utiles..."></textarea>
-            </div>
-
-            <div class="estimate-box">
-              <div>
-                <div class="label">Estimation tarifaire (nuit)</div>
-              </div>
-              <div class="amount" id="estimate-amount">19,40 €</div>
-            </div>
-
-            <button type="submit" class="btn btn-primary btn-block btn-lg">Confirmer ma réservation</button>
-            <p class="form-note">Aucun paiement requis maintenant. Annulation gratuite jusqu'à 30 min avant la prise en charge.</p>
-          </form>
-
-          <div class="form-success">
-            <div class="check"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>
-            <h3>Demande envoyée</h3>
-            <p style="color:var(--text-1); margin-top:8px;">Un chauffeur va vous être assigné. Vous recevrez une confirmation par SMS avant le départ.</p>
           </div>
         </div>
 
         <aside>
-          <div class="route-panel" style="min-height:auto;" aria-hidden="true">
+          <div class="route-panel" style="min-height:auto;">
             <div class="route-label"><span>Aperçu du trajet</span><span>Estimation</span></div>
-            <div class="route-svg-wrap">
+            <div id="map-canvas"></div>
+            <div class="route-svg-wrap" id="route-svg-fallback">
               <svg viewBox="0 0 300 180" width="100%">
                 <defs>
                   <linearGradient id="glow2" x1="0" y1="0" x2="1" y2="0">
@@ -146,8 +179,9 @@
           </div>
 
           <div class="card" style="margin-top:20px;">
-            <h3>Pourquoi réserver avec Ecomotion ?</h3>
-            <p style="margin-top:10px;">Chauffeur assigné à l'avance, tarif confirmé avant le départ, suivi en temps réel de votre trajet — y compris tard dans la nuit.</p>
+            <span class="eco-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6z"/></svg>100% électrique</span>
+            <h3>Pourquoi un devis avant réservation ?</h3>
+            <p style="margin-top:10px;">La réglementation VTC impose un devis préalable pour toute course. Ce processus en deux étapes vous garantit un prix transparent, validé avant tout engagement.</p>
           </div>
         </aside>
       </div>
@@ -162,19 +196,23 @@
       <div style="max-width:760px;">
         <div class="faq-item open">
           <button class="faq-q">Quel est le délai de prise en charge la nuit ? <span class="plus">+</span></button>
-          <div class="faq-a"><p>En moyenne 10 à 15 minutes selon votre zone. Un chauffeur vous est confirmé dès la validation de votre réservation.</p></div>
+          <div class="faq-a"><p>En général 10 à 20 minutes selon votre localisation, dans la limite de ma disponibilité (je n'exerce pas à temps plein).</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">Quelles zones sont desservies ? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Ecomotion couvre l'agglomération et sa périphérie proche, ainsi que les gares et aéroports environnants.</p></div>
+          <button class="faq-q">Quelle est votre zone de service ? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Trajets courts et locaux uniquement, dans l'agglomération et les zones urbaines proches, afin de préserver l'autonomie de ma Renault Zoé électrique.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">Quels moyens de paiement sont acceptés ? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Carte bancaire en ligne ou directement auprès du chauffeur, espèces acceptées sur demande.</p></div>
+          <button class="faq-q">Faites-vous les transferts aéroport ou les longs trajets ? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Non, ces trajets ne sont pas proposés afin de garantir l'autonomie de mon véhicule électrique. Contactez-moi si vous avez un doute sur la faisabilité de votre trajet.</p></div>
         </div>
         <div class="faq-item">
-          <button class="faq-q">Puis-je annuler ma réservation ? <span class="plus">+</span></button>
-          <div class="faq-a"><p>Oui, gratuitement jusqu'à 30 minutes avant l'heure de prise en charge prévue.</p></div>
+          <button class="faq-q">Comment se confirme définitivement ma course ? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Après réception de votre demande, je la valide personnellement puis vous envoie un lien de paiement sécurisé Stripe. La course est confirmée une fois le paiement effectué.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">Que se passe-t-il si vous êtes indisponible ? <span class="plus">+</span></button>
+          <div class="faq-a"><p>Le statut affiché en haut de page reflète ma disponibilité en temps réel. Si je suis indisponible, vous pouvez tout de même laisser une demande à l'avance.</p></div>
         </div>
       </div>
     </div>
@@ -186,8 +224,8 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo"><span class="dot"></span>Ecomotion</a>
-        <p>Conduire, satisfaire, être recommandé. Votre chauffeur privé de confiance, jour et nuit.</p>
-        <div class="footer-night-badge"><span class="dot"></span>Service actif cette nuit</div>
+        <p>Conduire, satisfaire, être recommandé. Chauffeur indépendant, Renault Zoé 100% électrique, trajets locaux et nocturnes.</p>
+        <div class="footer-night-badge"><span class="dot"></span>Service selon planning</div>
       </div>
       <div>
         <h4>Navigation</h4>
@@ -198,8 +236,7 @@
       </div>
       <div>
         <h4>Réservation</h4>
-        <a href="reserver.html">Réserver une course</a>
-        <a href="contact.html">Demander un devis</a>
+        <a href="reserver.html">Obtenir un devis</a>
         <a href="contact.html">Contact</a>
       </div>
       <div>
@@ -216,6 +253,16 @@
   </div>
 </footer>
 
+<!--
+  ÉTAPE OBLIGATOIRE POUR ACTIVER LA CARTE, L'AUTOCOMPLÉTION ET LE CALCUL D'ITINÉRAIRE :
+  1. Remplacez YOUR_GOOGLE_MAPS_API_KEY ci-dessous par votre clé API Google Maps.
+  2. Décommentez la balise <script> qui suit.
+  Voir les instructions de configuration fournies en réponse pour la création de la clé
+  et l'activation des API nécessaires (Maps JavaScript API, Places API, Directions API).
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&libraries=places&callback=initEcomotionMaps&loading=async" defer></script>
+-->
+<script src="maps-integration.js"></script>
 <script src="script.js"></script>
 </body>
 </html>

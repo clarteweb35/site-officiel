@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ecomotion — Chauffeur privé VTC, disponible 24h/24</title>
-<meta name="description" content="Ecomotion, votre chauffeur privé de confiance pour tous vos trajets, jour et nuit. Réservez en 2 minutes, chauffeurs vérifiés, tarif annoncé avant le départ.">
+<title>Ecomotion — Chauffeur privé VTC électrique, trajets de nuit</title>
+<meta name="description" content="Ecomotion, votre chauffeur privé indépendant en Renault Zoé 100% électrique. Trajets locaux et nocturnes, silencieux et sans émissions. Réservez en 2 minutes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
@@ -22,10 +22,11 @@
       <a href="contact.html">Contact</a>
     </nav>
     <div class="header-actions">
+      <span class="avail-pill" data-state="loading">● Vérification…</span>
       <button class="theme-toggle" aria-label="Basculer thème clair/sombre" title="Mode jour / nuit">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
       </button>
-      <a href="reserver.html" class="btn btn-primary">Réserver ma course</a>
+      <a href="reserver.html" class="btn btn-primary">Obtenir un devis</a>
       <button class="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -35,7 +36,7 @@
     <a href="a-propos.html">À propos</a>
     <a href="blog.html">Blog</a>
     <a href="contact.html">Contact</a>
-    <a href="reserver.html" class="btn btn-primary btn-block">Réserver ma course</a>
+    <a href="reserver.html" class="btn btn-primary btn-block">Obtenir un devis</a>
   </div>
 </header>
 
@@ -45,22 +46,22 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <p class="eyebrow">Chauffeur privé · 24h/24</p>
-        <h1>Roulez en confiance,<br>même en <span class="accent">pleine nuit</span>.</h1>
-        <p class="lead">Ecomotion vous accompagne sur tous vos trajets, à toute heure. Réservez en 2 minutes, suivez votre chauffeur en direct, arrivez en toute sérénité.</p>
+        <p class="eyebrow">Chauffeur indépendant · Renault Zoé 100% électrique</p>
+        <h1>Un trajet de nuit,<br>en toute <span class="accent">discrétion</span>.</h1>
+        <p class="lead">Je suis votre chauffeur privé pour vos trajets locaux du soir et de la nuit, au volant d'une Renault Zoé 100% électrique : silencieuse, propre, et pilotée par une seule personne — moi. Pas de flotte, pas d'intermédiaire, juste un service de proximité fiable.</p>
         <div class="hero-cta-row">
-          <a href="reserver.html" class="btn btn-primary btn-lg">Réserver ma course</a>
-          <a href="contact.html" class="btn btn-ghost btn-lg">Demander un devis</a>
+          <a href="reserver.html" class="btn btn-primary btn-lg">Obtenir un devis</a>
+          <a href="a-propos.html" class="btn btn-ghost btn-lg">Me découvrir</a>
         </div>
         <div class="trust-strip">
-          <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Chauffeurs vérifiés</div>
-          <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Disponible 24h/24, 7j/7</div>
-          <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Tarif annoncé avant le départ</div>
+          <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Chauffeur unique, identité vérifiée</div>
+          <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>100% électrique, zéro émission</div>
+          <div class="trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg>Devis annoncé avant le départ</div>
         </div>
       </div>
 
       <div class="route-panel" aria-hidden="true">
-        <div class="route-label"><span>Départ · <b>Gare centrale</b></span><span>22:48</span></div>
+        <div class="route-label"><span>Renault Zoé · <b>Trajet local</b></span><span>22:48</span></div>
         <div class="route-svg-wrap">
           <svg viewBox="0 0 400 260" width="100%">
             <defs>
@@ -69,28 +70,24 @@
                 <stop offset="100%" stop-color="#e3a542"/>
               </linearGradient>
             </defs>
-            <!-- grille de fond -->
             <g opacity="0.18">
               <path d="M0 40h400M0 90h400M0 140h400M0 190h400M0 240h400" stroke="#ffffff" stroke-width="1"/>
               <path d="M50 0v260M120 0v260M200 0v260M280 0v260M350 0v260" stroke="#ffffff" stroke-width="1"/>
             </g>
-            <!-- trajet -->
             <path d="M40 210 C 110 210, 90 120, 160 110 S 260 60, 350 55" fill="none" stroke="var(--border-strong)" stroke-width="3" stroke-linecap="round"/>
             <path class="route-glow-path" d="M40 210 C 110 210, 90 120, 160 110 S 260 60, 350 55" fill="none" stroke="url(#glow)" stroke-width="3" stroke-linecap="round"/>
-            <!-- point de départ -->
             <circle cx="40" cy="210" r="6" fill="#5b8def"/>
             <circle cx="40" cy="210" r="10" fill="none" stroke="#5b8def" stroke-width="1.5" opacity="0.5"/>
-            <!-- destination -->
             <circle class="route-pulse" cx="350" cy="55" r="6" fill="#e3a542"/>
             <circle cx="350" cy="55" r="5" fill="#e3a542"/>
           </svg>
         </div>
         <div class="eta-card">
           <div>
-            <div class="label">Arrivée estimée</div>
-            <b style="font-family:var(--f-mono); color:var(--text-0);">23:03 · 14 min</b>
+            <div class="label">Trajet local estimé</div>
+            <b style="font-family:var(--f-mono); color:var(--text-0);">23:03 · 6 km</b>
           </div>
-          <div class="price">18,40 €</div>
+          <div class="price">13,75 €</div>
         </div>
       </div>
     </div>
@@ -99,28 +96,29 @@
   <!-- POURQUOI ECOMOTION -->
   <section>
     <div class="container">
-      <div class="route-divider">TRAJETS DE NUIT</div>
+      <div class="route-divider">UN CHAUFFEUR, PAS UNE FLOTTE</div>
       <div class="section-head">
-        <h2>La nuit mérite la même confiance que le jour</h2>
-        <p>Rentrer tard d'une soirée, sortir d'un vol de nuit, terminer un service tardif : ces trajets demandent plus de vigilance. Chaque chauffeur Ecomotion est sélectionné avec exigence, chaque véhicule est entretenu et assuré, et chaque course est suivie de bout en bout.</p>
+        <h2>Un service local, humain, et silencieux</h2>
+        <p>Ecomotion, c'est un chauffeur indépendant — moi — au volant d'une Renault Zoé 100% électrique. Je me concentre sur les trajets courts et locaux, principalement en soirée et la nuit, avec l'attention qu'on ne trouve pas dans une grande flotte.</p>
       </div>
       <div class="grid-3">
         <div class="card">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4.5 8-11.8A8 8 0 0 0 4 10.2C4 17.5 12 22 12 22z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <h3>Chauffeurs vérifiés</h3>
-          <p>Identité contrôlée, expérience de conduite nocturne et évaluation continue par nos clients.</p>
+          <h3>Toujours le même chauffeur</h3>
+          <p>Pas de roulement d'équipe : c'est moi qui prends en charge chacune de vos courses, du premier au dernier trajet.</p>
         </div>
         <div class="card">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div>
-          <h3>Suivi en temps réel</h3>
-          <p>Localisez votre chauffeur en direct et partagez votre trajet avec un proche en un clic.</p>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6z"/></svg></div>
+          <h3>100% électrique</h3>
+          <p>Ma Renault Zoé ne consomme ni essence ni diesel : un trajet plus silencieux, plus propre, à l'image d'une conduite nocturne apaisée.</p>
         </div>
         <div class="card">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M7 10h4M7 14h6"/></svg></div>
-          <h3>Tarif fixe annoncé</h3>
-          <p>Le prix de votre course est confirmé avant le départ. Aucune majoration surprise la nuit.</p>
+          <h3>Devis annoncé avant le départ</h3>
+          <p>3,13 € de prise en charge + 1,77 €/km : un calcul simple et transparent, confirmé avant chaque course.</p>
         </div>
       </div>
+      <div class="zone-note">Service concentré sur les trajets courts et locaux (agglomération et zones urbaines proches), afin de préserver l'autonomie du véhicule électrique. Les longs trajets et transferts aéroport lointains ne sont pas proposés — <a href="services.html" style="color:var(--gold);">voir la zone de couverture</a>.</div>
     </div>
   </section>
 
@@ -128,24 +126,24 @@
   <section class="section-alt">
     <div class="container">
       <div class="section-head">
-        <h2>Réserver, c'est l'affaire de deux minutes</h2>
-        <p>Trois étapes, du premier clic jusqu'à votre arrivée en toute sécurité.</p>
+        <h2>Un vrai devis, pas juste une estimation</h2>
+        <p>La réglementation VTC impose un devis préalable avant toute course : voici comment ça se passe concrètement.</p>
       </div>
       <div class="journey">
         <div class="journey-step">
-          <div class="stop">A</div>
-          <h3>Je réserve</h3>
-          <p>Indiquez votre départ, votre arrivée et l'heure souhaitée depuis votre téléphone.</p>
+          <div class="stop">1</div>
+          <h3>J'obtiens une estimation</h3>
+          <p>Vous indiquez votre trajet et obtenez immédiatement un prix calculé selon mon barème.</p>
         </div>
         <div class="journey-step">
-          <div class="stop">B</div>
-          <h3>Je suis pris en charge</h3>
-          <p>Un chauffeur vous est assigné à l'avance, vous suivez son arrivée en direct sur la carte.</p>
+          <div class="stop">2</div>
+          <h3>J'envoie ma demande</h3>
+          <p>Si le prix vous convient, vous transmettez vos coordonnées pour formaliser votre demande de réservation.</p>
         </div>
         <div class="journey-step">
-          <div class="stop">C</div>
-          <h3>J'arrive en sécurité</h3>
-          <p>Trajet fluide, tarif confirmé dès le départ, notation en fin de course.</p>
+          <div class="stop">3</div>
+          <h3>Je confirme par paiement</h3>
+          <p>Après validation de ma part, vous recevez un lien de paiement sécurisé qui confirme définitivement votre course.</p>
         </div>
       </div>
     </div>
@@ -155,33 +153,27 @@
   <section>
     <div class="container">
       <div class="section-head">
-        <h2>Un trajet pour chaque situation</h2>
-        <p>De la sortie tardive au transfert professionnel, Ecomotion s'adapte à votre emploi du temps.</p>
+        <h2>Des trajets locaux, pensés pour la nuit</h2>
+        <p>Je me concentre sur ce que je fais bien : des trajets courts, fiables, dans ma zone de service.</p>
       </div>
-      <div class="grid-4">
+      <div class="grid-3">
         <div class="card">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3v18"/></svg></div>
           <h3>Trajets de nuit</h3>
-          <p>Sorties, gardes, retours tardifs.</p>
-          <a href="reserver.html" class="card-cta">Réserver →</a>
-        </div>
-        <div class="card">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22l10-18 10 18z"/></svg></div>
-          <h3>Aéroport & gare</h3>
-          <p>Transferts ponctuels, vols de nuit inclus.</p>
-          <a href="reserver.html" class="card-cta">Réserver →</a>
+          <p>Sorties, retours tardifs, urgences : disponible en soirée et la nuit selon planning.</p>
+          <a href="reserver.html" class="card-cta">Obtenir un devis →</a>
         </div>
         <div class="card">
           <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-          <h3>Soirées & événements</h3>
-          <p>Un retour serein, quelle que soit l'heure.</p>
-          <a href="reserver.html" class="card-cta">Réserver →</a>
+          <h3>Soirées & événements locaux</h3>
+          <p>Aller-retour de soirée dans l'agglomération, sans stress de stationnement.</p>
+          <a href="reserver.html" class="card-cta">Obtenir un devis →</a>
         </div>
         <div class="card">
-          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18"/></svg></div>
-          <h3>Entreprises</h3>
-          <p>Facturation groupée, trajets récurrents.</p>
-          <a href="services.html" class="card-cta">En savoir plus →</a>
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h7l-1 8 11-14h-7l1-6z"/></svg></div>
+          <h3>Trajets courts éco-responsables</h3>
+          <p>Pour tous vos déplacements du quotidien en zone urbaine, sans émissions.</p>
+          <a href="reserver.html" class="card-cta">Obtenir un devis →</a>
         </div>
       </div>
     </div>
@@ -191,22 +183,22 @@
   <section class="section-alt">
     <div class="container">
       <div class="section-head">
-        <h2>Ils nous ont fait confiance, de jour comme de nuit</h2>
+        <h2>Ce que mes clients en disent</h2>
       </div>
       <div class="grid-3">
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <p class="quote">Rentrée à 3h du matin sans aucun souci, chauffeur ponctuel et rassurant.</p>
+          <p class="quote">Rentrée à 3h du matin, trajet silencieux, chauffeur ponctuel et rassurant.</p>
           <div class="who">Camille · Trajet de nuit</div>
         </div>
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <p class="quote">Transfert aéroport à 5h impeccable, réservation faite la veille au soir en deux minutes.</p>
-          <div class="who">Yassine · Transfert aéroport</div>
+          <p class="quote">Sympa de voir un chauffeur qui roule en électrique, on sent l'attention portée au détail.</p>
+          <div class="who">Yassine · Trajet local</div>
         </div>
         <div class="testimonial">
           <div class="stars">★★★★★</div>
-          <p class="quote">Le suivi en temps réel m'a permis de prévenir ma famille de mon heure d'arrivée exacte.</p>
+          <p class="quote">Le devis annoncé avant le départ, c'est vraiment rassurant, aucune surprise à l'arrivée.</p>
           <div class="who">Léa · Sortie de soirée</div>
         </div>
       </div>
@@ -218,7 +210,7 @@
     <div class="container">
       <div class="section-head">
         <h2>Conseils et actualités</h2>
-        <p>Sécurité nocturne, bonnes pratiques et vie d'Ecomotion.</p>
+        <p>Mobilité électrique, sécurité nocturne et vie d'Ecomotion.</p>
       </div>
       <div class="grid-3">
         <a class="blog-card" href="blog-article.html">
@@ -233,9 +225,9 @@
         <a class="blog-card" href="blog.html">
           <div class="blog-thumb"></div>
           <div class="blog-body">
-            <span class="blog-cat">Conseils voyageurs</span>
-            <h3>Vol de nuit : bien anticiper votre transfert</h3>
-            <p>Comment sécuriser votre trajet aéroport en horaires décalés.</p>
+            <span class="blog-cat">Éco-mobilité</span>
+            <h3>Pourquoi j'ai choisi une Renault Zoé électrique</h3>
+            <p>Autonomie, silence, entretien : mon retour d'expérience de chauffeur VTC.</p>
             <div class="blog-meta"><span>3 min de lecture</span></div>
           </div>
         </a>
@@ -243,9 +235,9 @@
           <div class="blog-thumb"></div>
           <div class="blog-body">
             <span class="blog-cat">Vie d'Ecomotion</span>
-            <h3>Comment nous sélectionnons nos chauffeurs</h3>
-            <p>Notre process de vérification, étape par étape.</p>
-            <div class="blog-meta"><span>5 min de lecture</span></div>
+            <h3>Comment fonctionne mon devis préalable</h3>
+            <p>Le détail de mon barème et du processus de réservation.</p>
+            <div class="blog-meta"><span>3 min de lecture</span></div>
           </div>
         </a>
       </div>
@@ -256,9 +248,9 @@
   <section>
     <div class="container">
       <div class="cta-final">
-        <h2>Où que la nuit vous mène, Ecomotion vous ramène.</h2>
-        <p>Réservez votre course en moins de deux minutes.</p>
-        <a href="reserver.html" class="btn btn-primary btn-lg">Réserver ma course maintenant</a>
+        <h2>Un trajet local, ce soir ?</h2>
+        <p>Obtenez votre devis en moins de deux minutes.</p>
+        <a href="reserver.html" class="btn btn-primary btn-lg">Obtenir un devis</a>
       </div>
     </div>
   </section>
@@ -270,8 +262,8 @@
     <div class="footer-grid">
       <div class="footer-brand">
         <a href="index.html" class="logo"><span class="dot"></span>Ecomotion</a>
-        <p>Conduire, satisfaire, être recommandé. Votre chauffeur privé de confiance, jour et nuit.</p>
-        <div class="footer-night-badge"><span class="dot"></span>Service actif cette nuit</div>
+        <p>Conduire, satisfaire, être recommandé. Chauffeur indépendant, Renault Zoé 100% électrique, trajets locaux et nocturnes.</p>
+        <div class="footer-night-badge"><span class="dot"></span>Service selon planning</div>
       </div>
       <div>
         <h4>Navigation</h4>
@@ -282,8 +274,7 @@
       </div>
       <div>
         <h4>Réservation</h4>
-        <a href="reserver.html">Réserver une course</a>
-        <a href="contact.html">Demander un devis</a>
+        <a href="reserver.html">Obtenir un devis</a>
         <a href="contact.html">Contact</a>
       </div>
       <div>
